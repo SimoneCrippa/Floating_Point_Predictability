@@ -1,8 +1,8 @@
-#import <time.h>
-#import <stdio.h>
-#import <stdlib.h>
+#include <time.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-float fabs(float x)
+double fabs(double x)
 {
    if (x < 0)
       return -x;
@@ -10,11 +10,11 @@ float fabs(float x)
       return x;
 }
 
-float sqrtfcn(float val)
+double sqrtfcn(double val)
 {
-   float x = val/10;
+   double x = val/10;
 
-   float dx;
+   double dx;
 
    double diff;
    double min_tol = 0.00001;
@@ -44,11 +44,13 @@ float sqrtfcn(float val)
 void main(){
 	clock_t start, end;
 	float tot = 0;
-	for (int i=0; i< 1000; i++){
+  float val;
+	for (int i=0; i< 10000000 ; i++){
+      val = rand() % 1001; //random number from 0 to 1001
   		start = clock();
-  		sqrtfcn(rand() % 1001);		//random number from 0 to 1001
+  		sqrtfcn(val);
   		end = clock();
   		tot += end-start;
   	}
-  	printf("%f\n",tot/1000);
+  	printf("%f\n",tot/10000000 );
 }

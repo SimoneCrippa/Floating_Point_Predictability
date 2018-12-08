@@ -64,15 +64,15 @@ void main()
   int64_t x;
   int64_t min_tol = (int64_t)(0.00001 * pow(2,30));
   int64_t val2 = (int64_t) 2 << SHIFT_AMOUNT;
-  	for (int i=0; i< 1000; i++){
-  		start = clock();
+  	for (int i=0; i< 10000000 ; i++){
 			val = (int64_t) rand() % 1001 << SHIFT_AMOUNT; //random value between 0 and 1000
 			x = fixed_div_30(val,(int64_t)10 << SHIFT_AMOUNT);
+			start = clock();
   		sqrtfcn(val,x,min_tol,val2);
   		end = clock();
   		tot += end-start;
   	}
-  	printf("%f\n",tot/1000);
+  	printf("%f\n",tot/10000000 );
 
   	//double res = ((double)sqrtfcn(val,x,min_tol,val2))/pow(2,30);
   	//printf("%f\n",res);
