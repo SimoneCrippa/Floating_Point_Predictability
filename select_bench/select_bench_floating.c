@@ -74,7 +74,7 @@ int main()
 	srand(5);
 	for(int i = 0; i < 1000000 ; i++)
 	{
-		int value = rand() % 21;
+		unsigned long value = rand() % 21;
 		
 		start = clock();
 		select(value, 20);		//random value between 0 and 20

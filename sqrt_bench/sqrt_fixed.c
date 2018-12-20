@@ -1,6 +1,8 @@
+/*
 #include <stdio.h>
 #include <stdint.h>
 #include <math.h>
+*/
 
 #define SHIFT_AMOUNT 30
 
