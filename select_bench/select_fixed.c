@@ -1,3 +1,4 @@
+#include <stdint.h>
 int32_t  select(unsigned long k, unsigned long n);
 
 #define SHIFT_AMOUNT 14
@@ -8,7 +9,7 @@ volatile float           arr_float[20] = {
 	10, 150, 222.22, 101, 77, 44, 35, 20.54, 99.99, 888.88
 };
 
-int32_t        arr[20];
+int32_t	arr[20];
 
 void fillarray()
 {
@@ -18,9 +19,9 @@ void fillarray()
 
 int32_t select(unsigned long k, unsigned long n)
 {
-	unsigned long   i, ir, j, l, mid;
-	int32_t           a, temp;
-	int             flag, flag2;
+	unsigned long i, ir, j, l, mid;
+	int32_t a, temp;
+	int flag, flag2;
 
 	l = 0;
 	ir = n - 1;
@@ -76,6 +77,6 @@ int32_t select(unsigned long k, unsigned long n)
 int main()
 {
 	fillarray();
-  select(10, 20);
-  return 0;
+  	select(10, 20);
+  	return 0;
 }

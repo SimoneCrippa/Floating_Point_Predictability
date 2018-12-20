@@ -83,13 +83,17 @@ int main()
 	fillarray();
 	clock_t start,end;
 	float tot = 0;
-	for(int i = 0; i < 10000000 ; i++)
+	srand(5);
+	for(int i = 0; i < 1000000 ; i++)
 	{
+		int value = rand() % 21;
+		
 		start = clock();
-		select(rand() % 21, 20);		//random value between 0 and 20
+		select(value, 20);
 		end = clock();
+		
 		tot += end - start;
 	}
-	printf("Time elapsed: %f\n",tot/10000000);
+	printf("Time elapsed: %f\n",tot/1000000);
 	return 0;
 }

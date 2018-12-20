@@ -1,15 +1,15 @@
 #include <time.h>
 #include <stdio.h>
+#include <stdlib.h>
 
-double          a[50][50], b[50], x[50];
+double a[50][50], b[50], x[50];
 
-int             ludcmp( /* int nmax, */ int n, double eps);
+int ludcmp( /* int nmax, */ int n, double eps);
 
 
-static double
-fabs(double n)
+static double fabs(double n)
 {
-	double          f;
+	double f;
 
 	if (n >= 0)
 		f = n;
@@ -21,42 +21,44 @@ fabs(double n)
 int main(void)
 {
 
-	int             i, j/*, nmax = 50*/, n = 5, chkerr;
-	double          eps, w;
-  clock_t start,end;
-  float tot;
+	int i, j;
+	srand(5);
+  	int n = (rand()%50)+1;
+	double eps, w;
+  	clock_t start,end;
+  	float tot;
 
 	eps = 1.0e-6;
 
-	for (i = 0; i <= n; i++) {
-		w = 0.0;
-		for (j = 0; j <= n; j++) {
-			a[i][j] = (i + 1) + (j + 1);
-			if (i == j)
-				a[i][j] *= 10.0;
-			w += a[i][j];
+  	for (int k=0; k< 10000 ; k++){
+   		int n = ((rand()%50)+1); /*, nmax = 50*/
+   		for (i = 0; i <= n; i++) {
+			w = 0.0;
+			for (j = 0; j <= n; j++) {
+				a[i][j] = (i + 1) + (j + 1);
+				if (i == j)
+					a[i][j] *= 10.0;
+				w += a[i][j];
+			}
+			b[i] = w;
 		}
-		b[i] = w;
-	}
-  for (int i=0; i< 10000000 ; i++){
-    start = clock();
-    chkerr = ludcmp( /* nmax, */ n, eps);
-    end = clock();
-		printf("%d\n",chkerr);
-    tot += end - start;
+   		
+   		start = clock();
+    	ludcmp( /* nmax, */ n, eps);
+    	end = clock();
+		
+    	tot += end - start;
   }
-  printf("Time elapsed: %f\n",tot/10000000);
-
+  	printf("Time elapsed: %f\n",tot/10000);
 	return 0;
 
 }
 
-int
-ludcmp( /* int nmax, */ int n, double eps)
+int ludcmp( /* int nmax, */ int n, double eps)
 {
 
-	int             i, j, k;
-	double          w, y[100];
+	int i, j, k;
+	double w, y[100];
 
 	if (n > 99 || eps <= 0.0)
 		return (999);
