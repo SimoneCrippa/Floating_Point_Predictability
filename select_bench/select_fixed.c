@@ -1,10 +1,12 @@
 #include <stdint.h>
+#include <math.h>
+
 int32_t  select(unsigned long k, unsigned long n);
 
 #define SHIFT_AMOUNT 14
 #define SWAP(a,b) temp=(a);(a)=(b);(b)=temp;
 
-volatile float           arr_float[20] = {
+volatile float arr_float[20] = {
 	5, 4, 10.3, 1.1, 5.7, 100, 231, 111, 49.5, 99,
 	10, 150, 222.22, 101, 77, 44, 35, 20.54, 99.99, 888.88
 };
@@ -14,7 +16,7 @@ int32_t	arr[20];
 void fillarray()
 {
 	for (int i = 0; i < 20; i++)
-		arr[i] = (int32_t) arr_float[i] << SHIFT_AMOUNT;
+		arr[i] = arr_float[i] * pow(2,SHIFT_AMOUNT);
 }
 
 int32_t select(unsigned long k, unsigned long n)
@@ -76,7 +78,7 @@ int32_t select(unsigned long k, unsigned long n)
 
 int main()
 {
-	fillarray();
+		fillarray();
   	select(10, 20);
   	return 0;
 }
