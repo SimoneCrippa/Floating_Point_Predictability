@@ -2,41 +2,38 @@
 #include <stdint.h>
 #include <math.h>
 
-
-int64_t divisione(int64_t value_int, int64_t b_int)
-{	
+int64_t fixed_div_128(int64_t value, int64_t div)
+{
+	// sign handling and converting to unsigned int
 	int positive = 0;
-	if(value_int >= 0){
-		if(b_int >= 0){
+	if(value >= 0)
+	{
+		if(div >= 0)
 			positive = 1;
-			}
-		else{
-			positive = 0;
-			b_int = -b_int;
-			}
-		}
-	else{
-		value_int = -value_int;
-		if(b_int >= 0){
-			positive = 0;
-			}
-		else{
+		else
+			div = (uint64_t)-div;
+	}
+	else
+	{
+		value = (uint64_t)-value;
+		if(div < 0)
+		{
 			positive = 1;
-			b_int = -b_int;
-			}
+			div = (uint64_t)-div;
 		}
+	}
 
-	uint64_t value = value_int;
-	uint64_t b = b_int;
-		
+	/* unsigned 64-bit division algorithm
+	available at
+	https://codereview.stackexchange.com/questions/67962/mostly-portable-128-by-64-bit-division */
   // numerator
   uint64_t a_lo;
   uint64_t a_hi;
-  
+
   a_lo = (value & (uint64_t)0b1111111111111111111111111111111111) << 30;
-  
+
   a_hi = ((value & ((uint64_t)0b111111111111111111111111111111 << 34) ) >> 34 );
-  
+
   // quotient
   uint64_t q = a_lo << 1;
 
@@ -56,7 +53,7 @@ int64_t divisione(int64_t value_int, int64_t b_int)
 
     if(carry == 0)
     {
-      if(rem >= b)
+      if(rem >= div)
       {
         carry = 1;
       }
@@ -70,7 +67,7 @@ int64_t divisione(int64_t value_int, int64_t b_int)
       }
     }
 
-    rem -= b;
+    rem -= div;
     rem -= (1 - carry);
     carry = 1;
     temp_carry = q >> 63;
@@ -78,22 +75,9 @@ int64_t divisione(int64_t value_int, int64_t b_int)
     q |= carry;
     carry = temp_carry;
   }
-  
+
   if(positive)
-  	return q;
-  else{
-  	int64_t q_int64 = q;
-  	return -q_int64;
-  }
-}
-
-
-int main(){
-	int64_t value = (int64_t)(-200*pow(2,30));
-	int64_t b =  (int64_t)51 << 30;
-	double res = ((double)divisione(value, b))/pow(2,30);
-	printf("%f\n",res);
-	return 0;
-
-
+  	return (int64_t)q;
+  else
+		return (int64_t)-q;
 }
