@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define EXEC_NUM 100000
+
 double a[50][50], b[50], x[50];
 
 int ludcmp( /* int nmax, */ int n, double eps);
@@ -20,7 +22,7 @@ static double fabs(double n)
 
 int main(void)
 {
-
+	int clock_cycles[EXEC_NUM];
 	int i, j;
 	srand(5);
   	int n = (rand()%50)+1;
@@ -30,7 +32,7 @@ int main(void)
 
 	eps = 1.0e-6;
 
-  	for (int k=0; k< 10000 ; k++){
+  	for (int k=0; k< EXEC_NUM; k++){
    		int n = ((rand()%50)+1); /*, nmax = 50*/
    		for (i = 0; i <= n; i++) {
 			w = 0.0;
@@ -47,11 +49,29 @@ int main(void)
     	ludcmp( /* nmax, */ n, eps);
     	end = clock();
 		
-    	tot += end - start;
-  }
-  	printf("Time elapsed: %f\n",tot/10000);
-	return 0;
-
+  	clock_cycles[k]=end-start;
+	}
+	
+	int first = 0,second = 0,third = 0;
+	for (int i = 0; i < EXEC_NUM ; i ++)
+  	{
+		if (clock_cycles[i] > first)	
+		{
+			third = second;
+        	second = first;
+        	first = clock_cycles[i];
+      	}
+      	else if (clock_cycles[i] > second)
+      	{
+        	third = second;
+        	second = clock_cycles[i];
+      	}
+      	else if (clock_cycles[i] > third)
+        	third = clock_cycles[i];
+  	}
+	
+	printf("Three WCET are: %d %d %d\n", first, second, third);
+  	return 0;
 }
 
 int ludcmp( /* int nmax, */ int n, double eps)

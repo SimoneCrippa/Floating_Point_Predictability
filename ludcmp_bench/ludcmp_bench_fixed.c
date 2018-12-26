@@ -3,24 +3,14 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
+#include "fixed_op_64bit.h"
 
 #define SHIFT_AMOUNT 30
+#define EXEC_NUM 100000
 
 int64_t a[50][50], b[50], x[50];
 
 int ludcmp( /* int nmax, */ int n, int64_t eps);
-
-int64_t fixed_mul_30(int64_t x, int64_t y)
-{
-	x = x >> SHIFT_AMOUNT;
-	return (x * y);
-}
-
-int64_t fixed_div_30(int64_t x, int64_t y)
-{
-	return ((((__int128)x << SHIFT_AMOUNT) / y));
-}
-
 
 static int64_t fab(int64_t n)
 {
@@ -35,7 +25,7 @@ static int64_t fab(int64_t n)
 
 int main(void)
 {
-
+	int clock_cycles[EXEC_NUM];
 	int i, j;
 	srand(5);
 	int64_t eps;
@@ -44,7 +34,7 @@ int main(void)
   	float tot = 0.0;
 	eps = 1.0e-6 * pow(2,30);
 
-  	for (int k=0; k< 10000 ; k++){
+  	for (int k=0; k< EXEC_NUM ; k++){
    		int n = (rand()%50)+1; /*, nmax = 50*/
    		for (i = 0; i <= n; i++) {
 			w = 0;
@@ -61,11 +51,29 @@ int main(void)
     	ludcmp( /* nmax, */ n, eps);
     	end = clock();
 		
-    	tot += end - start;
-  }
-  	printf("Time elapsed: %f\n",tot/10000);
-	return 0;
-
+    	clock_cycles[k]=end-start;
+	}
+	
+	int first = 0,second = 0,third = 0;
+	for (int i = 0; i < EXEC_NUM ; i ++)
+  	{
+		if (clock_cycles[i] > first)	
+		{
+			third = second;
+        	second = first;
+        	first = clock_cycles[i];
+      	}
+      	else if (clock_cycles[i] > second)
+      	{
+        	third = second;
+        	second = clock_cycles[i];
+      	}
+      	else if (clock_cycles[i] > third)
+        	third = clock_cycles[i];
+  	}
+	
+	printf("Three WCET are: %d %d %d\n", first, second, third);
+  	return 0;
 }
 
 int ludcmp( /* int nmax, */ int n, int64_t eps)
@@ -83,13 +91,13 @@ int ludcmp( /* int nmax, */ int n, int64_t eps)
 			w = a[j][i];
 			if (i != 0)
 				for (k = 0; k < i; k++)
-          			w -= fixed_mul_30(a[j][k],a[k][i]);
-				a[j][i] = fixed_div_30(w,a[i][i]);
+          			w -= fixed_mul_64(a[j][k],a[k][i]);
+				a[j][i] = fixed_div_64(w,a[i][i]);
 		}
 		for (j = i + 1; j <= n; j++) {
 			w = a[i + 1][j];
 			for (k = 0; k <= i; k++)
-				w -= fixed_mul_30(a[i + 1][k],a[k][j]);
+				w -= fixed_mul_64(a[i + 1][k],a[k][j]);
 			a[i + 1][j] = w;
 		}
 	}
@@ -97,15 +105,15 @@ int ludcmp( /* int nmax, */ int n, int64_t eps)
 	for (i = 1; i <= n; i++) {
 		w = b[i];
 		for (j = 0; j < i; j++)
-			w -= fixed_mul_30(a[i][j],y[j]);
+			w -= fixed_mul_64(a[i][j],y[j]);
 		y[i] = w;
 	}
-	x[n] = fixed_div_30(y[n],a[n][n]);
+	x[n] = fixed_div_64(y[n],a[n][n]);
 	for (i = n - 1; i >= 0; i--) {
 		w = y[i];
 		for (j = i + 1; j <= n; j++)
-			w -= fixed_mul_30(a[i][j],x[j]);
-		x[i] = fixed_div_30(w,a[i][i]);
+			w -= fixed_mul_64(a[i][j],x[j]);
+		x[i] = fixed_div_64(w,a[i][i]);
 	}
 	return (0);
 
