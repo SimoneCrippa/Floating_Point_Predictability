@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <time.h>
 
+#define EXEC_NUM 100000
+
 int minver(int row, int col, double eps);
 int  mmul(int  row_a, int col_a, int row_b, int col_b);
 
@@ -24,9 +26,9 @@ double minver_fabs(double n)
 int main()
 {
 	clock_t start1, end1, start2, end2;
-	float tot = 0;
-	
-	for (int i=0; i< 1000000 ; i++){
+	int clock_cycles[EXEC_NUM];
+
+	for (int k=0; k< EXEC_NUM ; k++){
 		int i, j;
 		double eps;
 
@@ -39,19 +41,37 @@ int main()
 		start1 = clock();
 		minver(3, 3, eps);
 		end1 = clock();
-		
+
 		for(i = 0; i < 3; i++)
 	  	for(j = 0; j < 3; j++)
 	    	a_i[i][j] = a[i][j];
-	
+
 		start2 = clock();
 		mmul(3, 3, 3, 3);
 		end2 = clock();
-	
-		tot += (end1-start1) + (end2-start2);
+
+		clock_cycles[k] = (end1-start1) + (end2-start2);
 	}
-	
-	printf("%f\n",tot/1000000 );
+
+  int first = 0,second = 0,third = 0;
+  for (int i = 0; i < EXEC_NUM ; i ++)
+    {
+        if (clock_cycles[i] > first)
+        {
+          third = second;
+          second = first;
+          first = clock_cycles[i];
+        }
+        else if (clock_cycles[i] > second)
+        {
+          third = second;
+          second = clock_cycles[i];
+        }
+        else if (clock_cycles[i] > third)
+          third = clock_cycles[i];
+    }
+
+  printf("Three WCET are: %d %d %d\n", first, second, third);
 	return 0;
 }
 
@@ -168,10 +188,5 @@ int minver(int row, int col, double eps)
 	  }
 	det = w1;
 	return(0);
-	
+
 }
-
-
-
-
-

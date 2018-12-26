@@ -4,6 +4,7 @@ float select(unsigned long k, unsigned long n);
 #include <stdlib.h>
 
 #define SWAP(a,b) temp=(a);(a)=(b);(b)=temp;
+#define EXEC_NUM 100000
 
 volatile float           arr[20] = {
 	5, 4, 10.3, 1.1, 5.7, 100, 231, 111, 49.5, 99,
@@ -70,18 +71,36 @@ float select(unsigned long k, unsigned long n)
 int main()
 {
 	clock_t start,end;
-	float tot = 0;
+	int clock_cycles[EXEC_NUM];
 	srand(5);
-	for(int i = 0; i < 1000000 ; i++)
+	for(int i = 0; i < EXEC_NUM ; i++)
 	{
 		unsigned long value = rand() % 21;
-		
+
 		start = clock();
 		select(value, 20);		//random value between 0 and 20
 		end = clock();
-		
-		tot += end - start;
+
+		clock_cycles[i] = end - start;
 	}
-	printf("Time elapsed: %f\n",tot/1000000);
+	int first = 0,second = 0,third = 0;
+	for (int i = 0; i < EXEC_NUM ; i ++)
+	{
+			if (clock_cycles[i] > first)
+			{
+				third = second;
+				second = first;
+				first = clock_cycles[i];
+			}
+			else if (clock_cycles[i] > second)
+			{
+				third = second;
+				second = clock_cycles[i];
+			}
+			else if (clock_cycles[i] > third)
+				third = clock_cycles[i];
+	}
+
+	printf("Three WCET are: %d %d %d\n", first, second, third);
 	return 0;
 }

@@ -2,10 +2,12 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
+#include <math.h>
 
 int32_t  select(unsigned long k, unsigned long n);
 
 #define SHIFT_AMOUNT 14
+#define EXEC_NUM 100000
 #define SWAP(a,b) temp=(a);(a)=(b);(b)=temp;
 
 volatile float arr_float[20] = {
@@ -82,9 +84,9 @@ int main()
 {
 	fillarray();
 	clock_t start,end;
-	float tot = 0;
+	int clock_cycles[EXEC_NUM];
 	srand(5);
-	for(int i = 0; i < 1000000 ; i++)
+	for(int i = 0; i < EXEC_NUM ; i++)
 	{
 		unsigned long value = rand() % 21;
 
@@ -92,8 +94,27 @@ int main()
 		select(value, 20);
 		end = clock();
 
-		tot += end - start;
+		clock_cycles[i] = end - start;
 	}
-	printf("Time elapsed: %f\n",tot/1000000);
+	int first = 0,second = 0,third = 0;
+	for (int i = 0; i < EXEC_NUM ; i ++)
+	{
+			if (clock_cycles[i] > first)
+			{
+				third = second;
+				second = first;
+				first = clock_cycles[i];
+			}
+			else if (clock_cycles[i] > second)
+			{
+				third = second;
+				second = clock_cycles[i];
+			}
+			else if (clock_cycles[i] > third)
+				third = clock_cycles[i];
+	}
+
+	printf("Three WCET are: %d %d %d\n", first, second, third);
+
 	return 0;
 }

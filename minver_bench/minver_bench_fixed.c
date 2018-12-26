@@ -1,23 +1,13 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <time.h>
+#include "fixed_op_64bit.h"
 
 #define SHIFT_AMOUNT 30
+#define EXEC_NUM 100000
 
-int64_t fixed_mul_30(int64_t x, int64_t y)
-	{
-		x = x >> SHIFT_AMOUNT;
-		return (x * y);
-	}
-
-int64_t fixed_div_30(int64_t x, int64_t y)
-  {
-		return ((((__int128)x << SHIFT_AMOUNT) / y));
-  }
-  
-  
 int minver(int row, int col, int64_t eps);
-int  mmul(int  row_a, int col_a, int row_b, int col_b);
+int mmul(int  row_a, int col_a, int row_b, int col_b);
 
 static int64_t a[3][3] = {
   {3221225472, -6442450944, 7516192768},
@@ -39,14 +29,15 @@ int64_t minver_fabs(int64_t n)
 int main()
 {
 	clock_t start1, end1, start2, end2;
-	float tot = 0;
-	
-	for (int i=0; i< 1000000 ; i++){
+	int clock_cycles[EXEC_NUM];
+
+	for (int k=0; k< EXEC_NUM; k++){
+
 		int i, j;
 		int64_t eps;
 
 		eps = 1073; //1.0e-6*2^30
-	
+
 		for(i = 0; i < 3; i++)
 	  	for(j = 0; j < 3; j++)
 	    	aa[i][j] = a[i][j];
@@ -54,19 +45,38 @@ int main()
 		start1 = clock();
 		minver(3, 3, eps);
 		end1 = clock();
-		
+
 		for(i = 0; i < 3; i++)
 	  	for(j = 0; j < 3; j++)
 	    	a_i[i][j] = a[i][j];
-	
+
 		start2 = clock();
 		mmul(3, 3, 3, 3);
 		end2 = clock();
-		
-		tot += (end1-start1) + (end2-start2);
+
+
+		clock_cycles[k] = (end1-start1) + (end2-start2);
 	}
-	printf("%f\n",tot/1000000 );
-		
+
+	int first = 0,second = 0,third = 0;
+	for (int i = 0; i < EXEC_NUM ; i ++)
+		{
+				if (clock_cycles[i] > first)
+				{
+					third = second;
+					second = first;
+					first = clock_cycles[i];
+				}
+				else if (clock_cycles[i] > second)
+				{
+					third = second;
+					second = clock_cycles[i];
+				}
+				else if (clock_cycles[i] > third)
+					third = clock_cycles[i];
+		}
+
+	printf("Three WCET are: %d %d %d\n", first, second, third);
 	return 0;
 }
 
@@ -86,7 +96,7 @@ int  mmul(int row_a, int col_a, int row_b, int col_b)
 	     {
 	       w = 0.0;
 	       for(k = 0; k < row_b; k++)
-		 w += fixed_mul_30(a[i][k],b[k][j]);
+		       w += fixed_mul_64(a[i][k],b[k][j]);
 	       c[i][j] = w;
 	     }
 	 }
@@ -124,7 +134,7 @@ int minver(int row, int col, int64_t eps)
 		det = w1;
 		return(1);
 	      }
-	    w1 = fixed_mul_30(w1,pivot);
+	    w1 = fixed_mul_64(w1,pivot);
 	    u = k * col;
 	    v = r * col;
 	    if(r != k)
@@ -143,7 +153,7 @@ int minver(int row, int col, int64_t eps)
 		  }
 	      }
 	    for(i = 0; i < row; i++)
-	      a[k][i] = fixed_div_30(a[k][i],pivot);
+	      a[k][i] = fixed_div_64(a[k][i],pivot);
 	    for(i = 0; i < row; i++)
 	      {
 		if(i != k)
@@ -154,12 +164,12 @@ int minver(int row, int col, int64_t eps)
 		    if(w != 0)
 		      {
 			for(j = 0; j < row; j++)
-			  if(j != k) a[i][j] -= fixed_mul_30(w,a[k][j]);
-			a[i][k] = fixed_div_30(-w,pivot);
+			  if(j != k) a[i][j] -= fixed_mul_64(w,a[k][j]);
+			a[i][k] = fixed_div_64(-w,pivot);
 		      }
 		  }
 	      }
-	    a[k][k] = fixed_div_30(1073741824,pivot); //1.0*2^30
+	    a[k][k] = fixed_div_64(1073741824,pivot); //1.0*2^30
 	  }
 	for(i = 0; i < row; i++)
 	  {
@@ -183,10 +193,5 @@ int minver(int row, int col, int64_t eps)
 	  }
 	det = w1;
 	return(0);
-	
+
 }
-
-
-
-
-

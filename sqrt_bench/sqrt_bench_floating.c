@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define EXEC_NUM 100000
+
 double fabs(double x)
 {
    	if (x < 0)
@@ -43,17 +45,35 @@ double sqrtfcn(double val)
 
 void main(){
 	clock_t start, end;
-	float tot = 0;
-  	float val;
-  	srand(5);
-	for (int i=0; i< 1000000 ; i++){
-      	val = rand() % 1001; //random number from 0 to 1001
-  		
+  int clock_cycles [EXEC_NUM];
+  float val;
+  srand(5);
+	for (int i=0; i< EXEC_NUM ; i++){
+      val = rand() % 1001; //random number from 0 to 1001
+
   		start = clock();
   		sqrtfcn(val);
   		end = clock();
-  		
-  		tot += end-start;
+
+  		clock_cycles[i] = end-start;
   	}
-  	printf("%f\n",tot/1000000 );
+  int first = 0,second = 0,third = 0;
+  for (int i = 0; i < EXEC_NUM ; i ++)
+  	{
+  			if (clock_cycles[i] > first)
+  			{
+  				third = second;
+  				second = first;
+  				first = clock_cycles[i];
+  			}
+  			else if (clock_cycles[i] > second)
+  			{
+  				third = second;
+  				second = clock_cycles[i];
+  			}
+  			else if (clock_cycles[i] > third)
+  				third = clock_cycles[i];
+  	}
+
+  	printf("Three WCET are: %d %d %d\n", first, second, third);
 }
