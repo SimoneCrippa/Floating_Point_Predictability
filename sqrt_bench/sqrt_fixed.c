@@ -3,19 +3,9 @@
 #include <math.h>
 */
 #include <stdint.h>
+#include "fixed_op_64bit.h"
 
 #define SHIFT_AMOUNT 30
-
-int64_t fixed_mul_30(int64_t x, int64_t y)
-	{
-		x = x >> SHIFT_AMOUNT;
-		return (x * y);
-	}
-
-int64_t fixed_div_30(int64_t x, int64_t y)
-  {
-		return ((((__int128)x << SHIFT_AMOUNT) / y));
-  }
   
 int64_t fabss(int64_t x)
 {
@@ -25,8 +15,10 @@ int64_t fabss(int64_t x)
       	return x;
 }
 
-int64_t sqrtfcn(int64_t val, int64_t x) {
+int64_t sqrtfcn(int64_t val) {
 
+	int64_t x = fixed_div_64(val,10737418240); //10*2^30
+	
    	int64_t dx;
 	int64_t diff;
    	int64_t min_tol = 10737; //0.00001 * 2^30
@@ -40,9 +32,9 @@ int64_t sqrtfcn(int64_t val, int64_t x) {
       	for (i=1;i<20;i++)
       	{
          	if (!flag) {
-            dx = fixed_div_30((val - (fixed_mul_30(x,x))),(fixed_mul_30(2147483648,x)));
+            dx = fixed_div_64((val - (fixed_mul_64(x,x))),(fixed_mul_64(2147483648,x)));
             x = x + dx;
-            diff = val - (fixed_mul_30(x,x));
+            diff = val - (fixed_mul_64(x,x));
             if (fabss(diff) <= min_tol)
                	flag = 1;
         }
@@ -57,8 +49,7 @@ int64_t sqrtfcn(int64_t val, int64_t x) {
 void main()
 {
   	int64_t val = (int64_t) 10 << SHIFT_AMOUNT;
-  	int64_t x = fixed_div_30(val,(int64_t) 10 << SHIFT_AMOUNT);
-  	double res = ((double)sqrtfcn(val,x))/pow(2,30);
+  	double res = ((double)sqrtfcn(val)/pow(2,30);
   	printf("%f\n",res);
   
 }

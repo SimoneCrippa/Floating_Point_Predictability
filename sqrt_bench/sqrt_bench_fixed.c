@@ -16,10 +16,11 @@ int64_t fabss(int64_t x)
 		return x;
 }
 
-int64_t sqrtfcn(int64_t val, int64_t x) {
+int64_t sqrtfcn(int64_t val) {
 
+	int64_t x = fixed_div_64(val,10737418240); //10*2^30
    	int64_t dx;
-		int64_t diff;
+	int64_t diff;
    	int64_t min_tol = 10737; //0.00001 * 2^30
 
    	int i, flag;
@@ -44,7 +45,7 @@ int64_t sqrtfcn(int64_t val, int64_t x) {
    	return (x);
 }
 
-void main()
+int main()
 {
 	clock_t start, end;
 	int clock_cycles [EXEC_NUM];
@@ -53,10 +54,9 @@ void main()
   srand(5);
   for (int i=0; i< EXEC_NUM ; i++){
 		val = (int64_t) rand() % 1001 << SHIFT_AMOUNT; //random value between 0 and 1000
-		x = fixed_div_64(val,(int64_t)10 << SHIFT_AMOUNT);
 
 		start = clock();
-		sqrtfcn(val,x);
+		sqrtfcn(val);
 		end = clock();
 
 		clock_cycles[i] = end - start;
@@ -80,5 +80,6 @@ void main()
 	}
 
 	printf("Three WCET are: %d %d %d\n", first, second, third);
+	return 0;
 
 }

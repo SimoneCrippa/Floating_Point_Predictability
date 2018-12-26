@@ -1,23 +1,12 @@
 #include <stdint.h>
 #include <math.h>
+#include "fixed_op_64bit.h"
 
 #define SHIFT_AMOUNT 30
 
 int64_t a[50][50], b[50], x[50];
 
 int ludcmp( /* int nmax, */ int n, int64_t eps);
-
-int64_t fixed_mul_30(int64_t x, int64_t y)
-{
-	x = x >> SHIFT_AMOUNT;
-	return (x * y);
-}
-
-int64_t fixed_div_30(int64_t x, int64_t y)
-{
-	return ((((__int128)x << SHIFT_AMOUNT) / y));
-}
-
 
 static int64_t fab(int64_t n)
 {
@@ -69,13 +58,13 @@ int ludcmp( /* int nmax, */ int n, int64_t eps)
 			w = a[j][i];
 			if (i != 0)
 				for (k = 0; k < i; k++)
-          			w -= fixed_mul_30(a[j][k],a[k][i]);
-				a[j][i] = fixed_div_30(w,a[i][i]);
+          			w -= fixed_mul_64(a[j][k],a[k][i]);
+				a[j][i] = fixed_div_64(w,a[i][i]);
 		}
 		for (j = i + 1; j <= n; j++) {
 			w = a[i + 1][j];
 			for (k = 0; k <= i; k++)
-				w -= fixed_mul_30(a[i + 1][k],a[k][j]);
+				w -= fixed_mul_64(a[i + 1][k],a[k][j]);
 			a[i + 1][j] = w;
 		}
 	}
@@ -83,15 +72,15 @@ int ludcmp( /* int nmax, */ int n, int64_t eps)
 	for (i = 1; i <= n; i++) {
 		w = b[i];
 		for (j = 0; j < i; j++)
-			w -= fixed_mul_30(a[i][j],y[j]);
+			w -= fixed_mul_64(a[i][j],y[j]);
 		y[i] = w;
 	}
-	x[n] = fixed_div_30(y[n],a[n][n]);
+	x[n] = fixed_div_64(y[n],a[n][n]);
 	for (i = n - 1; i >= 0; i--) {
 		w = y[i];
 		for (j = i + 1; j <= n; j++)
-			w -= fixed_mul_30(a[i][j],x[j]);
-		x[i] = fixed_div_30(w,a[i][i]);
+			w -= fixed_mul_64(a[i][j],x[j]);
+		x[i] = fixed_div_64(w,a[i][i]);
 	}
 	return (0);
 

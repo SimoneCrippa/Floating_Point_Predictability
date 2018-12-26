@@ -1,18 +1,7 @@
 #include <stdint.h>
 
 #define SHIFT_AMOUNT 30
-
-int64_t fixed_mul_30(int64_t x, int64_t y)
-	{
-		x = x >> SHIFT_AMOUNT;
-		return (x * y);
-	}
-
-int64_t fixed_div_30(int64_t x, int64_t y)
-  {
-		return ((((__int128)x << SHIFT_AMOUNT) / y));
-  }
-  
+#include "fixed_op_64bit.h"  
   
 int minver(int row, int col, int64_t eps);
 int  mmul(int  row_a, int col_a, int row_b, int col_b);
@@ -70,7 +59,7 @@ int  mmul(int row_a, int col_a, int row_b, int col_b)
 	     {
 	       w = 0.0;
 	       for(k = 0; k < row_b; k++)
-		 w += fixed_mul_30(a[i][k],b[k][j]);
+		 w += fixed_mul_64(a[i][k],b[k][j]);
 	       c[i][j] = w;
 	     }
 	 }
@@ -108,7 +97,7 @@ int minver(int row, int col, int64_t eps)
 		det = w1;
 		return(1);
 	      }
-	    w1 = fixed_mul_30(w1,pivot);
+	    w1 = fixed_mul_64(w1,pivot);
 	    u = k * col;
 	    v = r * col;
 	    if(r != k)
@@ -127,7 +116,7 @@ int minver(int row, int col, int64_t eps)
 		  }
 	      }
 	    for(i = 0; i < row; i++)
-	      a[k][i] = fixed_div_30(a[k][i],pivot);
+	      a[k][i] = fixed_div_64(a[k][i],pivot);
 	    for(i = 0; i < row; i++)
 	      {
 		if(i != k)
@@ -138,12 +127,12 @@ int minver(int row, int col, int64_t eps)
 		    if(w != 0)
 		      {
 			for(j = 0; j < row; j++)
-			  if(j != k) a[i][j] -= fixed_mul_30(w,a[k][j]);
-			a[i][k] = fixed_div_30(-w,pivot);
+			  if(j != k) a[i][j] -= fixed_mul_64(w,a[k][j]);
+			a[i][k] = fixed_div_64(-w,pivot);
 		      }
 		  }
 	      }
-	    a[k][k] = fixed_div_30(1073741824,pivot); //1.0*2^30
+	    a[k][k] = fixed_div_64(1073741824,pivot); //1.0*2^30
 	  }
 	for(i = 0; i < row; i++)
 	  {
