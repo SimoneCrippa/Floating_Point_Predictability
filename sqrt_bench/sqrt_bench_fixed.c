@@ -48,38 +48,22 @@ int64_t sqrtfcn(int64_t val) {
 int main()
 {
 	clock_t start, end;
-	int clock_cycles [EXEC_NUM];
-  int64_t val;
-  int64_t x;
-  srand(5);
-  for (int i=0; i< EXEC_NUM ; i++){
+	FILE * fp;
+  	fp = fopen ("sqrt_fixed_results.txt","w");
+  	int64_t val;
+  	int64_t x;
+  	srand(5);
+  	for (int i=0; i< EXEC_NUM ; i++){
 		val = (int64_t) rand() % 1001 << SHIFT_AMOUNT; //random value between 0 and 1000
 
 		start = clock();
 		sqrtfcn(val);
 		end = clock();
 
-		clock_cycles[i] = end - start;
-  }
-	int first = 0,second = 0,third = 0;
-	for (int i = 0; i < EXEC_NUM ; i ++)
-	{
-			if (clock_cycles[i] > first)
-			{
-				third = second;
-				second = first;
-				first = clock_cycles[i];
-			}
-			else if (clock_cycles[i] > second)
-			{
-				third = second;
-				second = clock_cycles[i];
-			}
-			else if (clock_cycles[i] > third)
-				third = clock_cycles[i];
+		fprintf (fp, "%lu\n", end - start);
 	}
-
-	printf("Three WCET are: %d %d %d\n", first, second, third);
+    
+	fclose (fp);
 	return 0;
 
 }

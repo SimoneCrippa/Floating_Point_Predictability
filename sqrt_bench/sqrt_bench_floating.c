@@ -43,37 +43,23 @@ double sqrtfcn(double val)
    	return (x);
 }
 
-void main(){
+int main(){
 	clock_t start, end;
-  int clock_cycles [EXEC_NUM];
-  float val;
-  srand(5);
+	FILE * fp;
+  	fp = fopen ("sqrt_float_results.txt","w");
+	int clock_cycles [EXEC_NUM];
+	float val;
+	srand(5);
 	for (int i=0; i< EXEC_NUM ; i++){
-      val = rand() % 1001; //random number from 0 to 1001
+      	val = rand() % 1001; //random number from 0 to 1001
 
-  		start = clock();
-  		sqrtfcn(val);
-  		end = clock();
+		start = clock();
+		sqrtfcn(val);
+		end = clock();
 
-  		clock_cycles[i] = end-start;
+		fprintf (fp, "%lu\n", end - start);
   	}
-  int first = 0,second = 0,third = 0;
-  for (int i = 0; i < EXEC_NUM ; i ++)
-  	{
-  			if (clock_cycles[i] > first)
-  			{
-  				third = second;
-  				second = first;
-  				first = clock_cycles[i];
-  			}
-  			else if (clock_cycles[i] > second)
-  			{
-  				third = second;
-  				second = clock_cycles[i];
-  			}
-  			else if (clock_cycles[i] > third)
-  				third = clock_cycles[i];
-  	}
-
-  	printf("Three WCET are: %d %d %d\n", first, second, third);
+  	
+	fclose (fp);
+	return 0;
 }
