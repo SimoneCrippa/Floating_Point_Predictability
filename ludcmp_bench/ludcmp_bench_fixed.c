@@ -23,18 +23,31 @@ static int64_t fab(int64_t n)
 	return f;
 }
 
-int main(void)
+struct timespec diff(struct timespec start, struct timespec end)
 {
-	int clock_cycles[EXEC_NUM];
+    struct timespec temp;
+    if ((end.tv_nsec-start.tv_nsec)<0) {
+        temp.tv_sec = end.tv_sec-start.tv_sec-1;
+        temp.tv_nsec = 1000000000+end.tv_nsec-start.tv_nsec;
+    } else {
+        temp.tv_sec = end.tv_sec-start.tv_sec;
+        temp.tv_nsec = end.tv_nsec-start.tv_nsec;
+    }
+    return temp;
+}
+
+int main()
+{
+	struct timespec start,end;
+	FILE * fp;
+	fp = fopen ("ludcmp_fixed_results.txt","w");
 	int i, j;
 	srand(5);
 	int64_t eps;
-  	int64_t w;
-  	clock_t start,end;
-  	float tot = 0.0;
+  int64_t w;
 	eps = 1.0e-6 * pow(2,30);
 
-  	for (int k=0; k< EXEC_NUM ; k++){
+	for (int k=0; k< EXEC_NUM ; k++){
    		int n = (rand()%50)+1; /*, nmax = 50*/
    		for (i = 0; i <= n; i++) {
 			w = 0;
@@ -45,35 +58,14 @@ int main(void)
 				w += a[i][j];
 			}
 			b[i] = w;
-		}
-   		
-   		start = clock();
-    	ludcmp( /* nmax, */ n, eps);
-    	end = clock();
-		
-    	clock_cycles[k]=end-start;
+			}
+
+			clock_gettime(CLOCK_MONOTONIC_RAW, &start);
+			ludcmp( /* nmax, */ n, eps);
+			clock_gettime(CLOCK_MONOTONIC_RAW, &end);
+
+			fprintf (fp, "%lld\n",(long long)(diff(start,end).tv_sec * pow(10,9))+(long long)diff(start,end).tv_nsec);
 	}
-	
-	int first = 0,second = 0,third = 0;
-	for (int i = 0; i < EXEC_NUM ; i ++)
-  	{
-		if (clock_cycles[i] > first)	
-		{
-			third = second;
-        	second = first;
-        	first = clock_cycles[i];
-      	}
-      	else if (clock_cycles[i] > second)
-      	{
-        	third = second;
-        	second = clock_cycles[i];
-      	}
-      	else if (clock_cycles[i] > third)
-        	third = clock_cycles[i];
-  	}
-	
-	printf("Three WCET are: %d %d %d\n", first, second, third);
-  	return 0;
 }
 
 int ludcmp( /* int nmax, */ int n, int64_t eps)
@@ -82,7 +74,7 @@ int ludcmp( /* int nmax, */ int n, int64_t eps)
 	int i, j, k;
 	int64_t w, y[100];
 
-	if (n > 99 || eps <= 0)	
+	if (n > 99 || eps <= 0)
 		return (999);
 	for (i = 0; i < n; i++) {
 		if (fab(a[i][i]) <= eps)

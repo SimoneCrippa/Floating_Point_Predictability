@@ -2,6 +2,7 @@ float select(unsigned long k, unsigned long n);
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
+#include <math.h>
 
 #define SWAP(a,b) temp=(a);(a)=(b);(b)=temp;
 #define EXEC_NUM 100000
@@ -68,39 +69,36 @@ float select(unsigned long k, unsigned long n)
 	return arr[k];
 }
 
+struct timespec diff(struct timespec start, struct timespec end)
+{
+    struct timespec temp;
+    if ((end.tv_nsec-start.tv_nsec)<0) {
+        temp.tv_sec = end.tv_sec-start.tv_sec-1;
+        temp.tv_nsec = 1000000000+end.tv_nsec-start.tv_nsec;
+    } else {
+        temp.tv_sec = end.tv_sec-start.tv_sec;
+        temp.tv_nsec = end.tv_nsec-start.tv_nsec;
+    }
+    return temp;
+}
+
 int main()
 {
-	clock_t start,end;
-	int clock_cycles[EXEC_NUM];
-	srand(5);
-	for(int i = 0; i < EXEC_NUM ; i++)
-	{
-		unsigned long value = rand() % 21;
+	struct timespec start,end;
+	FILE * fp;
+  fp = fopen ("select_floating_results.txt","w");
+  unsigned long val;
+  srand(5);
+  for (int i=0; i< EXEC_NUM ; i++){
+				val = rand() % 21;	//random value between 0 and 20
 
-		start = clock();
-		select(value, 20);		//random value between 0 and 20
-		end = clock();
+				clock_gettime(CLOCK_MONOTONIC_RAW, &start);
+				select(val,20);
+				clock_gettime(CLOCK_MONOTONIC_RAW, &end);
 
-		clock_cycles[i] = end - start;
-	}
-	int first = 0,second = 0,third = 0;
-	for (int i = 0; i < EXEC_NUM ; i ++)
-	{
-			if (clock_cycles[i] > first)
-			{
-				third = second;
-				second = first;
-				first = clock_cycles[i];
-			}
-			else if (clock_cycles[i] > second)
-			{
-				third = second;
-				second = clock_cycles[i];
-			}
-			else if (clock_cycles[i] > third)
-				third = clock_cycles[i];
+				fprintf (fp, "%lld\n",(long long)(diff(start,end).tv_sec * pow(10,9))+(long long)diff(start,end).tv_nsec);
 	}
 
-	printf("Three WCET are: %d %d %d\n", first, second, third);
+	fclose (fp);
 	return 0;
 }

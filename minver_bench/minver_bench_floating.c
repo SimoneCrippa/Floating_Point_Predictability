@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <time.h>
+#include <math.h>
 
 #define EXEC_NUM 100000
 
@@ -23,10 +24,24 @@ double minver_fabs(double n)
   return f;
 }
 
+struct timespec diff(struct timespec start, struct timespec end)
+{
+    struct timespec temp;
+    if ((end.tv_nsec-start.tv_nsec)<0) {
+        temp.tv_sec = end.tv_sec-start.tv_sec-1;
+        temp.tv_nsec = 1000000000+end.tv_nsec-start.tv_nsec;
+    } else {
+        temp.tv_sec = end.tv_sec-start.tv_sec;
+        temp.tv_nsec = end.tv_nsec-start.tv_nsec;
+    }
+    return temp;
+}
+
 int main()
 {
-	clock_t start1, end1, start2, end2;
-	int clock_cycles[EXEC_NUM];
+  struct timespec start0,end0,start1,end1;
+  FILE * fp;
+  fp = fopen ("minver_floating_results.txt","w");
 
 	for (int k=0; k< EXEC_NUM ; k++){
 		int i, j;
@@ -38,41 +53,24 @@ int main()
 	  	for(j = 0; j < 3; j++)
 	    	aa[i][j] = a[i][j];
 
-		start1 = clock();
+		clock_gettime(CLOCK_MONOTONIC_RAW, &start0);
 		minver(3, 3, eps);
-		end1 = clock();
+		clock_gettime(CLOCK_MONOTONIC_RAW, &end0);
 
 		for(i = 0; i < 3; i++)
 	  	for(j = 0; j < 3; j++)
 	    	a_i[i][j] = a[i][j];
 
-		start2 = clock();
+		clock_gettime(CLOCK_MONOTONIC_RAW, &start1);
 		mmul(3, 3, 3, 3);
-		end2 = clock();
+		clock_gettime(CLOCK_MONOTONIC_RAW, &end1);
 
-		clock_cycles[k] = (end1-start1) + (end2-start2);
+    fprintf (fp, "%lld\n",(long long)(diff(start0,end0).tv_sec * pow(10,9))+(long long)diff(start0,end0).tv_nsec
+    + (long long)(diff(start1,end1).tv_sec * pow(10,9))+(long long)diff(start1,end1).tv_nsec);
 	}
 
-  int first = 0,second = 0,third = 0;
-  for (int i = 0; i < EXEC_NUM ; i ++)
-    {
-        if (clock_cycles[i] > first)
-        {
-          third = second;
-          second = first;
-          first = clock_cycles[i];
-        }
-        else if (clock_cycles[i] > second)
-        {
-          third = second;
-          second = clock_cycles[i];
-        }
-        else if (clock_cycles[i] > third)
-          third = clock_cycles[i];
-    }
-
-  printf("Three WCET are: %d %d %d\n", first, second, third);
-	return 0;
+  fclose (fp);
+  return 0;
 }
 
 

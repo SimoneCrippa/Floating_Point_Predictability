@@ -1,6 +1,7 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 #define EXEC_NUM 100000
 
@@ -9,7 +10,7 @@ double a[50][50], b[50], x[50];
 int ludcmp( /* int nmax, */ int n, double eps);
 
 
-static double fabs(double n)
+static double fabss(double n)
 {
 	double f;
 
@@ -20,20 +21,31 @@ static double fabs(double n)
 	return f;
 }
 
+struct timespec diff(struct timespec start, struct timespec end)
+{
+    struct timespec temp;
+    if ((end.tv_nsec-start.tv_nsec)<0) {
+        temp.tv_sec = end.tv_sec-start.tv_sec-1;
+        temp.tv_nsec = 1000000000+end.tv_nsec-start.tv_nsec;
+    } else {
+        temp.tv_sec = end.tv_sec-start.tv_sec;
+        temp.tv_nsec = end.tv_nsec-start.tv_nsec;
+    }
+    return temp;
+}
+
 int main(void)
 {
-	int clock_cycles[EXEC_NUM];
+	struct timespec start,end;
+	FILE * fp;
+	fp = fopen ("ludcmp_floating_results.txt","w");
 	int i, j;
 	srand(5);
-  	int n = (rand()%50)+1;
 	double eps, w;
-  	clock_t start,end;
-  	float tot;
-
 	eps = 1.0e-6;
 
-  	for (int k=0; k< EXEC_NUM; k++){
-   		int n = ((rand()%50)+1); /*, nmax = 50*/
+	for (int k=0; k< EXEC_NUM ; k++){
+   		int n = (rand()%50)+1; /*, nmax = 50*/
    		for (i = 0; i <= n; i++) {
 			w = 0.0;
 			for (j = 0; j <= n; j++) {
@@ -43,35 +55,14 @@ int main(void)
 				w += a[i][j];
 			}
 			b[i] = w;
-		}
-   		
-   		start = clock();
-    	ludcmp( /* nmax, */ n, eps);
-    	end = clock();
-		
-  	clock_cycles[k]=end-start;
+			}
+
+			clock_gettime(CLOCK_MONOTONIC_RAW, &start);
+			ludcmp( /* nmax, */ n, eps);
+			clock_gettime(CLOCK_MONOTONIC_RAW, &end);
+
+			fprintf (fp, "%lld\n",(long long)(diff(start,end).tv_sec * pow(10,9))+(long long)diff(start,end).tv_nsec);
 	}
-	
-	int first = 0,second = 0,third = 0;
-	for (int i = 0; i < EXEC_NUM ; i ++)
-  	{
-		if (clock_cycles[i] > first)	
-		{
-			third = second;
-        	second = first;
-        	first = clock_cycles[i];
-      	}
-      	else if (clock_cycles[i] > second)
-      	{
-        	third = second;
-        	second = clock_cycles[i];
-      	}
-      	else if (clock_cycles[i] > third)
-        	third = clock_cycles[i];
-  	}
-	
-	printf("Three WCET are: %d %d %d\n", first, second, third);
-  	return 0;
 }
 
 int ludcmp( /* int nmax, */ int n, double eps)
@@ -83,7 +74,7 @@ int ludcmp( /* int nmax, */ int n, double eps)
 	if (n > 99 || eps <= 0.0)
 		return (999);
 	for (i = 0; i < n; i++) {
-		if (fabs(a[i][i]) <= eps)
+		if (fabss(a[i][i]) <= eps)
 			return (1);
 		for (j = i + 1; j <= n; j++) {
 			w = a[j][i];
