@@ -73,12 +73,12 @@ int32_t select(unsigned long k, unsigned long n)
 				l = i;
 		}
 	}
-	return (arr[k] >> SHIFT_AMOUNT);
+	return arr[k];
 }
 
 int main()
 {
-		fillarray();
+	fillarray();
   	select(10, 20);
   	return 0;
 }

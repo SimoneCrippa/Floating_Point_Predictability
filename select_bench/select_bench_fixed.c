@@ -98,17 +98,17 @@ int main()
 	fillarray();
 	struct timespec start,end;
 	FILE * fp;
-  fp = fopen ("select_fixed_results.txt","w");
-  unsigned long val;
-  srand(5);
-  for (int i=0; i< EXEC_NUM ; i++){
-				val = rand() % 21;	//random value between 0 and 20
+  	fp = fopen ("select_fixed_results.txt","w");
+  	unsigned long val;
+  	srand(5);
+  	for (int i=0; i< EXEC_NUM ; i++){
+		val = rand() % 21;	//random value between 0 and 20
 
-				clock_gettime(CLOCK_MONOTONIC_RAW, &start);
-				select(val,20);
-				clock_gettime(CLOCK_MONOTONIC_RAW, &end);
+		clock_gettime(CLOCK_MONOTONIC_RAW, &start);
+		select(val,20);
+		clock_gettime(CLOCK_MONOTONIC_RAW, &end);
 
-				fprintf (fp, "%lld\n",(long long)(diff(start,end).tv_sec * pow(10,9))+(long long)diff(start,end).tv_nsec);
+		fprintf (fp, "%lld\n",(long long)(diff(start,end).tv_sec * pow(10,9))+(long long)diff(start,end).tv_nsec);
 	}
 
 	fclose (fp);

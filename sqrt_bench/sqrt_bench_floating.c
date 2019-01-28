@@ -59,7 +59,7 @@ int main()
 {
 	struct timespec start,end;
 	FILE * fp;
-  fp = fopen ("sqrt_float_results.txt","w");
+	fp = fopen ("sqrt_float_results.txt","w");
 	float val;
 	srand(5);
 	for (int i=0; i< EXEC_NUM ; i++){

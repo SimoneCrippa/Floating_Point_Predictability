@@ -20,6 +20,7 @@ int64_t sqrtfcn(int64_t val) {
 	int64_t x = fixed_div_64(val,10737418240); //10*2^30
 	
    	int64_t dx;
+   	
 	int64_t diff;
    	int64_t min_tol = 10737; //0.00001 * 2^30
 

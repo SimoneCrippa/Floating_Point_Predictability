@@ -16,8 +16,8 @@ int64_t arr[20];
 
 void fillarray()
 {
-  for(int i = 0; i < 20; i++)
-      arr[i] = arr_float[i] * pow(2,SHIFT_AMOUNT);
+	for(int i = 0; i < 20; i++)
+		arr[i] = arr_float[i] * pow(2,SHIFT_AMOUNT);
 }
 
 int istack[100];
@@ -83,7 +83,7 @@ void sort(unsigned long n)
 
 int main(void)
 {
-  fillarray();
-  sort(19);
-  return 0;
+	fillarray();
+	sort(19);
+	return 0;
 }

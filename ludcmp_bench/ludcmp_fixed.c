@@ -31,9 +31,9 @@ int main(void)
 	for (i = 0; i <= n; i++) {
 		w = 0;
 		for (j = 0; j <= n; j++) {
-			a[i][j] = (i + 1) + (j + 1);
+			a[i][j] = ((i << SHIFT_AMOUNT) + 1) + ((j << SHIFT_AMOUNT) + 1);
 			if (i == j)
-				a[i][j] *= 10737418240;		//10 shifted by SHIFT_AMOUNT
+				a[i][j] = fixed_mul_64(a[i][j],10737418240);		//10 shifted by SHIFT_AMOUNT
 			w += a[i][j];
 		}
 		b[i] = w;

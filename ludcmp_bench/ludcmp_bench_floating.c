@@ -57,11 +57,11 @@ int main(void)
 			b[i] = w;
 			}
 
-			clock_gettime(CLOCK_MONOTONIC_RAW, &start);
-			ludcmp( /* nmax, */ n, eps);
-			clock_gettime(CLOCK_MONOTONIC_RAW, &end);
+		clock_gettime(CLOCK_MONOTONIC_RAW, &start);
+		ludcmp( /* nmax, */ n, eps);
+		clock_gettime(CLOCK_MONOTONIC_RAW, &end);
 
-			fprintf (fp, "%lld\n",(long long)(diff(start,end).tv_sec * pow(10,9))+(long long)diff(start,end).tv_nsec);
+		fprintf (fp, "%lld\n",(long long)(diff(start,end).tv_sec * pow(10,9))+(long long)diff(start,end).tv_nsec);
 	}
 }
 
