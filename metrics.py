@@ -33,7 +33,7 @@ while(end <= len(array)):
 print "BDS: " + str(max_bds)
 
 
-H, c, data = compute_Hc(array, kind='price', simplified=True) #https://pypi.org/project/hurst/
+H, c, data = compute_Hc(array, kind='change', simplified=True) #https://pypi.org/project/hurst/
 print "Hurst Exponent: " + str(H)
 
 
