@@ -1,18 +1,22 @@
-float select(unsigned long k, unsigned long n);
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
 #include <math.h>
 
+float selectt(unsigned long k, unsigned long n);
+
 #define SWAP(a,b) temp=(a);(a)=(b);(b)=temp;
 #define EXEC_NUM 100000
 
-volatile float           arr[20] = {
-	5, 4, 10.3, 1.1, 5.7, 100, 231, 111, 49.5, 99,
-	10, 150, 222.22, 101, 77, 44, 35, 20.54, 99.99, 888.88
-};
+float arr[20];
 
-float select(unsigned long k, unsigned long n)
+void fillarray()
+{
+	for (int i = 0; i < 20; i++)
+		arr[i] = (rand() % 100000) / 100;
+}
+//selectt instead of select since there is a conflict with a primitive in Linux
+float selectt(unsigned long k, unsigned long n)
 {
 	unsigned long   i, ir, j, l, mid;
 	float           a, temp;
@@ -90,10 +94,11 @@ int main()
 	unsigned long val;
 	srand(5);
 	for (int i=0; i< EXEC_NUM ; i++){
+		fillarray();
 		val = rand() % 21;	//random value between 0 and 20
 
 		clock_gettime(CLOCK_MONOTONIC_RAW, &start);
-		select(val,20);
+		selectt(val,20);
 		clock_gettime(CLOCK_MONOTONIC_RAW, &end);
 		
 		fprintf (fp, "%lld\n",(long long)(diff(start,end).tv_sec * pow(10,9))+(long long)diff(start,end).tv_nsec);
