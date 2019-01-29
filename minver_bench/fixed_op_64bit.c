@@ -1,9 +1,14 @@
-#include <stdio.h>
 #include <stdint.h>
-#include <math.h>
 
 #define SHIFT_AMOUNT 30
 
+int64_t fixed_mul_64(int64_t x, int64_t y)
+{
+	x = x >> SHIFT_AMOUNT;
+	return (x * y);
+}
+
+#ifdef __arm__
 int64_t fixed_div_64(int64_t value, int64_t div)
 {
 	// sign handling and converting to unsigned int
@@ -32,7 +37,7 @@ int64_t fixed_div_64(int64_t value, int64_t div)
 	uint64_t a_lo;
 	uint64_t a_hi;
 
-	a_lo = (value & (uint64_t)0b1111111111111111111111111111111111) << 30;
+	a_lo = (value & (uint64_t)0b1111111111111111111111111111111111) << SHIFT_AMOUNT;
 
 	a_hi = ((value & ((uint64_t)0b111111111111111111111111111111 << 34) ) >> 34 );
 
@@ -83,9 +88,11 @@ int64_t fixed_div_64(int64_t value, int64_t div)
 	else
 		return (int64_t)-q;
 }
+#endif
 
-int64_t fixed_mul_64(int64_t x, int64_t y)
+#ifdef __x86_64__
+int64_t fixed_div_64(int64_t x, int64_t y)
 {
-	x = x >> SHIFT_AMOUNT;
-	return (x * y);
+    return ((((__int128)x << SHIFT_AMOUNT) / y));
 }
+#endif
