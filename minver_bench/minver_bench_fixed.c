@@ -91,7 +91,7 @@ int  mmul(int row_a, int col_a, int row_b, int col_b)
 		{
 			w = 0;
 	       	for(k = 0; k < row_b; k++)
-		       	w += fixed_mul_64(a[i][k],b[k][j]);
+		       	w += fixed_mul_64(a[i][k],b[k][j],SHIFT_AMOUNT);
 	       	c[i][j] = w;
 		}
 	}
@@ -129,7 +129,7 @@ int minver(int row, int col, int64_t eps)
 			det = w1;
 			return(1);
 		}
-	    w1 = fixed_mul_64(w1,pivot);
+	    w1 = fixed_mul_64(w1,pivot,SHIFT_AMOUNT);
 	    u = k * col;
 	    v = r * col;
 	    if(r != k)
@@ -148,7 +148,7 @@ int minver(int row, int col, int64_t eps)
 		  	}
 		}
 	    for(i = 0; i < row; i++)
-	      	a[k][i] = fixed_div_64(a[k][i],pivot);
+	      	a[k][i] = fixed_div_64(a[k][i],pivot,SHIFT_AMOUNT);
 	    for(i = 0; i < row; i++)
 		{
 			if(i != k)
@@ -159,12 +159,12 @@ int minver(int row, int col, int64_t eps)
 		    	if(w != 0)
 		      	{
 					for(j = 0; j < row; j++)
-			  		if(j != k) a[i][j] -= fixed_mul_64(w,a[k][j]);
-					a[i][k] = fixed_div_64(-w,pivot);
+			  		if(j != k) a[i][j] -= fixed_mul_64(w,a[k][j],SHIFT_AMOUNT);
+					a[i][k] = fixed_div_64(-w,pivot,SHIFT_AMOUNT);
 		      	}
 		  	}
 		}
-		a[k][k] = fixed_div_64(1073741824,pivot); //1.0*2^30
+		a[k][k] = fixed_div_64(1073741824,pivot,SHIFT_AMOUNT); //1.0*2^30
 	}
 	for(i = 0; i < row; i++)
 	{

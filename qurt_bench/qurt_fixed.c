@@ -21,7 +21,7 @@ int64_t qurt_fabs(int64_t n)
 int64_t qurt_sqrt(val)
 int64_t val;
 {
-	int64_t x = fixed_div_64(val,10737418240); //10 * 2^30
+	int64_t x = fixed_div_64(val,10737418240,SHIFT_AMOUNT); //10 * 2^30
 
   	int64_t dx;
 
@@ -36,9 +36,9 @@ int64_t val;
 		for (i=1;i<20;i++)
 		{
 			if (!flag) {
-				dx = fixed_div_64((val - fixed_mul_64(x,x)),(fixed_mul_64(2147483648,x)));
+				dx = fixed_div_64((val - fixed_mul_64(x,x,SHIFT_AMOUNT)),(fixed_mul_64(2147483648,x,SHIFT_AMOUNT)),SHIFT_AMOUNT);
 				x = x + dx;
-				diff = val - fixed_mul_64(x,x);
+				diff = val - fixed_mul_64(x,x,SHIFT_AMOUNT);
 				if (qurt_fabs(diff) <= min_tol) flag = 1;
 			}
 			else {} /* JG */
@@ -78,22 +78,22 @@ int  qurt()
 	int64_t  d, w1, w2;
 
 	if(a[0] == 0) return(999);
-	d = fixed_mul_64(a[1],a[1]) - (fixed_mul_64(fixed_mul_64(4294967296,a[0]),a[2]));
-	w1 = fixed_mul_64(2147483648,a[0]);
+	d = fixed_mul_64(a[1],a[1],SHIFT_AMOUNT) - (fixed_mul_64(fixed_mul_64(4294967296,a[0],SHIFT_AMOUNT),a[2],SHIFT_AMOUNT));
+	w1 = fixed_mul_64(2147483648,a[0],SHIFT_AMOUNT);
 	w2 = qurt_sqrt(qurt_fabs(d));
 	if(d > 0)
 	{
 		flag = 1;
-		x1[0] = fixed_div_64((-a[1] + w2),w1);
+		x1[0] = fixed_div_64((-a[1] + w2),w1,SHIFT_AMOUNT);
 		x1[1] = 0;
-		x2[0] = fixed_div_64((-a[1] - w2),w1);
+		x2[0] = fixed_div_64((-a[1] - w2),w1,SHIFT_AMOUNT);
 		x2[1] = 0;
 		return(0);
 	}
 	else if(d == 0)
 	{
 		flag = 0;
-		x1[0] = fixed_div_64(-a[1],w1);
+		x1[0] = fixed_div_64(-a[1],w1,SHIFT_AMOUNT);
 		x1[1] = 0;
 		x2[0] = x1[0];
 		x2[1] = 0;
@@ -102,8 +102,8 @@ int  qurt()
 	else
 	{
 		flag = -1;
-		w2 = fixed_div_64(w2,w1);
-		x1[0] = fixed_div_64(-a[1],w1);
+		w2 = fixed_div_64(w2,w1,SHIFT_AMOUNT);
+		x1[0] = fixed_div_64(-a[1],w1,SHIFT_AMOUNT);
 		x1[1] = w2;
 		x2[0] = x1[0];
 		x2[1] = -w2;

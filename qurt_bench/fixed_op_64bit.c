@@ -1,15 +1,22 @@
 #include <stdint.h>
 
-#define SHIFT_AMOUNT 30
 
-int64_t fixed_mul_64(int64_t x, int64_t y)
+int64_t fixed_mul_64(int64_t x, int64_t y, int shift_amount)
 {
-	x = x >> SHIFT_AMOUNT;
+	x = x >> shift_amount;
 	return (x * y);
 }
 
-#ifdef __arm__
-int64_t fixed_div_64(int64_t value, int64_t div)
+
+#ifdef __SIZEOF_INT128__
+int64_t fixed_div_64(int64_t x, int64_t y, int shift_amount)
+{
+    return ((((__int128)x << shift_amount) / y));
+}
+
+
+#else
+int64_t fixed_div_64(int64_t value, int64_t div, int shift_amount)
 {
 	// sign handling and converting to unsigned int
 	int positive = 0;
@@ -37,9 +44,9 @@ int64_t fixed_div_64(int64_t value, int64_t div)
 	uint64_t a_lo;
 	uint64_t a_hi;
 
-	a_lo = (value & (uint64_t)0b1111111111111111111111111111111111) << SHIFT_AMOUNT;
+	a_lo = (value & (uint64_t)0b1111111111111111111111111111111111) << shift_amount;
 
-	a_hi = ((value & ((uint64_t)0b111111111111111111111111111111 << 34) ) >> 34 );
+	a_hi = (value & ((uint64_t)0b111111111111111111111111111111 << (64 - shift_amount))) >> (64 - shift_amount);
 
 	// quotient
 	uint64_t q = a_lo << 1;
@@ -87,12 +94,5 @@ int64_t fixed_div_64(int64_t value, int64_t div)
 		return (int64_t)q;
 	else
 		return (int64_t)-q;
-}
-#endif
-
-#ifdef __x86_64__
-int64_t fixed_div_64(int64_t x, int64_t y)
-{
-    return ((((__int128)x << SHIFT_AMOUNT) / y));
 }
 #endif

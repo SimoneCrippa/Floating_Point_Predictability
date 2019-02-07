@@ -33,7 +33,7 @@ int main(void)
 		for (j = 0; j <= n; j++) {
 			a[i][j] = ((i << SHIFT_AMOUNT) + 1) + ((j << SHIFT_AMOUNT) + 1);
 			if (i == j)
-				a[i][j] = fixed_mul_64(a[i][j],10737418240);		//10 shifted by SHIFT_AMOUNT
+				a[i][j] = fixed_mul_64(a[i][j],10737418240,SHIFT_AMOUNT);		//10 shifted by SHIFT_AMOUNT
 			w += a[i][j];
 		}
 		b[i] = w;
@@ -58,13 +58,13 @@ int ludcmp( /* int nmax, */ int n, int64_t eps)
 			w = a[j][i];
 			if (i != 0)
 				for (k = 0; k < i; k++)
-          			w -= fixed_mul_64(a[j][k],a[k][i]);
-				a[j][i] = fixed_div_64(w,a[i][i]);
+          			w -= fixed_mul_64(a[j][k],a[k][i],SHIFT_AMOUNT);
+				a[j][i] = fixed_div_64(w,a[i][i],SHIFT_AMOUNT);
 		}
 		for (j = i + 1; j <= n; j++) {
 			w = a[i + 1][j];
 			for (k = 0; k <= i; k++)
-				w -= fixed_mul_64(a[i + 1][k],a[k][j]);
+				w -= fixed_mul_64(a[i + 1][k],a[k][j],SHIFT_AMOUNT);
 			a[i + 1][j] = w;
 		}
 	}
@@ -72,15 +72,15 @@ int ludcmp( /* int nmax, */ int n, int64_t eps)
 	for (i = 1; i <= n; i++) {
 		w = b[i];
 		for (j = 0; j < i; j++)
-			w -= fixed_mul_64(a[i][j],y[j]);
+			w -= fixed_mul_64(a[i][j],y[j],SHIFT_AMOUNT);
 		y[i] = w;
 	}
-	x[n] = fixed_div_64(y[n],a[n][n]);
+	x[n] = fixed_div_64(y[n],a[n][n],SHIFT_AMOUNT);
 	for (i = n - 1; i >= 0; i--) {
 		w = y[i];
 		for (j = i + 1; j <= n; j++)
-			w -= fixed_mul_64(a[i][j],x[j]);
-		x[i] = fixed_div_64(w,a[i][i]);
+			w -= fixed_mul_64(a[i][j],x[j],SHIFT_AMOUNT);
+		x[i] = fixed_div_64(w,a[i][i],SHIFT_AMOUNT);
 	}
 	return (0);
 
