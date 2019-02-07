@@ -45,14 +45,14 @@ int main()
 	srand(5);
 	int64_t eps;
   	int64_t w;
-	eps = 1.0e-6 * pow(2,30);
+	eps = 1074; //1.0 * 10^-6 * 2^30
 
 	for (int k=0; k< EXEC_NUM ; k++){
    		int n = (rand()%50)+1; /*, nmax = 50*/
    		for (i = 0; i <= n; i++) {
 			w = 0;
 			for (j = 0; j <= n; j++) {
-				a[i][j] = ((i << SHIFT_AMOUNT) + 1) + ((j << SHIFT_AMOUNT) + 1);
+				a[i][j] = ((int64_t)(i + j + 2)) << SHIFT_AMOUNT;
 				if (i == j)
 					a[i][j] = fixed_mul_64(a[i][j],10737418240,SHIFT_AMOUNT);		//10 shifted by SHIFT_AMOUNT
 				w += a[i][j];
@@ -77,6 +77,7 @@ int ludcmp( /* int nmax, */ int n, int64_t eps)
 	if (n > 99 || eps <= 0)
 		return (999);
 	for (i = 0; i < n; i++) {
+		//		printf("A[i][i]: %lld eps:%lld\n",a[i][i],eps);
 		if (fab(a[i][i]) <= eps)
 			return (1);
 		for (j = i + 1; j <= n; j++) {

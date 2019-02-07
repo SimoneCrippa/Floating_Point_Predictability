@@ -74,9 +74,9 @@ int main()
 	srand(5);
 	for (int i=0; i< EXEC_NUM ; i++)
   	{
-    	a[0]= (rand() % 100 - 50) << SHIFT_AMOUNT;
-    	a[1]= (rand() % 100 - 50) << SHIFT_AMOUNT;
-    	a[2]= (rand() % 100 - 50) << SHIFT_AMOUNT;
+    	a[0]= ((int64_t)(rand() % 100 - 50)) << SHIFT_AMOUNT;
+    	a[1]= ((int64_t)(rand() % 100 - 50)) << SHIFT_AMOUNT;
+    	a[2]= ((int64_t)(rand() % 100 - 50)) << SHIFT_AMOUNT;
 
     	clock_gettime(CLOCK_MONOTONIC_RAW, &start);
     	qurt();
