@@ -28,7 +28,7 @@ int main()
 	int i, j;
 	int64_t eps;
 
-	eps = 1073; //1.0e-6*2^30
+	eps = 1074; //1.0e-6*2^30
 	
 	for(i = 0; i < 3; i++)
 		for(j = 0; j < 3; j++)

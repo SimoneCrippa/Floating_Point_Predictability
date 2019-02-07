@@ -63,7 +63,7 @@ int main()
 	float val;
 	srand(5);
 	for (int i=0; i< EXEC_NUM ; i++){
-      	val = rand() % 1001; //random number from 0 to 1001
+      	val = (((rand() % 10000) / 100) - 50); //random number from 0 to 1001
 
         clock_gettime(CLOCK_MONOTONIC_RAW, &start);
         sqrtfcn(val);

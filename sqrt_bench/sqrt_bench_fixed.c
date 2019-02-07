@@ -64,7 +64,7 @@ int main()
 	int64_t val;
 	srand(5);
 	for (int i=0; i< EXEC_NUM ; i++){
-		val = (int64_t) rand() % 1001 << SHIFT_AMOUNT; //random value between 0 and 1000
+		val = ((int64_t)(((rand() % 10000) / 100) - 50)) << SHIFT_AMOUNT; 
 
 		clock_gettime(CLOCK_MONOTONIC_RAW, &start);
 		sqrtfcn(val);

@@ -71,9 +71,9 @@ int main()
 	srand(5);
 	for (int i=0; i< EXEC_NUM ; i++)
   	{
-    	a[0]= (rand() % 100 - 50);
-    	a[1]= (rand() % 100 - 50);
-    	a[2]= (rand() % 100 - 50);
+    	a[0]= (((rand() % 10000) / 100) - 50);
+    	a[1]= (((rand() % 10000) / 100) - 50);
+    	a[2]= (((rand() % 10000) / 100) - 50);
 
     	clock_gettime(CLOCK_MONOTONIC_RAW, &start);
     	qurt();

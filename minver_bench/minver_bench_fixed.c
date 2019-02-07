@@ -53,16 +53,16 @@ int main()
 		eps = 1073; //1.0e-6*2^30
 
 		for(i = 0; i < 3; i++)
-	  	for(j = 0; j < 3; j++)
-	    	aa[i][j] = a[i][j];
+	  		for(j = 0; j < 3; j++)
+	    		aa[i][j] = a[i][j];
 
 		clock_gettime(CLOCK_MONOTONIC_RAW, &start0);
 		minver(3, 3, eps);
 		clock_gettime(CLOCK_MONOTONIC_RAW, &end0);
 
 		for(i = 0; i < 3; i++)
-	  	for(j = 0; j < 3; j++)
-	    	a_i[i][j] = a[i][j];
+	  		for(j = 0; j < 3; j++)
+	    		a_i[i][j] = a[i][j];
 
 		clock_gettime(CLOCK_MONOTONIC_RAW, &start1);
 		mmul(3, 3, 3, 3);
