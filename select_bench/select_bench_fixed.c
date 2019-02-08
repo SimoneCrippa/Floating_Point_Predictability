@@ -15,7 +15,7 @@ int32_t arr[20];
 void fillarray()
 {
 	for (int i = 0; i < 20; i++)
-		arr[i] = ((rand() % 100000) / 100) * pow(2,SHIFT_AMOUNT);
+		arr[i] = (int32_t)(((rand() % 100000) / 100) * pow(2,SHIFT_AMOUNT));
 }
 //selectt instead of select since there is a conflict with a primitive in Linux
 int32_t selectt(unsigned long k, unsigned long n)
