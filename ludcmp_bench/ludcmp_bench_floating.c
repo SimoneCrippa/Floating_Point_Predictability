@@ -63,6 +63,8 @@ int main(void)
 
 		fprintf (fp, "%lld\n",(long long)(diff(start,end).tv_sec * pow(10,9))+(long long)diff(start,end).tv_nsec);
 	}
+	fclose (fp);
+	return 0;
 }
 
 int ludcmp( /* int nmax, */ int n, double eps)
