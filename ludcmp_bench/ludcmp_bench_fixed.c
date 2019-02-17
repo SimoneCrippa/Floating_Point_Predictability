@@ -79,7 +79,6 @@ int ludcmp( /* int nmax, */ int n, int64_t eps)
 	if (n > 99 || eps <= 0)
 		return (999);
 	for (i = 0; i < n; i++) {
-		//		printf("A[i][i]: %lld eps:%lld\n",a[i][i],eps);
 		if (fab(a[i][i]) <= eps)
 			return (1);
 		for (j = i + 1; j <= n; j++) {

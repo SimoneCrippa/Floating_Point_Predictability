@@ -129,14 +129,14 @@ void mul64wide (int64_t a, int64_t b, int64_t *hi, int64_t *lo)
     if (b < 0LL) *hi -= a;
 }
 
-/* compute mul_wide (a, b) >> s, for s in [0,63] */
-int64_t fixed_mul_64 (int64_t a, int64_t b, int s)
+/* compute mul_wide (a, b) >> shift_amount, for shift_amount in [0,63] */
+int64_t fixed_mul_64 (int64_t a, int64_t b, int shift_amount)
 {
     int64_t res;
     int64_t hi, lo;
     mul64wide (a, b, &hi, &lo);
-    if (s) {
-        res = ((uint64_t)hi << (64 - s)) | ((uint64_t)lo >> s);
+    if (shift_amount) {
+        res = ((uint64_t)hi << (64 - shift_amount)) | ((uint64_t)lo >> shift_amount);
     } else {
         res = lo;
     }

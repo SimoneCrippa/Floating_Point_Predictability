@@ -8,14 +8,14 @@
 int main(){
 	int64_t scaling_factor = pow(2,SHIFT_AMOUNT);
 
-	int64_t fixed_point_value1 = (int64_t) 230 << SHIFT_AMOUNT;
-	int64_t fixed_point_value2 = (int64_t) 80 << SHIFT_AMOUNT;
+	int64_t fixed_point_value1 = (int64_t)(230.52 * scaling_factor);
+	int64_t fixed_point_value2 = (int64_t)(80.12 * scaling_factor);
 
 	float floating_point_value1 = ((float)fixed_mul_64(fixed_point_value1, fixed_point_value2, SHIFT_AMOUNT))/scaling_factor;
 	float floating_point_value2 = ((float)fixed_div_64(fixed_point_value1, fixed_point_value2, SHIFT_AMOUNT))/scaling_factor;
 	float floating_point_value3 = ((float)(fixed_point_value1 + fixed_point_value2))/scaling_factor;
 	float floating_point_value4 = ((float)(fixed_point_value1 - fixed_point_value2))/scaling_factor;
 
-	printf("moltiplicazione: %f\ndivisione: %f\nsomma: %f\ndifferenza: %f\n",floating_point_value1,floating_point_value2,floating_point_value3,floating_point_value4);
+	printf("multiplication: %f\ndivision: %f\nsum: %f\nsubtraction: %f\n",floating_point_value1,floating_point_value2,floating_point_value3,floating_point_value4);
 	return 0;
 }
