@@ -1,0 +1,1584 @@
+
+
+Analyzing freescale_IMX6_armv7l/ludcmp_fixed_results.txt
+minimum: 14000
+maximum: 24063333
+average: 5592682.43012
+variance: 31902366152281.23
+standard deviation: 5648246.20383
+KPSS: 0.10741694457831015
+BDS: 5.061008853067873
+Hurst Exponent: 0.998468333700211
+
+
+Analyzing freescale_IMX6_armv7l/ludcmp_floating_results.txt
+minimum: 1333
+maximum: 13509666
+average: 566803.45497
+variance: 369947217055.6511
+standard deviation: 608235.905356
+KPSS: 0.09764232677702774
+BDS: 5.267192526324535
+Hurst Exponent: 0.9981287529095058
+
+
+Analyzing freescale_IMX6_armv7l/minver_fixed_results.txt
+minimum: 92334
+maximum: 2576001
+average: 95805.16658
+variance: 247366353.18123114
+standard deviation: 15727.9632143
+KPSS: 0.6103658307810825
+BDS: 84486.71518952314
+Hurst Exponent: 0.6561276877552026
+
+
+Analyzing freescale_IMX6_armv7l/minver_floating_results.txt
+minimum: 6000
+maximum: 257000
+average: 6647.06714
+variance: 1711507.7192322202
+standard deviation: 1308.25258818
+KPSS: 48.33290856061585
+BDS: 137.72338003749184
+Hurst Exponent: 0.5997292582462197
+
+
+Analyzing freescale_IMX6_armv7l/qsort_exam_fixed_results.txt
+minimum: 2666
+maximum: 207000
+average: 3494.79026
+variance: 1081290.267649132
+standard deviation: 1039.85627885
+KPSS: 33.764099081771846
+BDS: 18.92251177798775
+Hurst Exponent: 0.773106271283518
+
+
+Analyzing freescale_IMX6_armv7l/qsort_exam_floating_results.txt
+minimum: 3333
+maximum: 208667
+average: 4150.9291
+variance: 770413.8072731899
+standard deviation: 877.73658434
+KPSS: 0.03565015277199307
+BDS: 14.321566750702893
+Hurst Exponent: 0.8350177440487581
+
+
+Analyzing freescale_IMX6_armv7l/qurt_fixed_results.txt
+minimum: 666
+maximum: 309334
+average: 45286.05733
+variance: 55440794.35372328
+standard deviation: 7445.89475934
+KPSS: 6.226914615401984
+BDS: 8.13787257741124
+Hurst Exponent: 0.9679670209789111
+
+
+Analyzing freescale_IMX6_armv7l/qurt_floating_results.txt
+minimum: 666
+maximum: 71667
+average: 2096.37218
+variance: 268385.6958420476
+standard deviation: 518.062138865
+KPSS: 62.76118471683894
+BDS: 27.50678800113417
+Hurst Exponent: 0.8710587026808647
+
+
+Analyzing freescale_IMX6_armv7l/select_fixed_results.txt
+minimum: 1333
+maximum: 52000
+average: 2394.04279
+variance: 284142.585759016
+standard deviation: 533.052930968
+KPSS: 0.0957303047947266
+BDS: 14.466963368175518
+Hurst Exponent: 0.9606771308205966
+
+
+Analyzing freescale_IMX6_armv7l/select_floating_results.txt
+minimum: 1333
+maximum: 52000
+average: 2895.71344
+variance: 494746.4039433664
+standard deviation: 703.385634952
+KPSS: 0.17742999792373684
+BDS: 14.82629499951014
+Hurst Exponent: 0.9600268542211962
+
+
+Analyzing freescale_IMX6_armv7l/sqrt_fixed_results.txt
+minimum: 4666
+maximum: 384333
+average: 66835.61665
+variance: 1528968582.4435725
+standard deviation: 39102.2233675
+KPSS: 0.6545619035108563
+BDS: 10555.542482975983
+Hurst Exponent: 0.9954500350152534
+
+
+Analyzing freescale_IMX6_armv7l/sqrt_float_results.txt
+minimum: 666
+maximum: 60666
+average: 2164.35331
+variance: 586625.165862044
+standard deviation: 765.918423967
+KPSS: 0.20127290366173908
+BDS: 835498.7421964855
+Hurst Exponent: 0.9769873249968377
+
+
+Analyzing freescale_IMX6_armv7l_stress/ludcmp_fixed_results.txt
+minimum: 14000
+maximum: 60254667
+average: 5729535.75147
+variance: 34824216809537.617
+standard deviation: 5901234.19762
+KPSS: 0.09165637339211614
+BDS: 4.932064212204414
+Hurst Exponent: 0.9973253076909028
+
+
+Analyzing freescale_IMX6_armv7l_stress/ludcmp_floating_results.txt
+minimum: 1333
+maximum: 30369334
+average: 580075.54508
+variance: 491747296365.36554
+standard deviation: 701250.464447
+KPSS: 0.15944183647549406
+BDS: 14.321566750702893
+Hurst Exponent: 0.9825456569752009
+
+
+Analyzing freescale_IMX6_armv7l_stress/minver_fixed_results.txt
+minimum: 93000
+maximum: 20198333
+average: 96811.8896
+variance: 17985595581.782078
+standard deviation: 134111.056366
+KPSS: 0.16432141236305334
+BDS: 34.363191446483135
+Hurst Exponent: 0.3713128312182163
+
+
+Analyzing freescale_IMX6_armv7l_stress/minver_floating_results.txt
+minimum: 6000
+maximum: 10165334
+average: 6619.97445
+variance: 1043528207.110797
+standard deviation: 32303.8487258
+KPSS: 0.08514272506391644
+BDS: 44.807347702912544
+Hurst Exponent: 0.2726491115556759
+
+
+Analyzing freescale_IMX6_armv7l_stress/qsort_exam_fixed_results.txt
+minimum: 2666
+maximum: 198333
+average: 3422.17025
+variance: 2279051.2131249374
+standard deviation: 1509.66022795
+KPSS: 0.09800507451893639
+BDS: 14.321566750702893
+Hurst Exponent: 0.6854178102109193
+
+
+Analyzing freescale_IMX6_armv7l_stress/qsort_exam_floating_results.txt
+minimum: 3333
+maximum: 193333
+average: 4165.59909
+variance: 1829973.7575211718
+standard deviation: 1352.77199019
+KPSS: 0.07290230483409925
+BDS: 14.321566750702893
+Hurst Exponent: 0.7570307924762242
+
+
+Analyzing freescale_IMX6_armv7l_stress/qurt_fixed_results.txt
+minimum: 666
+maximum: 10224000
+average: 46500.39026
+variance: 10865919868.03476
+standard deviation: 104240.244284
+KPSS: 0.0813119684694997
+BDS: 15.497274656897126
+Hurst Exponent: 0.6871336558333766
+
+
+Analyzing freescale_IMX6_armv7l_stress/qurt_floating_results.txt
+minimum: 666
+maximum: 10119334
+average: 2232.39198
+variance: 2047877604.617452
+standard deviation: 45253.7079541
+KPSS: 0.1595459853358671
+BDS: 14.321566750702893
+Hurst Exponent: 0.4838917962811797
+
+
+Analyzing freescale_IMX6_armv7l_stress/select_fixed_results.txt
+minimum: 1333
+maximum: 597667
+average: 2439.89173
+variance: 11623573.723767605
+standard deviation: 3409.35330535
+KPSS: 0.10990153095335019
+BDS: 14.5385599603744
+Hurst Exponent: 0.7407838726297338
+
+
+Analyzing freescale_IMX6_armv7l_stress/select_floating_results.txt
+minimum: 1333
+maximum: 150333
+average: 2919.89904
+variance: 1887420.1486870782
+standard deviation: 1373.84097445
+KPSS: 0.1226127686830706
+BDS: 15.167389836885386
+Hurst Exponent: 0.8746762261136367
+
+
+Analyzing freescale_IMX6_armv7l_stress/sqrt_fixed_results.txt
+minimum: 4666
+maximum: 20264000
+average: 68835.69032
+variance: 26440260230.994057
+standard deviation: 162605.42622
+KPSS: 0.07091835123404422
+BDS: 210130.4782425661
+Hurst Exponent: 0.8288135942721022
+
+
+Analyzing freescale_IMX6_armv7l_stress/sqrt_float_results.txt
+minimum: 666
+maximum: 263333
+average: 2197.36746
+variance: 3971994.210693149
+standard deviation: 1992.99621952
+KPSS: 0.39579087041427685
+BDS: 807755.4799510529
+Hurst Exponent: 0.8564286866514724
+
+
+Analyzing odriod_xu3_armv7l_big/ludcmp_fixed_results.txt
+minimum: 4958
+maximum: 6425458
+average: 1823579.47234
+variance: 3419433905471.168
+standard deviation: 1849180.38605
+KPSS: 0.09930267077416882
+BDS: 4.915526603362954
+Hurst Exponent: 0.9984451016945339
+
+
+Analyzing odriod_xu3_armv7l_big/ludcmp_floating_results.txt
+minimum: 1083
+maximum: 544792
+average: 133731.85517
+variance: 19652184302.576897
+standard deviation: 140186.949558
+KPSS: 0.09852711113445177
+BDS: 5.121193200128003
+Hurst Exponent: 0.9984171534456919
+
+
+Analyzing odriod_xu3_armv7l_big/minver_fixed_results.txt
+minimum: 31542
+maximum: 114666
+average: 32446.6091
+variance: 8134666.08971719
+standard deviation: 2852.14786384
+KPSS: 12.640554262803642
+BDS: 2125968.088439768
+Hurst Exponent: 0.7131996656420451
+
+
+Analyzing odriod_xu3_armv7l_big/minver_floating_results.txt
+minimum: 3208
+maximum: 60625
+average: 3322.40323
+variance: 863849.1383955677
+standard deviation: 929.439496134
+KPSS: 0.08096447431767163
+BDS: 83.15657562072754
+Hurst Exponent: 0.4122909492266708
+
+
+Analyzing odriod_xu3_armv7l_big/qsort_exam_fixed_results.txt
+minimum: 1750
+maximum: 50959
+average: 2105.41036
+variance: 595620.2012246703
+standard deviation: 771.768201914
+KPSS: 0.12617209633526325
+BDS: 14.321566750702893
+Hurst Exponent: 0.6802068932113061
+
+
+Analyzing odriod_xu3_armv7l_big/qsort_exam_floating_results.txt
+minimum: 1958
+maximum: 63250
+average: 2357.84267
+variance: 888859.1331772712
+standard deviation: 942.797975103
+KPSS: 0.3425402389226928
+BDS: 14.321566750702893
+Hurst Exponent: 0.6597389162293521
+
+
+Analyzing odriod_xu3_armv7l_big/qurt_fixed_results.txt
+minimum: 875
+maximum: 79166
+average: 15293.09128
+variance: 9147963.76674796
+standard deviation: 3024.57521766
+KPSS: 0.1510227028159968
+BDS: 13.032915191027582
+Hurst Exponent: 0.947528813164895
+
+
+Analyzing odriod_xu3_armv7l_big/qurt_floating_results.txt
+minimum: 916
+maximum: 51333
+average: 1371.20856
+variance: 379763.8625827263
+standard deviation: 616.252919068
+KPSS: 0.1285718681270005
+BDS: 14.321566750702893
+Hurst Exponent: 0.6720159247868777
+
+
+Analyzing odriod_xu3_armv7l_big/select_fixed_results.txt
+minimum: 1083
+maximum: 42250
+average: 1656.57861
+variance: 424884.7024804679
+standard deviation: 651.835064545
+KPSS: 0.07374722209803464
+BDS: 14.321566750702893
+Hurst Exponent: 0.8279758638583888
+
+
+Analyzing odriod_xu3_armv7l_big/select_floating_results.txt
+minimum: 1125
+maximum: 60750
+average: 1814.2093
+variance: 559024.9186535099
+standard deviation: 747.683428303
+KPSS: 0.17583309702350353
+BDS: 14.321566750702893
+Hurst Exponent: 0.8323385442104076
+
+
+Analyzing odriod_xu3_armv7l_big/sqrt_fixed_results.txt
+minimum: 2166
+maximum: 102041
+average: 22282.82829
+variance: 166911117.90808567
+standard deviation: 12919.4731718
+KPSS: 0.08569263664150037
+BDS: 35014.04286653191
+Hurst Exponent: 0.9960604154228504
+
+
+Analyzing odriod_xu3_armv7l_big/sqrt_float_results.txt
+minimum: 916
+maximum: 53833
+average: 1398.3469
+variance: 441404.55560039
+standard deviation: 664.386160068
+KPSS: 0.0953185236662693
+BDS: 169308.56541836794
+Hurst Exponent: 0.8382392038120084
+
+
+Analyzing odriod_xu3_armv7l_little_stress_little/ludcmp_fixed_results.txt
+minimum: 11875
+maximum: 47576166
+average: 5100512.86481
+variance: 28134743177115.535
+standard deviation: 5304245.8962
+KPSS: 0.09503449153961162
+BDS: 5.403672458938072
+Hurst Exponent: 0.9967093928675734
+
+
+Analyzing odriod_xu3_armv7l_little_stress_little/ludcmp_floating_results.txt
+minimum: 1458
+maximum: 27193333
+average: 641802.45316
+variance: 627750316500.7024
+standard deviation: 792310.920073
+KPSS: 0.2720240647146448
+BDS: 14.321566750702893
+Hurst Exponent: 0.9804819836721721
+
+
+Analyzing odriod_xu3_armv7l_little_stress_little/minver_fixed_results.txt
+minimum: 77249
+maximum: 15175041
+average: 80708.09395
+variance: 6205512008.271525
+standard deviation: 78775.4661301
+KPSS: 0.9216586990627168
+BDS: 14.321566750702893
+Hurst Exponent: 0.4662734254004146
+
+
+Analyzing odriod_xu3_armv7l_little_stress_little/minver_floating_results.txt
+minimum: 6749
+maximum: 489126
+average: 7049.01447
+variance: 24670395.141760625
+standard deviation: 4966.95498753
+KPSS: 0.16895301978170504
+BDS: 14.432133099196037
+Hurst Exponent: 0.3352803773352305
+
+
+Analyzing odriod_xu3_armv7l_little_stress_little/qsort_exam_fixed_results.txt
+minimum: 2333
+maximum: 10220791
+average: 3014.20757
+variance: 1051434783.365405
+standard deviation: 32425.9972525
+KPSS: 0.0786911667453189
+BDS: 15.26848503745553
+Hurst Exponent: 0.38019317290934074
+
+
+Analyzing odriod_xu3_armv7l_little_stress_little/qsort_exam_floating_results.txt
+minimum: 2750
+maximum: 514292
+average: 3535.13513
+variance: 14809043.36980988
+standard deviation: 3848.27123027
+KPSS: 0.04210713051721538
+BDS: 14.321566750702893
+Hurst Exponent: 0.5451695928460416
+
+
+Analyzing odriod_xu3_armv7l_little_stress_little/qurt_fixed_results.txt
+minimum: 916
+maximum: 25135292
+average: 39653.71487
+variance: 32776027793.34615
+standard deviation: 181042.413696
+KPSS: 0.2727091740844043
+BDS: 17.08092921572113
+Hurst Exponent: 0.6162176810185485
+
+
+Analyzing odriod_xu3_armv7l_little_stress_little/qurt_floating_results.txt
+minimum: 916
+maximum: 533916
+average: 1845.51525
+variance: 14145244.803467436
+standard deviation: 3761.03526404
+KPSS: 0.1259590703426928
+BDS: 14.321566750702893
+Hurst Exponent: 0.5049811106058067
+
+
+Analyzing odriod_xu3_armv7l_little_stress_little/select_fixed_results.txt
+minimum: 1250
+maximum: 591958
+average: 2135.12651
+variance: 19345013.391545225
+standard deviation: 4398.31863825
+KPSS: 0.11061715856544223
+BDS: 14.321566750702893
+Hurst Exponent: 0.6335712305929312
+
+
+Analyzing odriod_xu3_armv7l_little_stress_little/select_floating_results.txt
+minimum: 1375
+maximum: 454583
+average: 2487.52681
+variance: 11431727.497881223
+standard deviation: 3381.10068118
+KPSS: 0.21443463625569467
+BDS: 14.321566750702893
+Hurst Exponent: 0.712762700468358
+
+
+Analyzing odriod_xu3_armv7l_little_stress_little/sqrt_fixed_results.txt
+minimum: 4125
+maximum: 16169916
+average: 55413.08915
+variance: 4192815697.3514237
+standard deviation: 64752.2789246
+KPSS: 0.14453885343406245
+BDS: 12501.03677144493
+Hurst Exponent: 0.9467152527862237
+
+
+Analyzing odriod_xu3_armv7l_little_stress_little/sqrt_float_results.txt
+minimum: 958
+maximum: 411709
+average: 1884.63745
+variance: 7274596.821407499
+standard deviation: 2697.15953701
+KPSS: 0.06850856006779629
+BDS: 20824.446860787026
+Hurst Exponent: 0.7443089931727969
+
+
+Analyzing odroid_xu3_armv7l_big_stress_big/ludcmp_fixed_results.txt
+minimum: 5041
+maximum: 14604042
+average: 2030954.6294
+variance: 4947340008028.112
+standard deviation: 2224272.79845
+KPSS: 0.13048593676801198
+BDS: 6.359864536920431
+Hurst Exponent: 0.9942637647244688
+
+
+Analyzing odroid_xu3_armv7l_big_stress_big/ludcmp_floating_results.txt
+minimum: 1083
+maximum: 1193459
+average: 148344.74457
+variance: 28498747226.918404
+standard deviation: 168816.563812
+KPSS: 0.22282980552712273
+BDS: 6.2714639889878745
+Hurst Exponent: 0.9889918391759878
+
+
+Analyzing odroid_xu3_armv7l_big_stress_big/minver_fixed_results.txt
+minimum: 31625
+maximum: 302208
+average: 35855.5085
+variance: 138097537.65084776
+standard deviation: 11751.5496272
+KPSS: 0.034251928303408605
+BDS: 89384.09686534385
+Hurst Exponent: 0.5674748708825759
+
+
+Analyzing odroid_xu3_armv7l_big_stress_big/minver_floating_results.txt
+minimum: 3207
+maximum: 247917
+average: 3685.74074
+variance: 4410747.280324253
+standard deviation: 2100.18841732
+KPSS: 2.083411781204874
+BDS: 5407.867967061003
+Hurst Exponent: 0.5818083001336967
+
+
+Analyzing odroid_xu3_armv7l_big_stress_big/qsort_exam_fixed_results.txt
+minimum: 1792
+maximum: 93958
+average: 2208.38035
+variance: 1582345.8169038778
+standard deviation: 1257.91956838
+KPSS: 4.8629411491611645
+BDS: 1633.2128580393855
+Hurst Exponent: 0.6458969255042206
+
+
+Analyzing odroid_xu3_armv7l_big_stress_big/qsort_exam_floating_results.txt
+minimum: 1958
+maximum: 101125
+average: 2482.83688
+variance: 1951378.4934718655
+standard deviation: 1396.92448166
+KPSS: 1.8320956420166536
+BDS: 1145463.1940997902
+Hurst Exponent: 0.6428423153294026
+
+
+Analyzing odroid_xu3_armv7l_big_stress_big/qurt_fixed_results.txt
+minimum: 916
+maximum: 233917
+average: 15507.79589
+variance: 19151725.138689112
+standard deviation: 4376.29028492
+KPSS: 0.13104060886087854
+BDS: 15.259447245995888
+Hurst Exponent: 0.9019223824504273
+
+
+Analyzing odroid_xu3_armv7l_big_stress_big/qurt_floating_results.txt
+minimum: 916
+maximum: 120208
+average: 1454.11993
+variance: 1079436.6572867949
+standard deviation: 1038.96460563
+KPSS: 5.53773240038985
+BDS: 246.96875160337098
+Hurst Exponent: 0.6303246939879702
+
+
+Analyzing odroid_xu3_armv7l_big_stress_big/select_fixed_results.txt
+minimum: 1125
+maximum: 96750
+average: 1825.82468
+variance: 1418799.9041628973
+standard deviation: 1191.13982903
+KPSS: 1.3618882448314822
+BDS: 44.58253906420381
+Hurst Exponent: 0.7666968533405564
+
+
+Analyzing odroid_xu3_armv7l_big_stress_big/select_floating_results.txt
+minimum: 1166
+maximum: 97041
+average: 1924.56508
+variance: 1711067.9469845935
+standard deviation: 1308.0844995
+KPSS: 5.508363385434149
+BDS: 16.711117352690767
+Hurst Exponent: 0.7630552147803012
+
+
+Analyzing odroid_xu3_armv7l_big_stress_big/sqrt_fixed_results.txt
+minimum: 2083
+maximum: 208417
+average: 22535.41892
+variance: 185114071.20390606
+standard deviation: 13605.7312322
+KPSS: 0.3613812241695872
+BDS: 39083.38497022435
+Hurst Exponent: 0.9929909194561156
+
+
+Analyzing odroid_xu3_armv7l_big_stress_big/sqrt_float_results.txt
+minimum: 916
+maximum: 111083
+average: 1521.38664
+variance: 1222336.8234495104
+standard deviation: 1105.59895393
+KPSS: 1.8393873687553686
+BDS: 14.321566750702893
+Hurst Exponent: 0.7799744927845818
+
+
+Analyzing odroid_xu3_armv7l_big_stress_little/ludcmp_fixed_results.txt
+minimum: 5041
+maximum: 6472042
+average: 1831730.44239
+variance: 3448726402490.9272
+standard deviation: 1857083.97497
+KPSS: 0.09877172317391848
+BDS: 5.026805989631784
+Hurst Exponent: 0.9984526704233103
+
+
+Analyzing odroid_xu3_armv7l_big_stress_little/ludcmp_floating_results.txt
+minimum: 1042
+maximum: 550416
+average: 136085.36433
+variance: 20494625394.09053
+standard deviation: 143160.156267
+KPSS: 0.09820962047785722
+BDS: 5.169724911572927
+Hurst Exponent: 0.998441352538661
+
+
+Analyzing odroid_xu3_armv7l_big_stress_little/minver_fixed_results.txt
+minimum: 31500
+maximum: 131583
+average: 32657.50667
+variance: 24116173.693555508
+standard deviation: 4910.84665386
+KPSS: 3.146775739731603
+BDS: 1936.722808042326
+Hurst Exponent: 0.6310217740084803
+
+
+Analyzing odroid_xu3_armv7l_big_stress_little/minver_floating_results.txt
+minimum: 3166
+maximum: 86042
+average: 3318.21512
+variance: 2680661.8162833857
+standard deviation: 1637.28086264
+KPSS: 1.3014809196802428
+BDS: 199.0346053838132
+Hurst Exponent: 0.3929689603651873
+
+
+Analyzing odroid_xu3_armv7l_big_stress_little/qsort_exam_fixed_results.txt
+minimum: 1750
+maximum: 96000
+average: 2112.51189
+variance: 1878924.172578628
+standard deviation: 1370.74540379
+KPSS: 0.26852672227322416
+BDS: 14.321566750702893
+Hurst Exponent: 0.6071242378418632
+
+
+Analyzing odroid_xu3_armv7l_big_stress_little/qsort_exam_floating_results.txt
+minimum: 1916
+maximum: 70916
+average: 2370.76312
+variance: 2093362.7329678652
+standard deviation: 1446.85302184
+KPSS: 0.40106287361891374
+BDS: 14.321566750702893
+Hurst Exponent: 0.6074035555709346
+
+
+Analyzing odroid_xu3_armv7l_big_stress_little/qurt_fixed_results.txt
+minimum: 875
+maximum: 102958
+average: 15362.76862
+variance: 16570742.544843296
+standard deviation: 4070.73804781
+KPSS: 0.0738690511433551
+BDS: 14.321566750702893
+Hurst Exponent: 0.9101517227562369
+
+
+Analyzing odroid_xu3_armv7l_big_stress_little/qurt_floating_results.txt
+minimum: 875
+maximum: 74875
+average: 1380.44319
+variance: 1240206.574392624
+standard deviation: 1113.65119161
+KPSS: 0.06218088436972146
+BDS: 14.321566750702893
+Hurst Exponent: 0.6016381375936823
+
+
+Analyzing odroid_xu3_armv7l_big_stress_little/select_fixed_results.txt
+minimum: 1083
+maximum: 81208
+average: 1670.62321
+variance: 1458976.214839296
+standard deviation: 1207.8869172
+KPSS: 0.04667185190239233
+BDS: 14.321566750702893
+Hurst Exponent: 0.7386393370378499
+
+
+Analyzing odroid_xu3_armv7l_big_stress_little/select_floating_results.txt
+minimum: 1125
+maximum: 81292
+average: 1831.55482
+variance: 1903902.239874768
+standard deviation: 1379.82653949
+KPSS: 0.13605319917697406
+BDS: 14.321566750702893
+Hurst Exponent: 0.7393792006236038
+
+
+Analyzing odroid_xu3_armv7l_big_stress_little/sqrt_fixed_results.txt
+minimum: 2125
+maximum: 119833
+average: 22388.09276
+variance: 179264632.8190356
+standard deviation: 13389.0412459
+KPSS: 0.08450720085550652
+BDS: 78856.29287068591
+Hurst Exponent: 0.9939631460795124
+
+
+Analyzing odroid_xu3_armv7l_big_stress_little/sqrt_float_results.txt
+minimum: 916
+maximum: 77458
+average: 1405.63333
+variance: 1179210.0956431113
+standard deviation: 1085.91983492
+KPSS: 0.22171048108441216
+BDS: 98870.40021964216
+Hurst Exponent: 0.7747969211224535
+
+
+Analyzing odroid_xu3_armv7l_little/ludcmp_fixed_results.txt
+minimum: 11875
+maximum: 17761875
+average: 4947127.81239
+variance: 25394635971674.832
+standard deviation: 5039334.27355
+KPSS: 0.10517865834035485
+BDS: 5.122519336405315
+Hurst Exponent: 0.9984659712355228
+
+
+Analyzing odroid_xu3_armv7l_little/ludcmp_floating_results.txt
+minimum: 1458
+maximum: 2354834
+average: 618930.2027
+variance: 440809511043.4761
+standard deviation: 663938.189279
+KPSS: 0.09751435216252499
+BDS: 5.2505593178654175
+Hurst Exponent: 0.9984788142867633
+
+
+Analyzing odroid_xu3_armv7l_little/minver_fixed_results.txt
+minimum: 77125
+maximum: 162167
+average: 78449.98162
+variance: 26809205.841002174
+standard deviation: 5177.78658654
+KPSS: 0.6758920629525381
+BDS: 7.124636652652057
+Hurst Exponent: 0.6795832073650974
+
+
+Analyzing odroid_xu3_armv7l_little/minver_floating_results.txt
+minimum: 6749
+maximum: 92376
+average: 6871.62631
+variance: 2548359.747445783
+standard deviation: 1596.36625851
+KPSS: 0.038367638674890375
+BDS: 17.35881306893867
+Hurst Exponent: 0.39130552563383636
+
+
+Analyzing odroid_xu3_armv7l_little/qsort_exam_fixed_results.txt
+minimum: 2292
+maximum: 86958
+average: 2844.44222
+variance: 1241838.723921472
+standard deviation: 1114.38375008
+KPSS: 0.0800224995106361
+BDS: 14.321566750702893
+Hurst Exponent: 0.665055968885925
+
+
+Analyzing odroid_xu3_armv7l_little/qsort_exam_floating_results.txt
+minimum: 2750
+maximum: 87959
+average: 3436.64108
+variance: 1633107.7641364334
+standard deviation: 1277.93743797
+KPSS: 0.21144333443246235
+BDS: 14.321566750702893
+Hurst Exponent: 0.6862847159555971
+
+
+Analyzing odroid_xu3_armv7l_little/qurt_fixed_results.txt
+minimum: 916
+maximum: 130000
+average: 36745.68525
+variance: 44805287.22172243
+standard deviation: 6693.70863416
+KPSS: 0.09524144065152967
+BDS: 6.077014259511077
+Hurst Exponent: 0.9642665291391292
+
+
+Analyzing odroid_xu3_armv7l_little/qurt_floating_results.txt
+minimum: 916
+maximum: 72333
+average: 1764.19158
+variance: 691723.3705571035
+standard deviation: 831.70324507
+KPSS: 0.03631825959372643
+BDS: 14.321566750702893
+Hurst Exponent: 0.6814136174775748
+
+
+Analyzing odroid_xu3_armv7l_little/select_fixed_results.txt
+minimum: 1250
+maximum: 56917
+average: 2028.85182
+variance: 949069.4932826874
+standard deviation: 974.20684871
+KPSS: 0.2706396364945803
+BDS: 14.321566750702893
+Hurst Exponent: 0.8226996462317978
+
+
+Analyzing odroid_xu3_armv7l_little/select_floating_results.txt
+minimum: 1375
+maximum: 66542
+average: 2402.83664
+variance: 1053029.4101135102
+standard deviation: 1026.1773436
+KPSS: 0.15382847517490505
+BDS: 14.321566750702893
+Hurst Exponent: 0.8535904029608328
+
+
+Analyzing odroid_xu3_armv7l_little/sqrt_fixed_results.txt
+minimum: 4083
+maximum: 169250
+average: 54107.62719
+variance: 993078511.0519826
+standard deviation: 31513.3057919
+KPSS: 0.10192493117540419
+BDS: 46966.60537533542
+Hurst Exponent: 0.9939973819396927
+
+
+Analyzing odroid_xu3_armv7l_little/sqrt_float_results.txt
+minimum: 958
+maximum: 68917
+average: 1832.67601
+variance: 744669.8033404798
+standard deviation: 862.946840838
+KPSS: 0.1259027568186865
+BDS: 64821.57596297835
+Hurst Exponent: 0.8842615736749846
+
+
+Analyzing odroid_xu3_armv7l_little_stress_big/ludcmp_fixed_results.txt
+minimum: 11833
+maximum: 17409542
+average: 4961437.61177
+variance: 25547138818748.82
+standard deviation: 5054443.02497
+KPSS: 0.10043243105803157
+BDS: 5.062373964597045
+Hurst Exponent: 0.9984640928574594
+
+
+Analyzing odroid_xu3_armv7l_little_stress_big/ludcmp_floating_results.txt
+minimum: 1458
+maximum: 2364958
+average: 620279.1321
+variance: 442713822759.3136
+standard deviation: 665370.761262
+KPSS: 0.09603374430058509
+BDS: 5.21467188480918
+Hurst Exponent: 0.9984801401326886
+
+
+Analyzing odroid_xu3_armv7l_little_stress_big/minver_fixed_results.txt
+minimum: 77125
+maximum: 189333
+average: 78697.13671
+variance: 50559130.497920394
+standard deviation: 7110.52994469
+KPSS: 0.8684690326987508
+BDS: 7.048478803028399
+Hurst Exponent: 0.65153117835023
+
+
+Analyzing odroid_xu3_armv7l_little_stress_big/minver_floating_results.txt
+minimum: 6750
+maximum: 107959
+average: 6930.15119
+variance: 5226460.455391583
+standard deviation: 2286.15675764
+KPSS: 0.3954884572602887
+BDS: 15.824569291584917
+Hurst Exponent: 0.3668213577009008
+
+
+Analyzing odroid_xu3_armv7l_little_stress_big/qsort_exam_fixed_results.txt
+minimum: 2292
+maximum: 72375
+average: 2853.91653
+variance: 2049784.2209427592
+standard deviation: 1431.71390962
+KPSS: 0.06634489584493584
+BDS: 14.321566750702893
+Hurst Exponent: 0.6270906840057832
+
+
+Analyzing odroid_xu3_armv7l_little_stress_big/qsort_exam_floating_results.txt
+minimum: 2792
+maximum: 102250
+average: 3464.41336
+variance: 2572013.985053511
+standard deviation: 1603.75799466
+KPSS: 0.14176042435603378
+BDS: 14.321566750702893
+Hurst Exponent: 0.6486686401583154
+
+
+Analyzing odroid_xu3_armv7l_little_stress_big/qurt_fixed_results.txt
+minimum: 916
+maximum: 395041
+average: 36836.68559
+variance: 56976267.22655636
+standard deviation: 7548.30027191
+KPSS: 0.11734827277357104
+BDS: 8.200015601194387
+Hurst Exponent: 0.9527625969443814
+
+
+Analyzing odroid_xu3_armv7l_little_stress_big/qurt_floating_results.txt
+minimum: 916
+maximum: 79959
+average: 1776.93477
+variance: 1259257.860155047
+standard deviation: 1122.17220285
+KPSS: 0.036846163742953186
+BDS: 14.321566750702893
+Hurst Exponent: 0.64260515849696
+
+
+Analyzing odroid_xu3_armv7l_little_stress_big/select_fixed_results.txt
+minimum: 1250
+maximum: 79834
+average: 2030.49967
+variance: 1514904.3924998913
+standard deviation: 1230.82067812
+KPSS: 0.10007976922652113
+BDS: 14.321566750702893
+Hurst Exponent: 0.7855355296268576
+
+
+Analyzing odroid_xu3_armv7l_little_stress_big/select_floating_results.txt
+minimum: 1375
+maximum: 92500
+average: 2422.6328
+variance: 2258032.6456641597
+standard deviation: 1502.68267649
+KPSS: 0.22522139443394493
+BDS: 14.321566750702893
+Hurst Exponent: 0.8047906289512191
+
+
+Analyzing odroid_xu3_armv7l_little_stress_big/sqrt_fixed_results.txt
+minimum: 4125
+maximum: 194459
+average: 54335.48346
+variance: 1013451226.1424865
+standard deviation: 31834.9078961
+KPSS: 0.10147936838441185
+BDS: 21777.180609896743
+Hurst Exponent: 0.994291175566475
+
+
+Analyzing odroid_xu3_armv7l_little_stress_big/sqrt_float_results.txt
+minimum: 958
+maximum: 110875
+average: 1840.15223
+variance: 1599153.701796027
+standard deviation: 1264.58281401
+KPSS: 0.2027998629251406
+BDS: 110664.29150097937
+Hurst Exponent: 0.8221506700764382
+
+
+Analyzing qualcomm_snapdragon_821_armv8a_big/ludcmp_fixed_results.txt
+minimum: 9844
+maximum: 24241875
+average: 2684191.79097
+variance: 6808945707649.245
+standard deviation: 2609408.70654
+KPSS: 0.09262522920448185
+BDS: 5.114656637664853
+Hurst Exponent: 0.9984346255868066
+
+
+Analyzing qualcomm_snapdragon_821_armv8a_big/ludcmp_floating_results.txt
+minimum: 1614
+maximum: 3067136
+average: 763408.5118
+variance: 666688384226.9701
+standard deviation: 816513.962635
+KPSS: 0.10390955125442489
+BDS: 5.066013159293777
+Hurst Exponent: 0.9985064865167371
+
+
+Analyzing qualcomm_snapdragon_821_armv8a_big/minver_fixed_results.txt
+minimum: 52448
+maximum: 1597760
+average: 56721.35297
+variance: 106496463.50588219
+standard deviation: 10319.7639741
+KPSS: 5.07394933735391
+BDS: 14.321566750702893
+Hurst Exponent: 0.6780465727889513
+
+
+Analyzing qualcomm_snapdragon_821_armv8a_big/minver_floating_results.txt
+minimum: 6666
+maximum: 414739
+average: 7213.18174
+variance: 12818972.865710571
+standard deviation: 3580.37722268
+KPSS: 0.11403448237421313
+BDS: 6598.07535620638
+Hurst Exponent: 0.42288499405777763
+
+
+Analyzing qualcomm_snapdragon_821_armv8a_big/qsort_exam_fixed_results.txt
+minimum: 1666
+maximum: 297188
+average: 2064.69391
+variance: 4690456.804878912
+standard deviation: 2165.75707546
+KPSS: 1.7511335722294668
+BDS: 14.321566750702893
+Hurst Exponent: 0.5713151064551395
+
+
+Analyzing qualcomm_snapdragon_821_armv8a_big/qsort_exam_floating_results.txt
+minimum: 2552
+maximum: 898802
+average: 3139.13543
+variance: 13346955.796188721
+standard deviation: 3653.36683993
+KPSS: 1.0932907320029066
+BDS: 14.83522680079473
+Hurst Exponent: 0.5957575388667199
+
+
+Analyzing qualcomm_snapdragon_821_armv8a_big/qurt_fixed_results.txt
+minimum: 729
+maximum: 344479
+average: 29538.50575
+variance: 64621329.936526954
+standard deviation: 8038.77951907
+KPSS: 0.21156097431043105
+BDS: 12.424285732813695
+Hurst Exponent: 0.9153258226817315
+
+
+Analyzing qualcomm_snapdragon_821_armv8a_big/qurt_floating_results.txt
+minimum: 729
+maximum: 194010
+average: 3680.45574
+variance: 5692571.962081052
+standard deviation: 2385.92306841
+KPSS: 2.0681996493205173
+BDS: 14.321566750702893
+Hurst Exponent: 0.7444759535990859
+
+
+Analyzing qualcomm_snapdragon_821_armv8a_big/select_fixed_results.txt
+minimum: 1041
+maximum: 173229
+average: 1672.7126
+variance: 3341042.67518124
+standard deviation: 1827.86106856
+KPSS: 1.5066078184160177
+BDS: 14.321566750702893
+Hurst Exponent: 0.701384209085478
+
+
+Analyzing qualcomm_snapdragon_821_armv8a_big/select_floating_results.txt
+minimum: 1510
+maximum: 446302
+average: 2657.94465
+variance: 7556205.482466377
+standard deviation: 2748.8690484
+KPSS: 0.22649851392636094
+BDS: 14.321566750702893
+Hurst Exponent: 0.749817397865118
+
+
+Analyzing qualcomm_snapdragon_821_armv8a_big/sqrt_fixed_results.txt
+minimum: 2761
+maximum: 389531
+average: 42491.34014
+variance: 700693006.5381649
+standard deviation: 26470.7388174
+KPSS: 0.05549465348073154
+BDS: 77146.87896122951
+Hurst Exponent: 0.995771071410523
+
+
+Analyzing qualcomm_snapdragon_821_armv8a_big/sqrt_float_results.txt
+minimum: 885
+maximum: 637135
+average: 4910.27648
+variance: 20405861.13161881
+standard deviation: 4517.30729443
+KPSS: 0.14028707242291844
+BDS: 64012.258055434664
+Hurst Exponent: 0.9102715702610168
+
+
+Analyzing qualcomm_snapdragon_821_armv8a_little/ludcmp_fixed_results.txt
+minimum: 8750
+maximum: 17173958
+average: 2315562.41748
+variance: 5380761769900.48
+standard deviation: 2319658.50462
+KPSS: 0.5580575952930283
+BDS: 4.978922501168453
+Hurst Exponent: 0.9979729174551967
+
+
+Analyzing qualcomm_snapdragon_821_armv8a_little/ludcmp_floating_results.txt
+minimum: 1614
+maximum: 11741615
+average: 754772.26629
+variance: 653969016994.7903
+standard deviation: 808687.551994
+KPSS: 0.0924132971937671
+BDS: 5.243575560226891
+Hurst Exponent: 0.9982179138065711
+
+
+Analyzing qualcomm_snapdragon_821_armv8a_little/minver_fixed_results.txt
+minimum: 54739
+maximum: 1828021
+average: 61216.18037
+variance: 102392191.39395665
+standard deviation: 10118.9532723
+KPSS: 5.215507196388241
+BDS: 14.35606132805854
+Hurst Exponent: 0.7310631164739879
+
+
+Analyzing qualcomm_snapdragon_821_armv8a_little/minver_floating_results.txt
+minimum: 6666
+maximum: 243801
+average: 7011.99376
+variance: 4768844.929921064
+standard deviation: 2183.77943457
+KPSS: 0.38937427552891557
+BDS: 279313.35045667173
+Hurst Exponent: 0.4864760753674629
+
+
+Analyzing qualcomm_snapdragon_821_armv8a_little/qsort_exam_fixed_results.txt
+minimum: 1719
+maximum: 238020
+average: 2119.0232
+variance: 2851403.36156176
+standard deviation: 1688.6183334
+KPSS: 0.2309979533760801
+BDS: 14.321566750702893
+Hurst Exponent: 0.6120821781547695
+
+
+Analyzing qualcomm_snapdragon_821_armv8a_little/qsort_exam_floating_results.txt
+minimum: 2552
+maximum: 1639791
+average: 3202.75695
+variance: 33811329.6745567
+standard deviation: 5814.78011547
+KPSS: 0.20832176154170085
+BDS: 14.321566750702893
+Hurst Exponent: 0.5513116346161704
+
+
+Analyzing qualcomm_snapdragon_821_armv8a_little/qurt_fixed_results.txt
+minimum: 729
+maximum: 400157
+average: 26484.54179
+variance: 36285840.47485359
+standard deviation: 6023.80306259
+KPSS: 0.27812519486386567
+BDS: 14.320810019466968
+Hurst Exponent: 0.9306514336859874
+
+
+Analyzing qualcomm_snapdragon_821_armv8a_little/qurt_floating_results.txt
+minimum: 781
+maximum: 211822
+average: 3725.24071
+variance: 3209004.6155686965
+standard deviation: 1791.37843739
+KPSS: 0.3903083535132055
+BDS: 15.151739637432664
+Hurst Exponent: 0.7968040718098542
+
+
+Analyzing qualcomm_snapdragon_821_armv8a_little/select_fixed_results.txt
+minimum: 1041
+maximum: 94792
+average: 1689.40449
+variance: 797661.9049978398
+standard deviation: 893.1236654
+KPSS: 0.059637174746365804
+BDS: 14.357553425144127
+Hurst Exponent: 0.7950134195475587
+
+
+Analyzing qualcomm_snapdragon_821_armv8a_little/select_floating_results.txt
+minimum: 1510
+maximum: 338021
+average: 2596.45175
+variance: 3681394.2132919366
+standard deviation: 1918.70556042
+KPSS: 1.1050814812849938
+BDS: 14.70467446753645
+Hurst Exponent: 0.8018788289721582
+
+
+Analyzing qualcomm_snapdragon_821_armv8a_little/sqrt_fixed_results.txt
+minimum: 3072
+maximum: 1765260
+average: 42522.99267
+variance: 744184973.3536363
+standard deviation: 27279.8903091
+KPSS: 0.44541504054562053
+BDS: 494052.47760759096
+Hurst Exponent: 0.9928125463522068
+
+
+Analyzing qualcomm_snapdragon_821_armv8a_little/sqrt_float_results.txt
+minimum: 937
+maximum: 506979
+average: 4947.44602
+variance: 28234511.848286167
+standard deviation: 5313.64227214
+KPSS: 0.7379346680993004
+BDS: 103166.16889172542
+Hurst Exponent: 0.8967810775829589
+
+
+Analyzing qualcomm_snapdragon_835_armv8a_big/ludcmp_fixed_results.txt
+minimum: 7083
+maximum: 10374374
+average: 2951907.9643
+variance: 8941597691892.105
+standard deviation: 2990265.39103
+KPSS: 0.10593646367048473
+BDS: 5.057209651770196
+Hurst Exponent: 0.998468127199206
+
+
+Analyzing qualcomm_snapdragon_835_armv8a_big/ludcmp_floating_results.txt
+minimum: 885
+maximum: 3497083
+average: 943438.74142
+variance: 1018265894700.5964
+standard deviation: 1009096.66408
+KPSS: 0.09537674584595497
+BDS: 5.263814821410557
+Hurst Exponent: 0.9985159338493574
+
+
+Analyzing qualcomm_snapdragon_835_armv8a_big/minver_fixed_results.txt
+minimum: 47864
+maximum: 260520
+average: 48552.69766
+variance: 11294223.069610523
+standard deviation: 3360.70468994
+KPSS: 2.6085113145035916
+BDS: 14.321566750702893
+Hurst Exponent: 0.670142899128072
+
+
+Analyzing qualcomm_snapdragon_835_armv8a_big/minver_floating_results.txt
+minimum: 7656
+maximum: 45625
+average: 7878.62109
+variance: 688578.0503972118
+standard deviation: 829.810180853
+KPSS: 0.12239461300293401
+BDS: 14.321566750702893
+Hurst Exponent: 0.580456237504767
+
+
+Analyzing qualcomm_snapdragon_835_armv8a_big/qsort_exam_fixed_results.txt
+minimum: 1354
+maximum: 27864
+average: 1761.33552
+variance: 99220.48298632959
+standard deviation: 314.994405031
+KPSS: 0.129666029076936
+BDS: 14.321566750702893
+Hurst Exponent: 0.8314201506230088
+
+
+Analyzing qualcomm_snapdragon_835_armv8a_big/qsort_exam_floating_results.txt
+minimum: 1979
+maximum: 30260
+average: 2604.39834
+variance: 179946.55890524446
+standard deviation: 424.203204124
+KPSS: 0.1387381114067381
+BDS: 14.321566750702893
+Hurst Exponent: 0.8456447363004792
+
+
+Analyzing qualcomm_snapdragon_835_armv8a_big/qurt_fixed_results.txt
+minimum: 208
+maximum: 230989
+average: 23015.83491
+variance: 19461372.951355293
+standard deviation: 4411.52667078
+KPSS: 0.17681276857778375
+BDS: 12.129679177642762
+Hurst Exponent: 0.9479850529147574
+
+
+Analyzing qualcomm_snapdragon_835_armv8a_big/qurt_floating_results.txt
+minimum: 208
+maximum: 171979
+average: 3482.13061
+variance: 893998.381091028
+standard deviation: 945.519603797
+KPSS: 0.14845674228587402
+BDS: 14.357553425144127
+Hurst Exponent: 0.9184349056733124
+
+
+Analyzing qualcomm_snapdragon_835_armv8a_big/select_fixed_results.txt
+minimum: 468
+maximum: 41823
+average: 1089.70988
+variance: 150731.14929038557
+standard deviation: 388.243038079
+KPSS: 0.1284215953610659
+BDS: 14.321566750702893
+Hurst Exponent: 0.9259106420484519
+
+
+Analyzing qualcomm_snapdragon_835_armv8a_big/select_floating_results.txt
+minimum: 729
+maximum: 33906
+average: 1660.7303
+variance: 312884.01678191
+standard deviation: 559.363160794
+KPSS: 0.10870938611413895
+BDS: 14.480666560175711
+Hurst Exponent: 0.9420561702971183
+
+
+Analyzing qualcomm_snapdragon_835_armv8a_big/sqrt_fixed_results.txt
+minimum: 2239
+maximum: 101198
+average: 34010.22427
+variance: 394870454.981173
+standard deviation: 19871.4469459
+KPSS: 0.09946038256671653
+BDS: 16209.70841495163
+Hurst Exponent: 0.9956746958046966
+
+
+Analyzing qualcomm_snapdragon_835_armv8a_big/sqrt_float_results.txt
+minimum: 260
+maximum: 34948
+average: 4912.02444
+variance: 7752206.333202687
+standard deviation: 2784.29234385
+KPSS: 0.0992012968758545
+BDS: 259774.36111384814
+Hurst Exponent: 0.9966314896957622
+
+
+Analyzing qualcomm_snapdragon_835_armv8a_little/ludcmp_fixed_results.txt
+minimum: 7083
+maximum: 12274165
+average: 2956868.76039
+variance: 8972926395865.365
+standard deviation: 2995499.31164
+KPSS: 0.10191920741187575
+BDS: 5.099632248907744
+Hurst Exponent: 0.998465590340243
+
+
+Analyzing qualcomm_snapdragon_835_armv8a_little/ludcmp_floating_results.txt
+minimum: 885
+maximum: 3660417
+average: 945101.6594
+variance: 1022128305325.719
+standard deviation: 1011008.66797
+KPSS: 0.10007758695360347
+BDS: 5.169230417984243
+Hurst Exponent: 0.9985177508327535
+
+
+Analyzing qualcomm_snapdragon_835_armv8a_little/minver_fixed_results.txt
+minimum: 47916
+maximum: 271406
+average: 48617.40647
+variance: 23067194.56401214
+standard deviation: 4802.85594602
+KPSS: 0.3954529662803953
+BDS: 14.321566750702893
+Hurst Exponent: 0.60152543071537
+
+
+Analyzing qualcomm_snapdragon_835_armv8a_little/minver_floating_results.txt
+minimum: 7656
+maximum: 234687
+average: 7887.57754
+variance: 4190650.98852755
+standard deviation: 2047.11819284
+KPSS: 0.042680550079273696
+BDS: 14.321566750702893
+Hurst Exponent: 0.4645892184710718
+
+
+Analyzing qualcomm_snapdragon_835_armv8a_little/qsort_exam_fixed_results.txt
+minimum: 1354
+maximum: 219740
+average: 1767.51746
+variance: 1047761.0944751486
+standard deviation: 1023.60713762
+KPSS: 0.2690102326282449
+BDS: 14.321566750702893
+Hurst Exponent: 0.7041050486542255
+
+
+Analyzing qualcomm_snapdragon_835_armv8a_little/qsort_exam_floating_results.txt
+minimum: 1927
+maximum: 224219
+average: 2608.01833
+variance: 706651.2156340112
+standard deviation: 840.629693871
+KPSS: 0.6136470177857628
+BDS: 14.321566750702893
+Hurst Exponent: 0.7825756766413193
+
+
+Analyzing qualcomm_snapdragon_835_armv8a_little/qurt_fixed_results.txt
+minimum: 208
+maximum: 227344
+average: 23023.45615
+variance: 23064904.18143718
+standard deviation: 4802.61749807
+KPSS: 0.08021477805377475
+BDS: 14.321566750702893
+Hurst Exponent: 0.9368686516106989
+
+
+Analyzing qualcomm_snapdragon_835_armv8a_little/qurt_floating_results.txt
+minimum: 208
+maximum: 205624
+average: 3483.90432
+variance: 984059.3994253376
+standard deviation: 992.002641185
+KPSS: 0.14455229353045507
+BDS: 14.321566750702893
+Hurst Exponent: 0.9319678893932207
+
+
+Analyzing qualcomm_snapdragon_835_armv8a_little/select_fixed_results.txt
+minimum: 468
+maximum: 227656
+average: 1094.02421
+variance: 1476520.034823876
+standard deviation: 1215.12748309
+KPSS: 0.07608564265929625
+BDS: 14.321566750702893
+Hurst Exponent: 0.8072364526950266
+
+
+Analyzing qualcomm_snapdragon_835_armv8a_little/select_floating_results.txt
+minimum: 729
+maximum: 230677
+average: 1662.557
+variance: 1212836.610331
+standard deviation: 1101.29412003
+KPSS: 0.18088548102251664
+BDS: 15.245049237127493
+Hurst Exponent: 0.8938915149268348
+
+
+Analyzing qualcomm_snapdragon_835_armv8a_little/sqrt_fixed_results.txt
+minimum: 2239
+maximum: 286667
+average: 34071.22423
+variance: 411003902.77955085
+standard deviation: 20273.3325544
+KPSS: 0.1102933033718235
+BDS: 8343.777445842798
+Hurst Exponent: 0.9930424758858255
+
+
+Analyzing qualcomm_snapdragon_835_armv8a_little/sqrt_float_results.txt
+minimum: 260
+maximum: 209791
+average: 4916.13542
+variance: 8964843.945881423
+standard deviation: 2994.14989525
+KPSS: 0.055854422563721175
+BDS: 809168.1854928746
+Hurst Exponent: 0.9862126346497516
