@@ -2,14 +2,14 @@ import numpy
 import os
 import statistics
 import statsmodels.tsa.stattools as stat
-import scipy
+import warnings
 from hurst import compute_Hc
 
+warnings.filterwarnings("ignore", module=stat) #ignore warnings on BDS p-value
 
 path = raw_input("Provide folder with benches to analyze")
 
 file = open("results.txt", "w")
-
 
 for folder in os.listdir(path):
     if("." not in folder):
@@ -24,17 +24,15 @@ for folder in os.listdir(path):
 
                 file.write("minimum: " + str(min(array)) + "\n")
                 file.write("maximum: " + str(max(array)) + "\n")
-                file.write("average: " + str(numpy.mean(array)) + "\n")
+                file.write("mean: " + str(numpy.mean(array)) + "\n")
                 file.write("variance: " + str(numpy.var(array)) + "\n")
                 file.write("standard deviation: " + str(statistics.stdev(array)) + "\n")
-
 
                 kpss_stat, p_value, lags, crit = stat.kpss(array) #https://www.statsmodels.org/dev/generated/statsmodels.tsa.stattools.kpss.html
                 file.write("KPSS: " + str(kpss_stat) + "\n")
 
-
                 start = 0
-                end = 100
+                end = 200
                 max_bds = 0
                 while(end <= len(array)):
                     bds_stat, pvalue = stat.bds(array[start:end]) #https://www.statsmodels.org/dev/generated/statsmodels.tsa.stattools.bds.html
@@ -43,7 +41,6 @@ for folder in os.listdir(path):
                     start += 1
                     end += 1
                 file.write("BDS: " + str(max_bds) + "\n")
-
 
                 H, c, data = compute_Hc(array, kind='change', simplified=True) #https://pypi.org/project/hurst/
                 file.write("Hurst Exponent: " + str(H) + "\n")
