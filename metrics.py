@@ -5,7 +5,7 @@ import statsmodels.tsa.stattools as stat
 import warnings
 from hurst import compute_Hc
 
-warnings.filterwarnings("ignore", module=stat) #ignore warnings on BDS p-value
+warnings.filterwarnings("ignore", module="stat") #ignore warnings on BDS pvalue
 
 path = raw_input("Provide folder with benches to analyze")
 
