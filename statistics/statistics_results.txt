@@ -396,6 +396,138 @@ BDS: 144448.05315570076
 Hurst Exponent: 0.8741815338988449
 
 
+Analyzing intel_i58250u_x8664_stress/minver_floating_results.txt
+minimum: 1281
+maximum: 12024768
+mean: 2101.65657
+variance: 5771553342.767102
+standard deviation: 75971.1199001
+KPSS: 0.4045549878148437
+BDS: 191.12266459165954
+Hurst Exponent: 0.42934713052690826
+
+
+Analyzing intel_i58250u_x8664_stress/qurt_floating_results.txt
+minimum: 381
+maximum: 44522
+mean: 637.94687
+variance: 101545.26360720312
+standard deviation: 318.663269095
+KPSS: 6.428559931575914
+BDS: 14.542474817617093
+Hurst Exponent: 0.7590954910987497
+
+
+Analyzing intel_i58250u_x8664_stress/sqrt_fixed_results.txt
+minimum: 299
+maximum: 12966
+mean: 1118.51843
+variance: 266794.83686033514
+standard deviation: 516.524447471
+KPSS: 0.9474809762061698
+BDS: 123025.77558371212
+Hurst Exponent: 0.9978262258697487
+
+
+Analyzing intel_i58250u_x8664_stress/ludcmp_floating_results.txt
+minimum: 327
+maximum: 26100647
+mean: 91633.23412
+variance: 170979215335.078
+standard deviation: 413498.397995
+KPSS: 5.026955150870208
+BDS: 14.321566750702893
+Hurst Exponent: 0.8390837449672478
+
+
+Analyzing intel_i58250u_x8664_stress/qurt_fixed_results.txt
+minimum: 277
+maximum: 16013694
+mean: 1217.07507
+variance: 5126697116.102195
+standard deviation: 71601.3155158
+KPSS: 0.07784591693712
+BDS: 14.321566750702893
+Hurst Exponent: 0.528367621098565
+
+
+Analyzing intel_i58250u_x8664_stress/qsort_exam_fixed_results.txt
+minimum: 754
+maximum: 29485
+mean: 972.93187
+variance: 16730.616008303095
+standard deviation: 129.347529223
+KPSS: 4.86551272008661
+BDS: 14.390069196992544
+Hurst Exponent: 0.8808875920666661
+
+
+Analyzing intel_i58250u_x8664_stress/select_floating_results.txt
+minimum: 380
+maximum: 71813
+mean: 745.17045
+variance: 84137.01151679747
+standard deviation: 290.065256271
+KPSS: 2.2394789220230584
+BDS: 14.321566750702893
+Hurst Exponent: 0.9393846644283921
+
+
+Analyzing intel_i58250u_x8664_stress/qsort_exam_floating_results.txt
+minimum: 754
+maximum: 61942
+mean: 1006.73799
+variance: 47041.39112075991
+standard deviation: 216.89135884
+KPSS: 2.0082938807225377
+BDS: 14.321566750702893
+Hurst Exponent: 0.880193216295088
+
+
+Analyzing intel_i58250u_x8664_stress/minver_fixed_results.txt
+minimum: 1376
+maximum: 334690
+mean: 1770.42054
+variance: 1125666.2650461085
+standard deviation: 1060.97951056
+KPSS: 6.100293870808743
+BDS: 200.85198972390438
+Hurst Exponent: 0.6628577896027037
+
+
+Analyzing intel_i58250u_x8664_stress/select_fixed_results.txt
+minimum: 364
+maximum: 18394
+mean: 717.22482
+variance: 18755.4552359676
+standard deviation: 136.951242391
+KPSS: 6.992686458585828
+BDS: 14.321566750702893
+Hurst Exponent: 0.967777073259366
+
+
+Analyzing intel_i58250u_x8664_stress/ludcmp_fixed_results.txt
+minimum: 555
+maximum: 30156586
+mean: 232258.42197
+variance: 421566553536.3159
+standard deviation: 649284.813656
+KPSS: 2.34115554932965
+BDS: 14.321566750702893
+Hurst Exponent: 0.886063828971226
+
+
+Analyzing intel_i58250u_x8664_stress/sqrt_floating_results.txt
+minimum: 290
+maximum: 5312
+mean: 466.84848
+variance: 5211.445001689601
+standard deviation: 72.1906996549
+KPSS: 12.97097707463207
+BDS: 2868979.953061113
+Hurst Exponent: 0.9860765969779017
+
+
 Analyzing odriod_xu3_armv7l_big/ludcmp_fixed_results.txt
 minimum: 4958
 maximum: 6425458

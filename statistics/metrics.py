@@ -9,7 +9,7 @@ warnings.filterwarnings("ignore", module="stat") #ignore warnings on BDS pvalue
 
 path = raw_input("Provide folder with benches to analyze")
 
-file = open("results.txt", "w")
+file = open("statistics_results.txt", "w")
 
 for folder in os.listdir(path):
     if("." not in folder):

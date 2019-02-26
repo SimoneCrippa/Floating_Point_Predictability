@@ -1,0 +1,396 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% University Assignment Title Page 
+% LaTeX Template
+% Version 1.0 (27/12/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% WikiBooks (http://en.wikibooks.org/wiki/LaTeX/Title_Creation)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+% 
+% Instructions for using this template:
+% This title page is capable of being compiled as is. This is not useful for 
+% including it in another document. To do this, you have two options: 
+%
+% 1) Copy/paste everything between \begin{document} and \end{document} 
+% starting at \begin{titlepage} and paste this into another LaTeX file where you 
+% want your title page.
+% OR
+% 2) Remove everything outside the \begin{titlepage} and \end{titlepage} and 
+% move this file to the same directory as the LaTeX file you wish to add it to. 
+% Then add \input{./title_page_1.tex} to your LaTeX file where you want your
+% title page.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\title{Title page with logo}
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{amssymb}
+\usepackage{hyperref}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+	language=C,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3
+}
+
+\makeatletter
+\newsavebox\myboxA
+\newsavebox\myboxB
+\newlength\mylenA
+
+\newcommand*\xoverline[2][0.75]{%
+	\sbox{\myboxA}{$\m@th#2$}%
+	\setbox\myboxB\null% Phantom box
+	\ht\myboxB=\ht\myboxA%
+	\dp\myboxB=\dp\myboxA%
+	\wd\myboxB=#1\wd\myboxA% Scale phantom
+	\sbox\myboxB{$\m@th\overline{\copy\myboxB}$}%  Overlined phantom
+	\setlength\mylenA{\the\wd\myboxA}%   calc width diff
+	\addtolength\mylenA{-\the\wd\myboxB}%
+	\ifdim\wd\myboxB<\wd\myboxA%
+	\rlap{\hskip 0.5\mylenA\usebox\myboxB}{\usebox\myboxA}%
+	\else
+	\hskip -0.5\mylenA\rlap{\usebox\myboxA}{\hskip 0.5\mylenA\usebox\myboxB}%
+	\fi}
+\makeatother
+
+\begin{document}
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+ 
+%----------------------------------------------------------------------------------------
+%	HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{\LARGE Politecnico di Milano}\\[1.5cm] % Name of your university/college
+\textsc{\Large Dipartimento di Elettronica, Informazione e Bioingegneria}\\[0.5cm] % Major heading such as course name
+\textsc{\large HEAPLab Project Report}\\[0.5cm] % Minor heading such as course title
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.4cm]
+{ \huge \bfseries Floating Point Predictability}\\[0.4cm] % Title of your document
+\HRule \\[1.5cm]
+ 
+%----------------------------------------------------------------------------------------
+%	AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Authors:}\\
+Alessio \textsc{Cantina}\\ % Your name
+Simone \textsc{Crippa}
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{0.5\textwidth}
+\begin{flushright} \large
+\emph{Supervisor:} \\
+Dr. Federico \textsc{Reghenzani} % Supervisor's Name
+\end{flushright}
+\end{minipage}\\[1cm]
+
+% If you don't want a supervisor, uncomment the two lines below and remove the section above
+%\Large \emph{Author:}\\
+%John \textsc{Smith}\\[3cm] % Your name
+
+%----------------------------------------------------------------------------------------
+%	DATE SECTION
+%----------------------------------------------------------------------------------------
+
+{\large \today}\\[2cm] % Date, change the \today to a set date if you want to be precise
+
+%----------------------------------------------------------------------------------------
+%	LOGO SECTION
+%----------------------------------------------------------------------------------------
+
+\includegraphics[width=100pt]{heaplogo.pdf}\\[1cm] % Include a department/university logo - this will require the graphicx package
+ 
+%----------------------------------------------------------------------------------------
+
+\vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
+
+
+
+
+\begin{abstract}
+\textcolor{red}{Your abstract. - Summarize your work.}
+
+This project aims to investigate floating point vs fixed point predictability.
+
+To achieve this result, we have used 6 Worst Case Execution Time (WCET) benchmarks which involve a large number of floating point instructions.
+We converted these benchmarks using only fixed point variables and then we added the logic to obtain multiple measurements.
+
+Finally, we computed and analysed 8 statistics to find out if floating point operations or fixed point operations are more predictable.
+
+\end{abstract}
+
+\section{Introduction}
+
+\textcolor{red}{Your introduction goes here! Some examples of commonly used commands and features are listed below, to help you get started.}
+
+In this paragraph we describe all the commands used to process the benchmarks.
+
+\subsection{Devices used}
+
+To have a better view of the problem, we decided to get samples from devices with different architecture.
+In this project, we considered 3 architectures and 5 devices.\newline 
+armv7l devices:
+\begin{itemize}
+	\item Device name: Freescale i.MX 6 Quad. Processor configuration: 4x Cortex-A9 @ 1.2 GHz
+	\item Device name: ODROID-XU3. Processor name: Exynos 5422. Processor configuration: big.LITTLE 8 cores, 4x Cortex-A15 @ 2.0 GHz, 4x Cortex-A7 @ 1.4 GHz 
+\end{itemize}
+armv8a devices:
+\begin{itemize}
+	\item Device name: Xiaomi Mi 5s. Processor name: Snapdragon 821 (MSM8996). Processor configuration: big.LITTLE 4 cores: 2x Kryo @ 2.15 GHz, 2x Kryo @ 1.6 GHz
+	\item Device name: Xiaomi Mi Mix 2. Processor name: Snapdragon 835 (MSM8998). Processor configuration: big.LITTLE 8 cores: 4x Kryo @ 2.45 GHz, 4x Kryo @ 1.9 GHz
+\end{itemize}
+x86\_64 devices:
+\begin{itemize}
+	\item Device name: Dell XPS 13 9360. Processor name: Intel i5 8250u. Processor configuration: 4 cores (8 threads) @ 3.40 GHz
+\end{itemize}
+\subsection{Compiling commands}
+
+\begin{itemize}
+	\item Compile a floating point benchmark with the support library: \begin{verbatim}gcc -o "output_name" "benchmark_name"\end{verbatim}
+	\item Cross-compile a benchmark, useful to execute a benchmark on a smartphone with ARM processor: \begin{verbatim}arm-linux-gnueabi-gcc -static -march="arm_platform" -o 
+	"output_name" "benchmark_name"\end{verbatim}
+	\item To compile a fixed point benchmark remember to append at the end of the command: \begin{verbatim}fixed_op_64bit.c\end{verbatim}
+\end{itemize}
+
+
+\subsection{make commands}
+
+A makefile has been produced so that make can be used to compile and execute all the benchmarks at once:
+
+\begin{itemize}
+	\item Initialize the project directory with support folders:\begin{verbatim}make init\end{verbatim}
+	\item Compile all the benchmarks: \begin{verbatim}make\end{verbatim}
+	\item Execute all the benchmarks: \begin{verbatim}make run\end{verbatim}
+	\item Clear the project directory: \begin{verbatim}make clean\end{verbatim}
+\end{itemize}
+
+Note: the makefile supports gcc compilation as is, but it needs to be modified for cross compilation. Detailed instructions are available inside the makefile.
+
+\subsection{Additional commands}
+
+These commands are used to run benchmarks with a stress test running on the CPU cache
+
+\begin{itemize}
+	\item Stress the CPU cache on a specific set of CPUs:\begin{verbatim}taskset -c cpu_list stress-ng --cache N \end{verbatim} where cpu\_list is the select cluster (start\_CPU - end\_CPU) and N is the number of worker threads (1 thread for each CPU core)
+	\item Execute the benchmarks on a specific set of CPUs: \begin{verbatim}taskset -c cpu_list\end{verbatim}
+\end{itemize}
+
+\section{Design and Implementation}
+
+\subsection{Benchmarks}
+
+To investigate this issue, we selected 6 floating point benchmarks from \href{http://www.mrtc.mdh.se/projects/wcet/benchmarks.html}{mrtc.mdh.se}.
+These are the selected benchmarks:
+\begin{enumerate}
+	\item ludcmp: implementation of the \href{https://en.wikipedia.org/wiki/LU_decomposition}{LU decomposition} algorithm
+	\item minver: inversion of a floating point matrix
+	\item qsort: non-recursive implementation of quick sort algorithm
+	\item qurt: root computation of quadratic equations
+	\item select: function to select the ${N}^{th}$ largest number in a floating point array
+	\item sqrt: square root function implemented by Taylor series
+\end{enumerate}
+
+Since there is no automatic way in C to convert floating point operations into fixed point, we have defined rules to convert floating point benchmarks into fixed points.
+\begin{enumerate}
+	\item Convert all the floating values into fixed point values in a fair way, keeping the same variable dimension:
+	\begin{itemize}
+		\item float $\rightarrow$ int32\_t	
+		\item double $\rightarrow$ int64\_t
+	\end{itemize}
+	\item Multiply every floating point value by ${2}^{SHIFT\_AMOUNT}$.
+	\item Convert every multiplication and division into the corresponding fixed point function
+	\begin{itemize}
+		\item multiplication $\rightarrow$ fixed\_mul\_64bit	
+		\item division $\rightarrow$ fixed\_div\_64bit
+	\end{itemize}
+\end{enumerate}
+
+Moreover, all benchmarks are executed on random generated numbers, except qurt which computes multiple times the inversion of a matrix. 
+\subsection{Sampling of the benchmarks}
+
+Original benchmarks have no built-in method to obtain the elapsed execution time. We have implemented and integrated in C a function which randomly generates arguments for the benchmark and measures the elapsed time.
+Measurements are stored in a .txt files for future analysis.
+
+This is an example of the main function:
+\begin{itemize}
+	\item srand() is used to generate random numbers, using a seed to keep track of generated numbers
+	\item EXEC\_NUM is a constant which regulates the number of samples generated. In our case, we generate 100.000 samples.
+	\item function\_to\_call(val) is the benchmark function with the argument.
+	\item diff(timespec,timespec) is a support function which makes the difference between two time instants.
+	\item CLOCK\_MONOTONIC\_RAW is used to get the time instant from the system without alterations (even from ntp)
+	\item SHIFT\_AMOUNT is used to convert floating point values into fixed points, an higher SHIFT\_AMOUNT means an higher precision.
+\end{itemize}
+\begin{lstlisting}
+int main()
+{
+	struct timespec start,end;
+	FILE * fp;
+	fp = fopen ("benchmark_results.txt","w");
+	int64_t val;
+	srand(5);
+	for (int i=0; i< EXEC_NUM ; i++){
+		//convert float to int64 only if the benchmark is fixed point, if not no conversion is done
+		val = (int64_t)((((rand() % 10000) / 100) - 50) * pow(2,SHIFT_AMOUNT));
+		
+		clock_gettime(CLOCK_MONOTONIC_RAW, &start);
+		function_to_call(val);
+		clock_gettime(CLOCK_MONOTONIC_RAW, &end);
+		
+		fprintf (fp, "%lld\n",(long long)(diff(start,end).tv_sec * pow(10,9))+(long long)diff(start,end).tv_nsec);
+	}
+	
+	fclose (fp);
+	return 0;
+}
+\end{lstlisting}
+
+\subsection{Fixed point operations}
+
+Since we have analysed different architectures we had to take into account the limitations of the selected architectures.
+x86\_64 have the support for 128-bit variables, which are necessary to compute multiplications and divisions. Instead, ARM architectures have no support for 128-bit variables, so we implemented a support library to handle this discrepancy.
+The library automatically select the operations by checking if the architecture support 128-bit integers, if there is no support, the benchmark will use a portable implementation of multiplication and division which are based on 64-bit integers.\newline
+
+fixed\_div for 128bit support
+
+\begin{lstlisting}
+int64_t fixed_div_64(int64_t x, int64_t y, int shift_amount)
+{
+    return ((((__int128)x << shift_amount) / y));
+}
+\end{lstlisting}
+
+fixed\_mul for 128bit support
+
+\begin{lstlisting}
+int64_t fixed_mul_64(int64_t x, int64_t y, int shift_amount)
+{
+	return (int64_t)((((__int128)x * (__int128)y)) >> shift_amount);
+}
+\end{lstlisting}
+
+
+
+\subsection{Statistics used}
+To compare floating point results to fixed point results we computed through a Python script 8 metrics useful to analyse the predictability of a benchmark.
+
+\begin{enumerate}
+	\item Minimum execution time
+	\item Maximum execution time
+	\item Sample mean, which is computed as: $$\xoverline[0.8]{x} = \frac{X_1 + X_2 + \cdots + X_n}{n}
+	= \frac{1}{n}\sum_{i}^{n} X_i$$
+	\item Sample variance, which is computed as:$${s}^{2} = \frac{\sqrt{\sum_{i}^{n} {(x_i - \xoverline[0.8]{x})}^{2}}}{n-1}$$
+	\item Sample standard deviation, which is computed as: 
+	$$s = \frac{\sqrt{\sum_{i}^{n} (x_i - \xoverline[0.8]{x})}}{n-1}$$
+	\item KPSS test statistic, which is computed as:$$S = \frac{{T}^{-2}\sum_{t=1}^{T} {\hat{S}_t}^{2}}{\sigma_\epsilon}$$
+	Where:
+	\begin{itemize}
+		\item T is the sample size
+		\item ${\sigma_\epsilon}$ is the long-run variance
+		\item ${\hat{S}_t} = \sum_{i}^{t}e(t)$ is the partial sum of the errors of the regression $y(t)$
+	\end{itemize}
+	\item BDS test statistic, which is computed as: $$BDS_{\epsilon,m} = \frac{\sqrt{N}[C_{\epsilon,m}-{(C_{\epsilon,1})}^{m}]}{\sqrt{V_{\epsilon,m}}}$$
+	Where:
+	\begin{itemize}
+		\item $C_{\epsilon,m} = \frac{1}{N_m(N_m-1)}\sum_{i\not=j}{I_{i,j;\epsilon}}$\\[0.1cm]
+		Where:
+		\begin{itemize}
+			\item m is the number of embedding dimensions, used to embed the time series into m-dimensional vectors.
+			\item ${I_{i,j;\epsilon}} = 1 \;\; if ||{x}^{m}_i - {x}^{m}_j|| <= \epsilon  \;\; = 0 \;\; otherwise$
+		\end{itemize}
+		
+		\item $V_{\epsilon,m} = 4[{K}^{m} + 2\sum_{j=1}^{m-1}{K}^{m-j}{C}^{2j}_\epsilon + {(m-1)}^{2}{C}^{2m}_\epsilon - {m}^{2}K{C}^{2m-2}_\epsilon]$
+		Where:
+		\begin{itemize}
+			\item $K=K_\epsilon = \frac{6}{N_m(N_m-1)*(N_m-2)}\sum_{i<j<N}h_{i,j,N;\epsilon}$
+			\item $h_{i,j,N;\epsilon} = \frac{[I_{i,j;\epsilon}I_{j,N;\epsilon}+I_{i,N;\epsilon}I_{N,j;\epsilon}+I_{j,i;\epsilon}I_{i,N;\epsilon}]}{3}$
+		\end{itemize}
+	\end{itemize}
+	We know under some hypothesis, that the quantity $[C_{\epsilon,m}-{(C_{\epsilon,1})}^{m}]$ can be considered as an asymptotic normal distribution with zero mean and variance $V_{\epsilon,m}$
+	\item Hurst exponent, which is computed as:
+	$\operatorname{E} \left [ \frac{R(n)}{S(n)} \right ]=C n^H  \text{  as } n \to \infty  \, $
+	Where:
+	\begin{itemize}
+		\item $R(n)$ is the range of the first n cumulative deviations from the mean, and $s(n)$ is their standard deviation
+		\item $\operatorname{E} \left [x \right ] \,$ is the expected value
+		\item n is the time span of the observation (number of data points in a time series)
+		\item C is a constant.
+	\end{itemize}
+\end{enumerate}
+
+We are interested in execution time predictability, so we need to compare how much the measurements are spread through sample standard deviation and sample variance.
+\href{http://debis.deu.edu.tr/userweb//onder.hanedar/dosyalar/kpss.pdf}{KPSS} test statistic is a one tailed test, which indicates if the time series is stationary around a mean or a linear trend. A stationary time series have constant statistical properties (like mean and variance) over time.
+\begin{itemize}
+	\item Null hypothesis: the data is stationary
+	\item Alternative hypothesis: the data is not stationary
+\end{itemize}
+Instead, \href{https://www.researchgate.net/publication/46554708_A_Fast_Algorithm_for_the_BDS_Statistic}{BDS} statistic is a double tailed test, which indicates if the time series is serial dependent.
+\begin{itemize}
+ 	\item Null hypothesis: the data is independently and identically distributed (I.I.D.)
+ 	\item Alternative hypothesis: the data is not I.I.D.
+\end{itemize}
+
+Since BDS test statistic complexity increase with the sample size, it can't be done on all the samples at once, instead we compute it using a sliding window on the samples and then select the maximum BDS obtained.\newline
+
+Hurst exponent is used to determine if a time series have a long-range dependence:
+\begin{itemize}
+	\item If the Hurst exponent is included in the 0.5-1 range, the time series have a long-term positive autocorrelation.
+	\item If the Hurst exponent is equal to 0.5, we have two cases:
+	\begin{itemize}
+		\item A completely uncorrelated time series.
+		\item The absolute values of the autocorrelations of the time series decay exponentially to zero.
+	\end{itemize}
+	\item If the Hurst exponent is included in the 0.5-1 range, the time series have alternating high and low values in adjacent pairs, this tendency lasts a long time in the future.
+\end{itemize}
+
+
+
+\section{Experimental Results}
+
+\section{Conclusions}
+
+\end{document}
