@@ -9,8 +9,8 @@
   * Every folder contain 12 `.txt` files, 2 for each benchmark (one is fixed point the other one is floating).  
     The naming convention is: `name_of_the_benchmark_[floating|fixed]_results.txt`.
   * Each `.txt` file contains 100.000 measurements.
-* ### \_bench folders:
-  * We have 4 or 6 `.c` files for each benchmark. If the benchmark uses multiplications or divisions we have 6 files, otherwise we have 4 files.
+* ### benchmarks folder:
+  * We have a folder for each benchmark, each one contains 4 or 6 `.c` files. If the benchmark uses multiplications or divisions we have 6 files, otherwise we have 4 files.
   * `name_of_the_benchmark_source.c` is the source version of the benchmark available at: [mrtc.mdh.se](http://www.mrtc.mdh.se/projects/wcet/benchmarks.html).
   * `name_of_the_benchmark_fixed.c` is the fixed point version of the benchmark.
   * `name_of_the_benchmark_bench_floating.c` is the source benchmark modified with a main and a support function to obtain the measurements.

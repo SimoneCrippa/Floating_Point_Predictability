@@ -155,7 +155,6 @@ Dr. Federico \textsc{Reghenzani} % Supervisor's Name
 
 
 \begin{abstract}
-\textcolor{red}{Your abstract. - Summarize your work.}
 
 This project aims to investigate floating point vs fixed point predictability.
 
@@ -167,8 +166,6 @@ Finally, we computed and analysed 8 statistics to find out if floating point ope
 \end{abstract}
 
 \section{Introduction}
-
-\textcolor{red}{Your introduction goes here! Some examples of commonly used commands and features are listed below, to help you get started.}
 
 In this section we describe the devices used for the benchmarks and all the commands used to process the benchmarks.
 
@@ -322,13 +319,20 @@ int64_t fixed_mul_64(int64_t x, int64_t y, int shift_amount)
 \end{lstlisting}
 
 \textbf{fixed\_div without 128-bit support}\newline
-To implement the divison mantaining the 128 bit precision needed during the divison operation,  the dividend is splitted into two 64 bit integers. Then the divison is perfomed using the technique that can be found at this \href{https://codereview.stackexchange.com/questions/67962/mostly-portable-128-by-64-bit-division}{link}.\newline
+To implement the division mantaining the 128 bit precision needed during the division operation,  the dividend is split into two 64 bit integers. Then the division is perfomed using the technique that can be found at this \href{https://codereview.stackexchange.com/questions/67962/mostly-portable-128-by-64-bit-division}{link}.\newline
 
 \textbf{fixed\_mul without 128-bit support}\newline
-To implement the multiplication mantaining the 128 bit precision needed during the multiplication operation,  the two factors are splitted into two 64 bit integers each. Then the multiplication is perfomed using the technique that can be found at this \href{https://stackoverflow.com/questions/31652875/fastest-way-to-multiply-two-64-bit-ints-to-128-bit-then-to-64-bit}{link}.
+To implement the multiplication mantaining the 128 bit precision needed during the multiplication operation,  the two factors are split into two 64 bit integers each. Then the multiplication is perfomed using the technique that can be found at this \href{https://stackoverflow.com/questions/31652875/fastest-way-to-multiply-two-64-bit-ints-to-128-bit-then-to-64-bit}{link}.
 
-
-
+\subsection{Benchmarks perturbation}
+To explore another scenario, benchmarks have been sampled with a perturbation on the CPU cache. It was done through the command \textit{stress-ng} as described in the section 1.4 \textit{Additional commands}.
+This perturbation is relevant for our inspection because it adds a source of unpredictability which is the cache miss.\newline
+On all architectures except for big.LITTLE architecture \textit{stress-ng} was running with a number of working threads equal to the processor number of cores minus one. Instead, on big.LITTLE architectures there are 2 cases:
+\begin{itemize}
+	\item \textit{stress-ng} running on the same cluster in which the benchmark is running. Number of working threads is the number of cores in the cluster minus one.
+	\item  \textit{stress-ng} running on the other cluster in which the benchmark is running. Number of working threads is the number of cores in the cluster.
+\end{itemize}
+Note: \textit{stress-ng} was not run on armv8a processor since it was not available for Android.
 \subsection{Statistics used}
 To compare floating point results to fixed point results we computed through a Python script 8 metrics useful to analyse the predictability of a benchmark.
 
@@ -403,13 +407,40 @@ Hurst Exponent is used to measure the long-term memory of a time series:
 
 
 \section{Experimental Results}
+
+Out of the eight metrics, we choose to analyse six of them, which gives us a complete point of view of the problem.
+To measure performances we included three histograms of the mean, this is not strictly related to our goal, but it gives us a more complete view over the scenario.
+To analyse how much the measurements are spread we have done three histograms of the standard deviation of the benchmarks.
+Instead, for BDS and KPSS test, we run a Python script \textit{statistics\_test.py}, which gives us a complete report on these statistics test. Moreover, it analyse the Hurst Exponent; these three statistics are useful to determine if the time series is predictable.
+\subsection{Mean}
+
+As shown in these histograms, two benchmarks \textit{select} and \textit{qsort-exam} have higher performance in fixed-point since they do not use multiplications and divisions. In fact, both benchmarks order an array and \textit{select} also find a element inside the array.\newline
+\textbf{Intel x86\_64 mean histogram}\newline
+\hspace*{-3.2cm}
+\includegraphics[width=570pt]{intel_mean_histogram.pdf}
+\clearpage
+
+\textbf{Smartphones armv8a mean histogram}\newline
+\hspace*{-3.2cm}
+\includegraphics[width=570pt]{smartphones_mean_histogram.pdf}
+\clearpage
+
+\textbf{Freescale i.MX6 and ODROID XU3 mean histogram}\newline
+\hspace*{-3.2cm}
+\includegraphics[width=570pt]{boards_mean_histogram.pdf}
+\clearpage
+
+
+
+
+\subsection{Standard Deviation}
 Now a series of histrograms are displayed to better comprehend the behaviour of the different architectures.
 These histrograms show the standard deviation expressed in microseconds for each benchmark and each processor.
 Note: that the x scale is logaritmic.\newline
 
-\textbf{Intel x86\_64 histogram}\newline
+\textbf{Intel x86\_64 standard deviation histogram}\newline
 \hspace*{-3.2cm}
-\includegraphics[width=570pt]{intel_histogram.pdf}
+\includegraphics[width=570pt]{intel_stddev_histogram.pdf}
 \clearpage
 In the previous histogram we can identify the following singularities:
 Comparing fixed point vs floating point operations:
@@ -425,9 +456,9 @@ Comparing fixed point vs floating point operations with stress:
 \end{itemize}
 
 \clearpage
-\textbf{Smartphones ARMv8a histogram}\newline
+\textbf{Smartphones armv8a standard deviation histogram}\newline
 \hspace*{-3.2cm}
-\includegraphics[width=570pt]{smartphones_histogram.pdf}
+\includegraphics[width=570pt]{smartphones_stddev_histogram.pdf}
 \clearpage
 In the previous histogram we can identify the following singularities:
 Comparing fixed point vs floating point operations on the big cluster:
@@ -442,23 +473,66 @@ Comparing fixed point vs floating point operations on the LITTLE cluster:
 \end{itemize}
 
 \clearpage
-\textbf{Freescale IMX6 and Odroid XU3 histogram}\newline
+\textbf{Freescale i.MX 6 and ODROID XU3 standard deviation histogram}\newline
 \hspace*{-3.2cm}
-\includegraphics[width=570pt]{boards_histogram.pdf}
+\includegraphics[width=570pt]{boards_stddev_histogram.pdf}
 \clearpage
 In the previous histogram we can identify the following singularities:
-Comparing fixed point vs floating point operations on the Freescale IMX6 and the Odroid XU3 big and LITTLE cluster:
+Comparing fixed point vs floating point operations on the Freescale i.MX 6 and the ODROID XU3 big and LITTLE cluster:
 \begin{itemize}
 		\item In the benchmarks \textit{sqrt}, \textit{qurt}, \textit{minver}, \textit{ludcmp} fixed point operations have a larger standard deviation.
 		\item In the benchmark \textit{select} fixed point operations have a smaller standard deviation.
-		\item In the benchmark \textit{qsort\_exam} we observe conflicting behaviours between the two processors (Odroid XU3 has lower standard deviation for fixed point operations, Freescale IMX6 has an higher standard deviation).
+		\item In the benchmark \textit{qsort\_exam} we observe conflicting behaviours between the two processors (ODROID XU3 has lower standard deviation for fixed point operations, Freescale i.MX 6 has an higher standard deviation).
 \end{itemize}
-Comparing fixed point vs floating point operations with stress on the Freescale IMX6 and the Odroid XU3 big and LITTLE cluster:
+Comparing fixed point vs floating point operations with stress on the Freescale i.MX 6 and the ODRIOD XU3 big and LITTLE cluster:
 \begin{itemize}
 		\item In the benchmarks \textit{sqrt}, \textit{qurt}, \textit{minver}, \textit{ludcmp} fixed point operations have a larger standard deviation.
-		\item In the benchmarks \textit{select}, \textit{qsort\_exam} we observe conflicting behaviours between the two processors (In the \textit{select} benchmark the Odroid XU3 running on the LITTLE cluster and stressed on this cluster has a higher standard deviation, the same for the Freescale IMX6 under stress. The exact same behaviour is observed with the benchmark \textit{qsort\_exam}).
+		\item In the benchmarks \textit{select}, \textit{qsort\_exam} we observe conflicting behaviours between the two processors (In the \textit{select} benchmark the ODROID XU3 running on the LITTLE cluster and stressed on this cluster has a higher standard deviation, the same for the Freescale i.MX 6 under stress. The exact same behaviour is observed with the benchmark \textit{qsort\_exam}).
 \end{itemize}
 
+\subsection{KPSS}
+In the provided \href{../statistics/tests\_results.txt}{report} we can see that:
+\begin{itemize}
+	\item Out of 96 floating point benchmarks, 76 have passed the KPSS test with a 5\% significance level, so we cannot reject the null hypothesis H0.
+	\item Out of 96 fixed point benchmarks, 68 have passed the KPSS test with a 5\% significance level, so we cannot reject the null hypothesis H0.
+\end{itemize}
+As we can see, we have an higher percentage of floating point benchmarks which have passed the KPSS test, so we can say that the time series generated by floating point benchmarks have an higher probability of being stationary.\newline
+Note: in the report we have also the results for 2.5\% and 1\% significance levels.
+
+\subsection{BDS}
+From the generated report, we can see that no benchmark has passed the BDS test. This was predictable, since we expected that the benchmarks results are not I.I.D..
+
+\subsection{Hurst Exponent}
+The Hurst Exponent is not a statistic test, but depending on the value we have a different behaviour of the time series.\newline
+Range 0.5-1, positive autocorrelation:
+\begin{itemize}
+	\item Out of 96 floating point benchmarks, 86 have an Hurst Exponent in this range.
+	\item Out of 96 fixed point benchmarks, 93 have an Hurst Exponent in this range.
+\end{itemize}
+There is no benchmark which have exactly 0.5 as Hurst Exponent, so in the range 0-0.5, in which we have a long-term switching behaviour we have:
+\begin{itemize}
+	\item Out of 96 floating point benchmarks, 10 have an Hurst Exponent in this range.
+	\item Out of 96 fixed point benchmarks, 3 have an Hurst Exponent in this range.
+\end{itemize}
+
+We can conclude that fixed point benchmarks measurements have an higher probability to compose a time series with a long-term positive autocorrelation.
+
 \section{Conclusions}
+It is needed to differentiate the set of benchmarks, because depending on the complexity of the benchmark floating point operations are more predictable with respect to fixed point operations.\newline
+We have to take into account that our implementations of multiplication and division, in both 128-bit supported and not supported version, guarantee a quite high level of precision.
+To support such an high level of precision we had to use 128-bit registers or complex procedures, that affect both performance and predictability of fixed point benchmarks. We assume that if a lower level of precision is acceptable fixed point benchmarks would have produced better results on computing intensive benchmarks.
+ 
+\subsection{Computing intensive benchmarks}
+We identified two benchmarks, \textit{qurt} and \textit{ludcmp}, that execute a large number of divisions and multiplications; in these benchmarks the fixed point versions have always an higher standard deviation and lower performances with respect to their floating point version, under every circumstance (platform, cluster and stress).
+Instead, \textit{sqrt} and \textit{minver} benchmarks are also computing intensive but in this case often, but not always, the fixed point versions have an higher standard deviation and lower performances.
+
+\subsection{Light computing benchmarks}
+We identified two benchmarks, \textit{qsort\_exam} and \textit{select}, that do not execute any divisions or multiplications between fixed or floating point values; in these benchmarks the fixed point versions have often a lower standard deviation and always higher performances with respect to their floating point versions.\newline
+We assume that addition and subtraction between integers is less demanding and then more predictable than the corresponding operations between floats.
+
+\subsection{Statistics tests \& Hurst Exponent}
+Different considerations hold for statistics test, as said before, no benchmark accepted the null hypothesis of the BDS test, so there is no time series in which the data are I.I.D., as expected.
+Moreover, the Hurst Exponent have highlighted that fixed point benchmarks have an higher probability of generating a time-series in which the consecutives values are similar between them. This implies that given a sample of the time-series we have an higher probability to predict the next sample in fixed point benchmarks.\newline
+Finally, KPSS test null hypothesis was rejected by more fixed-point benchmarks than floating-point benchmarks, so we can assume that we have an higher probability of generating a stationary time-series when using a floating-point benchmark.
 
 \end{document}

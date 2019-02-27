@@ -267,7 +267,7 @@ Hurst Exponent: 0.8564286866514724
 Analyzing intel_i57200u_x8664/ludcmp_fixed_results.txt
 minimum: 418
 maximum: 570646
-average: 112151.8175
+mean: 112151.8175
 variance: 14353681000.381773
 standard deviation: 119807.447759
 KPSS: 0.05751162111818756
@@ -278,7 +278,7 @@ Hurst Exponent: 0.9984349871658689
 Analyzing intel_i57200u_x8664/ludcmp_floating_results.txt
 minimum: 324
 maximum: 253070
-average: 43390.95477
+mean: 43390.95477
 variance: 2111427610.197264
 standard deviation: 45950.5029862
 KPSS: 0.0906161891080179
@@ -289,7 +289,7 @@ Hurst Exponent: 0.998438333834188
 Analyzing intel_i57200u_x8664/minver_fixed_results.txt
 minimum: 1276
 maximum: 8598
-average: 1326.7402
+mean: 1326.7402
 variance: 3184.22492396
 standard deviation: 56.4292190849
 KPSS: 0.941518860632891
@@ -300,7 +300,7 @@ Hurst Exponent: 0.8319072580081206
 Analyzing intel_i57200u_x8664/minver_floating_results.txt
 minimum: 866
 maximum: 3854
-average: 905.67457
+mean: 905.67457
 variance: 1382.2360853150997
 standard deviation: 37.1786216503
 KPSS: 0.08845630786168722
@@ -311,7 +311,7 @@ Hurst Exponent: 0.8812695215352903
 Analyzing intel_i57200u_x8664/qsort_exam_fixed_results.txt
 minimum: 699
 maximum: 16569
-average: 902.51301
+mean: 902.51301
 variance: 6759.083350739901
 standard deviation: 82.2140556246
 KPSS: 0.0781430350483244
@@ -322,7 +322,7 @@ Hurst Exponent: 0.9344066887360156
 Analyzing intel_i57200u_x8664/qsort_exam_floating_results.txt
 minimum: 728
 maximum: 31253
-average: 931.22995
+mean: 931.22995
 variance: 16626.2399529975
 standard deviation: 128.943422543
 KPSS: 0.25206810055751094
@@ -333,7 +333,7 @@ Hurst Exponent: 0.8909587527193575
 Analyzing intel_i57200u_x8664/qurt_fixed_results.txt
 minimum: 294
 maximum: 6629
-average: 741.99921
+mean: 741.99921
 variance: 7111.3974693759
 standard deviation: 84.3295237984
 KPSS: 0.13899052458717678
@@ -344,7 +344,7 @@ Hurst Exponent: 0.9651044723956047
 Analyzing intel_i57200u_x8664/qurt_floating_results.txt
 minimum: 296
 maximum: 9699
-average: 418.86415
+mean: 418.86415
 variance: 1897.1044547775
 standard deviation: 43.5559803702
 KPSS: 0.3296914390654105
@@ -355,7 +355,7 @@ Hurst Exponent: 0.8903389225914284
 Analyzing intel_i57200u_x8664/select_fixed_results.txt
 minimum: 360
 maximum: 10528
-average: 665.83358
+mean: 665.83358
 variance: 12293.8577843836
 standard deviation: 110.878224752
 KPSS: 0.335208224335717
@@ -366,7 +366,7 @@ Hurst Exponent: 0.9833814510439056
 Analyzing intel_i57200u_x8664/select_floating_results.txt
 minimum: 357
 maximum: 6314
-average: 686.95027
+mean: 686.95027
 variance: 12216.8271769271
 standard deviation: 110.530309628
 KPSS: 0.13055167049362687
@@ -377,7 +377,7 @@ Hurst Exponent: 0.988468916957766
 Analyzing intel_i57200u_x8664/sqrt_fixed_results.txt
 minimum: 306
 maximum: 9323
-average: 502.47234
+mean: 502.47234
 variance: 3203.4997349244004
 standard deviation: 56.59975062
 KPSS: 0.2965472436356285
@@ -388,7 +388,7 @@ Hurst Exponent: 0.9356982708577576
 Analyzing intel_i57200u_x8664/sqrt_floating_results.txt
 minimum: 299
 maximum: 8746
-average: 459.4216
+mean: 459.4216
 variance: 6399.053513439999
 standard deviation: 79.9944842137
 KPSS: 0.05087813660140527
@@ -399,7 +399,7 @@ Hurst Exponent: 0.9805685738220468
 Analyzing intel_i57200u_x8664_stress/ludcmp_fixed_results.txt
 minimum: 415
 maximum: 599722
-average: 112019.1024
+mean: 112019.1024
 variance: 14292661665.620138
 standard deviation: 119552.51814
 KPSS: 0.07908227798035483
@@ -410,7 +410,7 @@ Hurst Exponent: 0.9984443833816181
 Analyzing intel_i57200u_x8664_stress/ludcmp_floating_results.txt
 minimum: 324
 maximum: 188650
-average: 43609.89334
+mean: 43609.89334
 variance: 2131369584.5623634
 standard deviation: 46166.9892723
 KPSS: 0.08851076269990857
@@ -421,7 +421,7 @@ Hurst Exponent: 0.9984394349772361
 Analyzing intel_i57200u_x8664_stress/minver_fixed_results.txt
 minimum: 1280
 maximum: 8763
-average: 1326.61124
+mean: 1326.61124
 variance: 2776.9559456623997
 standard deviation: 52.6970939948
 KPSS: 0.9312687816970197
@@ -432,7 +432,7 @@ Hurst Exponent: 0.8456229862138664
 Analyzing intel_i57200u_x8664_stress/minver_floating_results.txt
 minimum: 863
 maximum: 4237
-average: 901.80241
+mean: 901.80241
 variance: 999.9552081918999
 standard deviation: 31.6222264846
 KPSS: 0.21510685739463145
@@ -443,7 +443,7 @@ Hurst Exponent: 0.9002827062671188
 Analyzing intel_i57200u_x8664_stress/qsort_exam_fixed_results.txt
 minimum: 719
 maximum: 6849
-average: 895.97554
+mean: 895.97554
 variance: 3207.0854217083997
 standard deviation: 56.6314178958
 KPSS: 0.9620432606053243
@@ -454,7 +454,7 @@ Hurst Exponent: 0.9680410297418609
 Analyzing intel_i57200u_x8664_stress/qsort_exam_floating_results.txt
 minimum: 736
 maximum: 7948
-average: 930.39841
+mean: 930.39841
 variance: 3717.8707794718994
 standard deviation: 60.9746501306
 KPSS: 0.41369641535585944
@@ -465,7 +465,7 @@ Hurst Exponent: 0.9705809267575057
 Analyzing intel_i57200u_x8664_stress/qurt_fixed_results.txt
 minimum: 294
 maximum: 4422
-average: 740.21224
+mean: 740.21224
 variance: 6351.194574182401
 standard deviation: 79.6947808
 KPSS: 0.4491657684237487
@@ -476,7 +476,7 @@ Hurst Exponent: 0.9727642412232161
 Analyzing intel_i57200u_x8664_stress/qurt_floating_results.txt
 minimum: 296
 maximum: 14615
-average: 418.96971
+mean: 418.96971
 variance: 3072.931712515901
 standard deviation: 55.4343074471
 KPSS: 0.2860859316110332
@@ -487,7 +487,7 @@ Hurst Exponent: 0.8945748472300455
 Analyzing intel_i57200u_x8664_stress/select_fixed_results.txt
 minimum: 341
 maximum: 3450
-average: 665.23847
+mean: 665.23847
 variance: 10733.7962820591
 standard deviation: 103.604554056
 KPSS: 0.14648833299533834
@@ -498,7 +498,7 @@ Hurst Exponent: 0.9925842242506886
 Analyzing intel_i57200u_x8664_stress/select_floating_results.txt
 minimum: 358
 maximum: 4298
-average: 686.95083
+mean: 686.95083
 variance: 11830.015272311099
 standard deviation: 108.76641749
 KPSS: 0.3727792931283914
@@ -509,7 +509,7 @@ Hurst Exponent: 0.9912774275397364
 Analyzing intel_i57200u_x8664_stress/sqrt_fixed_results.txt
 minimum: 307
 maximum: 6541
-average: 501.79604
+mean: 501.79604
 variance: 2424.0039803184
 standard deviation: 49.2344210954
 KPSS: 0.08658095063786236
@@ -520,7 +520,7 @@ Hurst Exponent: 0.9537665141571792
 Analyzing intel_i57200u_x8664_stress/sqrt_floating_results.txt
 minimum: 297
 maximum: 6177
-average: 459.67198
+mean: 459.67198
 variance: 5793.507322879599
 standard deviation: 76.1154731873
 KPSS: 0.10923985213221811
@@ -531,7 +531,7 @@ Hurst Exponent: 0.9875430021544951
 Analyzing intel_i58250u_x8664/ludcmp_fixed_results.txt
 minimum: 377
 maximum: 653315
-average: 109093.24352
+mean: 109093.24352
 variance: 13646981871.33944
 standard deviation: 116820.881449
 KPSS: 1.0231533300867837
@@ -542,7 +542,7 @@ Hurst Exponent: 0.9613284220367864
 Analyzing intel_i58250u_x8664/ludcmp_floating_results.txt
 minimum: 304
 maximum: 473497
-average: 47092.2278
+mean: 47092.2278
 variance: 2638575154.364927
 standard deviation: 51367.3197703
 KPSS: 7.111613383042373
@@ -553,7 +553,7 @@ Hurst Exponent: 1.0056138533772578
 Analyzing intel_i58250u_x8664/minver_fixed_results.txt
 minimum: 1162
 maximum: 6450
-average: 1208.38416
+mean: 1208.38416
 variance: 3991.0693210944005
 standard deviation: 63.1752264118
 KPSS: 1.152752458797087
@@ -564,7 +564,7 @@ Hurst Exponent: 0.8160337663619655
 Analyzing intel_i58250u_x8664/minver_floating_results.txt
 minimum: 787
 maximum: 29417
-average: 841.52825
+mean: 841.52825
 variance: 83126.51490193751
 standard deviation: 288.318133622
 KPSS: 0.7446336819456204
@@ -575,7 +575,7 @@ Hurst Exponent: 0.6440149584119712
 Analyzing intel_i58250u_x8664/qsort_exam_fixed_results.txt
 minimum: 643
 maximum: 51659
-average: 842.34432
+mean: 842.34432
 variance: 267744.6119637376
 standard deviation: 517.443030136
 KPSS: 2.3736535847020663
@@ -586,7 +586,7 @@ Hurst Exponent: 0.7069985886243454
 Analyzing intel_i58250u_x8664/qsort_exam_floating_results.txt
 minimum: 669
 maximum: 26715
-average: 866.71615
+mean: 866.71615
 variance: 92825.7582191775
 standard deviation: 304.674722427
 KPSS: 1.834845206552926
@@ -597,7 +597,7 @@ Hurst Exponent: 0.7665549010679379
 Analyzing intel_i58250u_x8664/qurt_fixed_results.txt
 minimum: 267
 maximum: 51657
-average: 714.57012
+mean: 714.57012
 variance: 216757.87108318557
 standard deviation: 465.574954957
 KPSS: 22.161184862214114
@@ -608,7 +608,7 @@ Hurst Exponent: 0.8022650488667727
 Analyzing intel_i58250u_x8664/qurt_floating_results.txt
 minimum: 268
 maximum: 14239
-average: 383.19863
+mean: 383.19863
 variance: 6653.420216123098
 standard deviation: 81.5689079919
 KPSS: 2.711763071308085
@@ -619,7 +619,7 @@ Hurst Exponent: 0.7963209156501826
 Analyzing intel_i58250u_x8664/select_fixed_results.txt
 minimum: 321
 maximum: 26172
-average: 611.90797
+mean: 611.90797
 variance: 60118.0746204791
 standard deviation: 245.191100587
 KPSS: 1.010786982848061
@@ -630,7 +630,7 @@ Hurst Exponent: 0.8746813046299355
 Analyzing intel_i58250u_x8664/select_floating_results.txt
 minimum: 320
 maximum: 17991
-average: 628.35125
+mean: 628.35125
 variance: 17578.810653437497
 standard deviation: 132.585770139
 KPSS: 0.2555903856884113
@@ -641,7 +641,7 @@ Hurst Exponent: 0.9580878910798533
 Analyzing intel_i58250u_x8664/sqrt_fixed_results.txt
 minimum: 277
 maximum: 26906
-average: 867.84635
+mean: 867.84635
 variance: 241566.29920167747
 standard deviation: 491.496403739
 KPSS: 0.23700396734103665
@@ -652,7 +652,7 @@ Hurst Exponent: 0.964697626005386
 Analyzing intel_i58250u_x8664/sqrt_floating_results.txt
 minimum: 384
 maximum: 34466
-average: 677.77042
+mean: 677.77042
 variance: 105963.4317530236
 standard deviation: 325.521875452
 KPSS: 47.70011110698387
@@ -663,7 +663,7 @@ Hurst Exponent: 0.8741815338988449
 Analyzing intel_i58250u_x8664_stress/ludcmp_fixed_results.txt
 minimum: 378
 maximum: 1082883
-average: 104314.58921
+mean: 104314.58921
 variance: 12545357944.14002
 standard deviation: 112006.622121
 KPSS: 3.860645041704604
@@ -674,7 +674,7 @@ Hurst Exponent: 0.9981728011506087
 Analyzing intel_i58250u_x8664_stress/ludcmp_floating_results.txt
 minimum: 296
 maximum: 802853
-average: 40394.89831
+mean: 40394.89831
 variance: 1875393422.554629
 standard deviation: 43306.029334
 KPSS: 0.0814260512729973
@@ -685,7 +685,7 @@ Hurst Exponent: 0.9977215620401376
 Analyzing intel_i58250u_x8664_stress/minver_fixed_results.txt
 minimum: 1167
 maximum: 8457
-average: 1213.30165
+mean: 1213.30165
 variance: 4448.093657277501
 standard deviation: 66.6943636199
 KPSS: 0.03752166180080239
@@ -696,7 +696,7 @@ Hurst Exponent: 0.7909544555378928
 Analyzing intel_i58250u_x8664_stress/minver_floating_results.txt
 minimum: 790
 maximum: 5630
-average: 834.50894
+mean: 834.50894
 variance: 3605.358400076401
 standard deviation: 60.0449369558
 KPSS: 1.6349095112513397
@@ -707,7 +707,7 @@ Hurst Exponent: 0.8195907658871676
 Analyzing intel_i58250u_x8664_stress/qsort_exam_fixed_results.txt
 minimum: 624
 maximum: 209697
-average: 825.04894
+mean: 825.04894
 variance: 521052.7663648764
 standard deviation: 721.843457368
 KPSS: 0.2817969943970073
@@ -718,7 +718,7 @@ Hurst Exponent: 0.7108416136397291
 Analyzing intel_i58250u_x8664_stress/qsort_exam_floating_results.txt
 minimum: 657
 maximum: 45696
-average: 856.04288
+mean: 856.04288
 variance: 178521.2376813056
 standard deviation: 422.519849133
 KPSS: 0.02841876247611208
@@ -729,7 +729,7 @@ Hurst Exponent: 0.687517357569972
 Analyzing intel_i58250u_x8664_stress/qurt_fixed_results.txt
 minimum: 266
 maximum: 152731
-average: 698.50854
+mean: 698.50854
 variance: 449098.2873870683
 standard deviation: 670.15131009
 KPSS: 8.352341872670243
@@ -740,7 +740,7 @@ Hurst Exponent: 0.7737856933930752
 Analyzing intel_i58250u_x8664_stress/qurt_floating_results.txt
 minimum: 268
 maximum: 38761
-average: 381.60987
+mean: 381.60987
 variance: 28688.548568583097
 standard deviation: 169.377789149
 KPSS: 0.062317383465313146
@@ -751,7 +751,7 @@ Hurst Exponent: 0.7760888356985459
 Analyzing intel_i58250u_x8664_stress/select_fixed_results.txt
 minimum: 318
 maximum: 9653
-average: 609.46748
+mean: 609.46748
 variance: 10936.752922449597
 standard deviation: 104.57945444
 KPSS: 0.6658476628351494
@@ -762,7 +762,7 @@ Hurst Exponent: 0.9793782374316458
 Analyzing intel_i58250u_x8664_stress/select_floating_results.txt
 minimum: 318
 maximum: 18914
-average: 627.55335
+mean: 627.55335
 variance: 17758.7037337775
 standard deviation: 133.262452786
 KPSS: 0.42890526402053103
@@ -773,7 +773,7 @@ Hurst Exponent: 0.957209184078743
 Analyzing intel_i58250u_x8664_stress/sqrt_fixed_results.txt
 minimum: 279
 maximum: 7990
-average: 860.13713
+mean: 860.13713
 variance: 148506.1641853631
 standard deviation: 385.366902136
 KPSS: 0.08989211312248534
@@ -784,7 +784,7 @@ Hurst Exponent: 0.9968692322318475
 Analyzing intel_i58250u_x8664_stress/sqrt_floating_results.txt
 minimum: 271
 maximum: 35138
-average: 432.96505
+mean: 432.96505
 variance: 67680.90774849751
 standard deviation: 260.156846084
 KPSS: 8.266862823586495

@@ -1,0 +1,778 @@
+KPSS Test:
+
+Significance level: 5%
+
+A total of 68 on 96 fixed benchmarks have accepted the KPSS H0 hypothesis
+A total of 76 on 96 floating benchmarks have accepted the KPSS H0 hypothesis
+
+Device name: freescale_IMX6_armv7l
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: qsort_exam_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_floating
+
+Device name: freescale_IMX6_armv7l_stress
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_fixed
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: intel_i57200u_x8664
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: intel_i57200u_x8664_stress
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: intel_i58250u_x8664
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+
+Device name: intel_i58250u_x8664_stress
+Benchmark name: ludcmp_floating
+Benchmark name: minver_fixed
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_floating
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+
+Device name: odriod_xu3_armv7l_big
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: odriod_xu3_armv7l_little_stress_little
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: odroid_xu3_armv7l_big_stress_big
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_fixed
+Benchmark name: qurt_fixed
+Benchmark name: sqrt_fixed
+
+Device name: odroid_xu3_armv7l_big_stress_little
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: odroid_xu3_armv7l_little
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: odroid_xu3_armv7l_little_stress_big
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: qualcomm_snapdragon_821_armv8a_big
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_floating
+Benchmark name: qurt_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: qualcomm_snapdragon_821_armv8a_little
+Benchmark name: ludcmp_floating
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: sqrt_fixed
+
+Device name: qualcomm_snapdragon_835_armv8a_big
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: qualcomm_snapdragon_835_armv8a_little
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_fixed
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Significance level: 2.5%
+
+A total of 69 on 96 fixed benchmarks have accepted the KPSS H0 hypothesis
+A total of 76 on 96 floating benchmarks have accepted the KPSS H0 hypothesis
+
+Device name: freescale_IMX6_armv7l
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: qsort_exam_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_floating
+
+Device name: freescale_IMX6_armv7l_stress
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_fixed
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: intel_i57200u_x8664
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: intel_i57200u_x8664_stress
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: intel_i58250u_x8664
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+
+Device name: intel_i58250u_x8664_stress
+Benchmark name: ludcmp_floating
+Benchmark name: minver_fixed
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_floating
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+
+Device name: odriod_xu3_armv7l_big
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: odriod_xu3_armv7l_little_stress_little
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: odroid_xu3_armv7l_big_stress_big
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_fixed
+Benchmark name: qurt_fixed
+Benchmark name: sqrt_fixed
+
+Device name: odroid_xu3_armv7l_big_stress_little
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: odroid_xu3_armv7l_little
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: odroid_xu3_armv7l_little_stress_big
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: qualcomm_snapdragon_821_armv8a_big
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_floating
+Benchmark name: qurt_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: qualcomm_snapdragon_821_armv8a_little
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: sqrt_fixed
+
+Device name: qualcomm_snapdragon_835_armv8a_big
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: qualcomm_snapdragon_835_armv8a_little
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_fixed
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Significance level: 1%
+
+A total of 73 on 96 fixed benchmarks have accepted the KPSS H0 hypothesis
+A total of 78 on 96 floating benchmarks have accepted the KPSS H0 hypothesis
+
+Device name: freescale_IMX6_armv7l
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: freescale_IMX6_armv7l_stress
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_fixed
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: intel_i57200u_x8664
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: intel_i57200u_x8664_stress
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: intel_i58250u_x8664
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+
+Device name: intel_i58250u_x8664_stress
+Benchmark name: ludcmp_floating
+Benchmark name: minver_fixed
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+
+Device name: odriod_xu3_armv7l_big
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: odriod_xu3_armv7l_little_stress_little
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: odroid_xu3_armv7l_big_stress_big
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_fixed
+Benchmark name: qurt_fixed
+Benchmark name: sqrt_fixed
+
+Device name: odroid_xu3_armv7l_big_stress_little
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: odroid_xu3_armv7l_little
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_fixed
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: odroid_xu3_armv7l_little_stress_big
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: qualcomm_snapdragon_821_armv8a_big
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_floating
+Benchmark name: qurt_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: qualcomm_snapdragon_821_armv8a_little
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: qualcomm_snapdragon_835_armv8a_big
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: qualcomm_snapdragon_835_armv8a_little
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_fixed
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+BDS Test:
+Significance level: 2.5%
+A total of 0 on 96 fixed benchmarks have accepted the BDS H0 hypothesis
+A total of 0 on 96 floating benchmarks have accepted the BDS H0 hypothesis
+Significance level: 1%
+A total of 0 on 96 fixed benchmarks have accepted the BDS H0 hypothesis
+A total of 0 on 96 floating benchmarks have accepted the BDS H0 hypothesis
+Significance level: 0.05%
+A total of 0 on 96 fixed benchmarks have accepted the BDS H0 hypothesis
+A total of 0 on 96 floating benchmarks have accepted the BDS H0 hypothesis
+
+Hurst Exponent:
+A total of 93 on 96 fixed benchmarks have Hurst exponent > 0.5
+A total of 86 on 96 floating benchmarks have Hurst exponent > 0.5
+
+Device name: freescale_IMX6_armv7l
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_fixed
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: freescale_IMX6_armv7l_stress
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: intel_i57200u_x8664
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_fixed
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: intel_i57200u_x8664_stress
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_fixed
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: intel_i58250u_x8664
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_fixed
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: intel_i58250u_x8664_stress
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_fixed
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: odriod_xu3_armv7l_big
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_fixed
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: odriod_xu3_armv7l_little_stress_little
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: odroid_xu3_armv7l_big_stress_big
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_fixed
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: odroid_xu3_armv7l_big_stress_little
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_fixed
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: odroid_xu3_armv7l_little
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_fixed
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: odroid_xu3_armv7l_little_stress_big
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_fixed
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: qualcomm_snapdragon_821_armv8a_big
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_fixed
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: qualcomm_snapdragon_821_armv8a_little
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_fixed
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: qualcomm_snapdragon_835_armv8a_big
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_fixed
+Benchmark name: minver_floating
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
+
+Device name: qualcomm_snapdragon_835_armv8a_little
+Benchmark name: ludcmp_fixed
+Benchmark name: ludcmp_floating
+Benchmark name: minver_fixed
+Benchmark name: qsort_exam_fixed
+Benchmark name: qsort_exam_floating
+Benchmark name: qurt_fixed
+Benchmark name: qurt_floating
+Benchmark name: select_fixed
+Benchmark name: select_floating
+Benchmark name: sqrt_fixed
+Benchmark name: sqrt_floating
