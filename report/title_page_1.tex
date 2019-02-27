@@ -97,7 +97,7 @@
 %----------------------------------------------------------------------------------------
 
 \textsc{\LARGE Politecnico di Milano}\\[1.5cm] % Name of your university/college
-\textsc{\Large Dipartimento di Elettronica, Informazione e Bioingegneria}\\[0.5cm] % Major heading such as course name
+\textsc{\Large Dipartimento Elettronica, Informazione e Bioingegneria}\\[0.5cm] % Major heading such as course name
 \textsc{\large HEAPLab Project Report}\\[0.5cm] % Minor heading such as course title
 
 %----------------------------------------------------------------------------------------
@@ -291,11 +291,14 @@ int main()
 
 \subsection{Fixed point operations}
 
+To support fixed point operations we had to introduce a shift amount, so that floating point numbers can be represented as integers with a fixed precision, given by the shift amount.\newline
 Since we have analysed different architectures we had to take into account the limitations of the selected architectures.
 x86\_64 have the support for 128-bit variables, which are necessary to compute multiplications and divisions. Instead, ARM architectures have no support for 128-bit variables, so we implemented a support library to handle this discrepancy.
 The library automatically select the operations by checking if the architecture support 128-bit integers, if there is no support, the benchmark will use a portable implementation of multiplication and division which are based on 64-bit integers.\newline
+Our implementation of fixed division and multiplication works with a variable shift amount, in our benchmarks we have always used a shift amount of 30 because in our scenario it allows to have the necessary precision.\newline
+Note: to guarantee fairness we use hard-coded values for constants in benchmarks that are shifted by 30-bits, even though operations supports dynamical shift amounts these values have to be modified to comply with the new selected shift amount.\newline
 
-fixed\_div for 128bit support
+\textbf{fixed\_div for 128-bit support}
 
 \begin{lstlisting}
 int64_t fixed_div_64(int64_t x, int64_t y, int shift_amount)
@@ -304,7 +307,7 @@ int64_t fixed_div_64(int64_t x, int64_t y, int shift_amount)
 }
 \end{lstlisting}
 
-fixed\_mul for 128bit support
+\textbf{fixed\_mul for 128-bit support}
 
 \begin{lstlisting}
 int64_t fixed_mul_64(int64_t x, int64_t y, int shift_amount)
@@ -312,6 +315,12 @@ int64_t fixed_mul_64(int64_t x, int64_t y, int shift_amount)
 	return (int64_t)((((__int128)x * (__int128)y)) >> shift_amount);
 }
 \end{lstlisting}
+
+\textbf{fixed\_div without 128-bit support}\newline
+To implement the divison mantaining the 128 bit precision needed during the divison operation,  the dividend is splitted into two 64 bit integers. Then the divison is perfomed using the technique that can be found at this \href{https://codereview.stackexchange.com/questions/67962/mostly-portable-128-by-64-bit-division}{link}.
+
+\textbf{fixed\_mul without 128-bit support}\newline
+To implement the multiplication mantaining the 128 bit precision needed during the multiplication operation,  the two factors are splitted into two 64 bit integers each. Then the multiplication is perfomed using the technique that can be found at this \href{https://stackoverflow.com/questions/31652875/fastest-way-to-multiply-two-64-bit-ints-to-128-bit-then-to-64-bit}{link}.
 
 
 
@@ -374,18 +383,7 @@ Instead, \href{https://www.researchgate.net/publication/46554708_A_Fast_Algorith
  	\item Alternative hypothesis: the data is not I.I.D.
 \end{itemize}
 
-Since BDS test statistic complexity increase with the sample size, it can't be done on all the samples at once, instead we compute it using a sliding window on the samples and then select the maximum BDS obtained.\newline
-
-Hurst exponent is used to determine if a time series have a long-range dependence:
-\begin{itemize}
-	\item If the Hurst exponent is included in the 0.5-1 range, the time series have a long-term positive autocorrelation.
-	\item If the Hurst exponent is equal to 0.5, we have two cases:
-	\begin{itemize}
-		\item A completely uncorrelated time series.
-		\item The absolute values of the autocorrelations of the time series decay exponentially to zero.
-	\end{itemize}
-	\item If the Hurst exponent is included in the 0.5-1 range, the time series have alternating high and low values in adjacent pairs, this tendency lasts a long time in the future.
-\end{itemize}
+Since BDS test statistic complexity increase with the sample size, it can't be done on all the samples at once, instead we compute it using a sliding window on the samples and then select the maximum BDS obtained.
 
 
 
