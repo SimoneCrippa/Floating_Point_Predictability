@@ -41,6 +41,8 @@
 \usepackage{xcolor}
 \usepackage{amssymb}
 \usepackage{hyperref}
+\usepackage{pdfpages}
+
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -97,7 +99,7 @@
 %----------------------------------------------------------------------------------------
 
 \textsc{\LARGE Politecnico di Milano}\\[1.5cm] % Name of your university/college
-\textsc{\Large Dipartimento Elettronica, Informazione e Bioingegneria}\\[0.5cm] % Major heading such as course name
+\textsc{\Large Dipartimento di Elettronica, Informazione e Bioingegneria}\\[0.5cm] % Major heading such as course name
 \textsc{\large HEAPLab Project Report}\\[0.5cm] % Minor heading such as course title
 
 %----------------------------------------------------------------------------------------
@@ -168,12 +170,12 @@ Finally, we computed and analysed 8 statistics to find out if floating point ope
 
 \textcolor{red}{Your introduction goes here! Some examples of commonly used commands and features are listed below, to help you get started.}
 
-In this paragraph we describe all the commands used to process the benchmarks.
+In this section we describe the devices used for the benchmarks and all the commands used to process the benchmarks.
 
 \subsection{Devices used}
 
 To have a better view of the problem, we decided to get samples from devices with different architecture.
-In this project, we considered 3 architectures and 5 devices.\newline 
+In this project, we considered 3 architectures and 6 devices.\newline 
 armv7l devices:
 \begin{itemize}
 	\item Device name: Freescale i.MX 6 Quad. Processor configuration: 4x Cortex-A9 @ 1.2 GHz
@@ -186,15 +188,17 @@ armv8a devices:
 \end{itemize}
 x86\_64 devices:
 \begin{itemize}
-	\item Device name: Dell XPS 13 9360. Processor name: Intel i5 8250u. Processor configuration: 4 cores (8 threads) @ 3.40 GHz
+	\item Device name: Dell XPS 13 9360. Processor name: Intel i5 8250U. Processor configuration: 4 cores (8 threads) @ 3.40 GHz
+	\item Device name: Dell Vostro 15 3568. Processor name: Intel i5 7200U.
+	Processor configuration: 2 cores (4 threads) @ 3.10 GHz
 \end{itemize}
 \subsection{Compiling commands}
 
 \begin{itemize}
-	\item Compile a floating point benchmark with the support library: \begin{verbatim}gcc -o "output_name" "benchmark_name"\end{verbatim}
+	\item Compile a floating point benchmark: \begin{verbatim}gcc -o "output_name" "benchmark_name"\end{verbatim}
 	\item Cross-compile a benchmark, useful to execute a benchmark on a smartphone with ARM processor: \begin{verbatim}arm-linux-gnueabi-gcc -static -march="arm_platform" -o 
 	"output_name" "benchmark_name"\end{verbatim}
-	\item To compile a fixed point benchmark remember to append at the end of the command: \begin{verbatim}fixed_op_64bit.c\end{verbatim}
+	\item To compile a fixed point benchmark remember to append at the end of the command the library used for fixed point operations: \begin{verbatim}fixed_op_64bit.c\end{verbatim}
 \end{itemize}
 
 
@@ -227,12 +231,12 @@ These commands are used to run benchmarks with a stress test running on the CPU 
 To investigate this issue, we selected 6 floating point benchmarks from \href{http://www.mrtc.mdh.se/projects/wcet/benchmarks.html}{mrtc.mdh.se}.
 These are the selected benchmarks:
 \begin{enumerate}
-	\item ludcmp: implementation of the \href{https://en.wikipedia.org/wiki/LU_decomposition}{LU decomposition} algorithm
-	\item minver: inversion of a floating point matrix
-	\item qsort: non-recursive implementation of quick sort algorithm
-	\item qurt: root computation of quadratic equations
-	\item select: function to select the ${N}^{th}$ largest number in a floating point array
-	\item sqrt: square root function implemented by Taylor series
+	\item \textbf{ludcmp}: implementation of the \href{https://en.wikipedia.org/wiki/LU_decomposition}{LU decomposition} algorithm
+	\item \textbf{minve}r: inversion of a floating point matrix
+	\item \textbf{qsort\_exam}: non-recursive implementation of quick sort algorithm
+	\item \textbf{qurt}: root computation of quadratic equations
+	\item \textbf{select}: function to select the ${N}^{th}$ largest number in a floating point array
+	\item \textbf{sqrt}: square root function implemented by Taylor series
 \end{enumerate}
 
 Since there is no automatic way in C to convert floating point operations into fixed point, we have defined rules to convert floating point benchmarks into fixed points.
@@ -242,28 +246,29 @@ Since there is no automatic way in C to convert floating point operations into f
 		\item float $\rightarrow$ int32\_t	
 		\item double $\rightarrow$ int64\_t
 	\end{itemize}
-	\item Multiply every floating point value by ${2}^{SHIFT\_AMOUNT}$.
-	\item Convert every multiplication and division into the corresponding fixed point function
+	\item Multiply every floating point value by ${2}^{SHIFT\_AMOUNT}$, where SHIFT\_AMOUNT defines the precision of the fixed point values.
+	\item Convert every multiplication and division into the corresponding fixed point function:
 	\begin{itemize}
 		\item multiplication $\rightarrow$ fixed\_mul\_64bit	
 		\item division $\rightarrow$ fixed\_div\_64bit
 	\end{itemize}
 \end{enumerate}
 
-Moreover, all benchmarks are executed on random generated numbers, except qurt which computes multiple times the inversion of a matrix. 
+Moreover, all benchmarks are executed on random generated numbers, except qurt which computes multiple times the inversion of a matrix.\newline
+Note: random numbers are generated setting a common seed using the \textit{srand()} function, so that every benchmark in its floating and fixed version works on the same values.
 \subsection{Sampling of the benchmarks}
 
 Original benchmarks have no built-in method to obtain the elapsed execution time. We have implemented and integrated in C a function which randomly generates arguments for the benchmark and measures the elapsed time.
-Measurements are stored in a .txt files for future analysis.
+Measurements are stored in text files for future analysis.
 
 This is an example of the main function:
 \begin{itemize}
-	\item srand() is used to generate random numbers, using a seed to keep track of generated numbers
+	\item srand() is used to generate random numbers, using a seed to keep track of generated numbers.
 	\item EXEC\_NUM is a constant which regulates the number of samples generated. In our case, we generate 100.000 samples.
 	\item function\_to\_call(val) is the benchmark function with the argument.
 	\item diff(timespec,timespec) is a support function which makes the difference between two time instants.
 	\item CLOCK\_MONOTONIC\_RAW is used to get the time instant from the system without alterations (even from ntp)
-	\item SHIFT\_AMOUNT is used to convert floating point values into fixed points, an higher SHIFT\_AMOUNT means an higher precision.
+	\item SHIFT\_AMOUNT is used to convert floating point values into fixed points, an higher SHIFT\_AMOUNT means an higher decimal precision.
 \end{itemize}
 \begin{lstlisting}
 int main()
@@ -317,7 +322,7 @@ int64_t fixed_mul_64(int64_t x, int64_t y, int shift_amount)
 \end{lstlisting}
 
 \textbf{fixed\_div without 128-bit support}\newline
-To implement the divison mantaining the 128 bit precision needed during the divison operation,  the dividend is splitted into two 64 bit integers. Then the divison is perfomed using the technique that can be found at this \href{https://codereview.stackexchange.com/questions/67962/mostly-portable-128-by-64-bit-division}{link}.
+To implement the divison mantaining the 128 bit precision needed during the divison operation,  the dividend is splitted into two 64 bit integers. Then the divison is perfomed using the technique that can be found at this \href{https://codereview.stackexchange.com/questions/67962/mostly-portable-128-by-64-bit-division}{link}.\newline
 
 \textbf{fixed\_mul without 128-bit support}\newline
 To implement the multiplication mantaining the 128 bit precision needed during the multiplication operation,  the two factors are splitted into two 64 bit integers each. Then the multiplication is perfomed using the technique that can be found at this \href{https://stackoverflow.com/questions/31652875/fastest-way-to-multiply-two-64-bit-ints-to-128-bit-then-to-64-bit}{link}.
@@ -328,21 +333,21 @@ To implement the multiplication mantaining the 128 bit precision needed during t
 To compare floating point results to fixed point results we computed through a Python script 8 metrics useful to analyse the predictability of a benchmark.
 
 \begin{enumerate}
-	\item Minimum execution time
-	\item Maximum execution time
-	\item Sample mean, which is computed as: $$\xoverline[0.8]{x} = \frac{X_1 + X_2 + \cdots + X_n}{n}
+	\item Minimum execution time, computed through the Python built-in function \textit{min()}
+	\item Maximum execution time, computed through the Python built-in function \textit{max()}
+	\item Sample mean, computed through the Python module numpy as \textit{numpy.mean()}, the formula is: $$\xoverline[0.8]{x} = \frac{X_1 + X_2 + \cdots + X_n}{n}
 	= \frac{1}{n}\sum_{i}^{n} X_i$$
-	\item Sample variance, which is computed as:$${s}^{2} = \frac{\sqrt{\sum_{i}^{n} {(x_i - \xoverline[0.8]{x})}^{2}}}{n-1}$$
-	\item Sample standard deviation, which is computed as: 
+	\item Sample variance, computed through the Python module numpy as \textit{numpy.var()}, the formula is:$${s}^{2} = \frac{\sqrt{\sum_{i}^{n} {(x_i - \xoverline[0.8]{x})}^{2}}}{n-1}$$
+	\item Sample standard deviation, computed through the Python module statistics as \textit{statistics.stdev()}, the formula is:
 	$$s = \frac{\sqrt{\sum_{i}^{n} (x_i - \xoverline[0.8]{x})}}{n-1}$$
-	\item KPSS test statistic, which is computed as:$$S = \frac{{T}^{-2}\sum_{t=1}^{T} {\hat{S}_t}^{2}}{\sigma_\epsilon}$$
+	\item KPSS test statistic, computed through the Python module statsmodels as \textit{statsmodels.tsa.stattools.kpss()}, the formula is:$$S = \frac{{T}^{-2}\sum_{t=1}^{T} {\hat{S}_t}^{2}}{\sigma_\epsilon}$$
 	Where:
 	\begin{itemize}
 		\item T is the sample size
 		\item ${\sigma_\epsilon}$ is the long-run variance
 		\item ${\hat{S}_t} = \sum_{i}^{t}e(t)$ is the partial sum of the errors of the regression $y(t)$
 	\end{itemize}
-	\item BDS test statistic, which is computed as: $$BDS_{\epsilon,m} = \frac{\sqrt{N}[C_{\epsilon,m}-{(C_{\epsilon,1})}^{m}]}{\sqrt{V_{\epsilon,m}}}$$
+	\item BDS test statistic, computed through the Python module statsmodels as \textit{statsmodels.tsa.stattools.bds()}, the formula is: $$BDS_{\epsilon,m} = \frac{\sqrt{N}[C_{\epsilon,m}-{(C_{\epsilon,1})}^{m}]}{\sqrt{V_{\epsilon,m}}}$$
 	Where:
 	\begin{itemize}
 		\item $C_{\epsilon,m} = \frac{1}{N_m(N_m-1)}\sum_{i\not=j}{I_{i,j;\epsilon}}$\\[0.1cm]
@@ -360,9 +365,9 @@ To compare floating point results to fixed point results we computed through a P
 		\end{itemize}
 	\end{itemize}
 	We know under some hypothesis, that the quantity $[C_{\epsilon,m}-{(C_{\epsilon,1})}^{m}]$ can be considered as an asymptotic normal distribution with zero mean and variance $V_{\epsilon,m}$
-	\item Hurst exponent, which is computed as:
+	\item Hurst exponent, computed through the Python module hurst as \textit{compute\_Hc(array, kind='change', simplified=True)}, the formula is:\newline
 	$\operatorname{E} \left [ \frac{R(n)}{S(n)} \right ]=C n^H  \text{  as } n \to \infty  \, $
-	Where:
+	\newline Where:
 	\begin{itemize}
 		\item $R(n)$ is the range of the first n cumulative deviations from the mean, and $s(n)$ is their standard deviation
 		\item $\operatorname{E} \left [x \right ] \,$ is the expected value
@@ -383,11 +388,76 @@ Instead, \href{https://www.researchgate.net/publication/46554708_A_Fast_Algorith
  	\item Alternative hypothesis: the data is not I.I.D.
 \end{itemize}
 
-Since BDS test statistic complexity increase with the sample size, it can't be done on all the samples at once, instead we compute it using a sliding window on the samples and then select the maximum BDS obtained.
+Since BDS test statistic complexity increase with the sample size, it can't be done on all the samples at once, instead we compute it using a sliding window on the samples and then select the maximum BDS obtained.\newline
+Hurst Exponent is used to measure the long-term memory of a time series:
+\begin{enumerate}
+	\item If the Hurst Exponent is in the 0.5-1 range, we have a time series with long-term positive autocorrelation, meaning that an high value in the series will be followed by another high value and also the future values will tend to be high.
+	\item If the Hurst Exponent is in the 0-0.5 range, we have a time series with long-term switching between high and low values so a single high value will probably be followed by a low value and also the future values will keep this tendency to switch between high and low values.
+	\item If the Hurst Exponent is equal to 0.5, we have 2 different scenarios:
+	\begin{itemize}
+		\item A completely uncorrelated series
+		\item A time series with alternating positive and negative autocorrelation but the absolute values of the autocorrelation decay exponentially to zero.
+	\end{itemize}
+\end{enumerate}
 
 
 
 \section{Experimental Results}
+Now a series of histrograms are displayed to better comprehend the behaviour of the different architectures.
+These histrograms show the standard deviation expressed in microseconds for each benchmark and each processor.
+Note: that the x scale is logaritmic.\newline
+
+\textbf{Intel x86\_64 histogram}\newline
+\hspace*{-3.2cm}
+\includegraphics[width=570pt]{intel_histogram.pdf}
+\clearpage
+In the previous histogram we can identify the following singularities:
+Comparing fixed point vs floating point operations:
+\begin{itemize}
+		\item In the benchmarks \textit{select}, \textit{qurt}, \textit{ludcmp} fixed point operations have a larger standard deviation.
+		\item In the benchmarks \textit{sqrt}, \textit{qsort\_exam}, \textit{minver} we observe conflicting behaviours between the two processors (ex: in the \textit{qsort\_exam} benchmark the Intel i5 7200U has a lower standard deviation for the fixed point benchamark with respect to the floating point one. Instead the Intel i5 8250U has the opposite behaviour).
+\end{itemize}
+Comparing fixed point vs floating point operations with stress:
+\begin{itemize}
+		\item In the benchmarks \textit{qurt}, \textit{minver}, \textit{ludcmp} fixed point operations have a larger standard deviation.
+		\item In the benchmark \textit{select} fixed point operations have a smaller standard deviation.
+		\item In the benchmarks \textit{sqrt}, \textit{qsort\_exam} we observe conflicting behaviours between the two processors.
+\end{itemize}
+
+\clearpage
+\textbf{Smartphones ARMv8a histogram}\newline
+\hspace*{-3.2cm}
+\includegraphics[width=570pt]{smartphones_histogram.pdf}
+\clearpage
+In the previous histogram we can identify the following singularities:
+Comparing fixed point vs floating point operations on the big cluster:
+\begin{itemize}
+		\item In the benchmarks \textit{sqrt}, \textit{qurt}, \textit{minver}, \textit{ludcmp} fixed point operations have a larger standard deviation.
+		\item In the benchmarks \textit{select}, \textit{qsort\_exam} fixed point operations have a smaller standard deviation.
+\end{itemize}
+Comparing fixed point vs floating point operations on the LITTLE cluster:
+\begin{itemize}
+		\item In the benchmarks \textit{sqrt}, \textit{qurt}, \textit{minver}, \textit{ludcmp} fixed point operations have a larger standard deviation.
+		\item In the benchmarks \textit{select}, \textit{qsort\_exam} we observe conflicting behaviours between the two processors.
+\end{itemize}
+
+\clearpage
+\textbf{Freescale IMX6 and Odroid XU3 histogram}\newline
+\hspace*{-3.2cm}
+\includegraphics[width=570pt]{boards_histogram.pdf}
+\clearpage
+In the previous histogram we can identify the following singularities:
+Comparing fixed point vs floating point operations on the Freescale IMX6 and the Odroid XU3 big and LITTLE cluster:
+\begin{itemize}
+		\item In the benchmarks \textit{sqrt}, \textit{qurt}, \textit{minver}, \textit{ludcmp} fixed point operations have a larger standard deviation.
+		\item In the benchmark \textit{select} fixed point operations have a smaller standard deviation.
+		\item In the benchmark \textit{qsort\_exam} we observe conflicting behaviours between the two processors (Odroid XU3 has lower standard deviation for fixed point operations, Freescale IMX6 has an higher standard deviation).
+\end{itemize}
+Comparing fixed point vs floating point operations with stress on the Freescale IMX6 and the Odroid XU3 big and LITTLE cluster:
+\begin{itemize}
+		\item In the benchmarks \textit{sqrt}, \textit{qurt}, \textit{minver}, \textit{ludcmp} fixed point operations have a larger standard deviation.
+		\item In the benchmarks \textit{select}, \textit{qsort\_exam} we observe conflicting behaviours between the two processors (In the \textit{select} benchmark the Odroid XU3 running on the LITTLE cluster and stressed on this cluster has a higher standard deviation, the same for the Freescale IMX6 under stress. The exact same behaviour is observed with the benchmark \textit{qsort\_exam}).
+\end{itemize}
 
 \section{Conclusions}
 
