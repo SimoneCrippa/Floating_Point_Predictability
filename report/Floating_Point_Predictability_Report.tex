@@ -158,11 +158,11 @@ Dr. Federico \textsc{Reghenzani} % Supervisor's Name
 
 This project aims to investigate floating point vs fixed point predictability.
 
-To achieve this result, we have used 6 Worst Case Execution Time (WCET) benchmarks which involve a large number of floating point instructions.
-We converted these benchmarks using only fixed point variables and then we added the logic to obtain multiple measurements.
+To achieve this result, we have used six Worst Case Execution Time (WCET) benchmarks which involve a large number of floating point instructions.
+We converted these benchmarks using only fixed point variables and then we added the logic to obtain multiple measurements. To obtain a general overview of the problem, these benchmarks were executed on different devices with different architectures and where it was possible with a perturbation, obtaining distinct time-series in all the possible conditions.
 
-Finally, we computed and analysed 8 statistics to find out if floating point operations or fixed point operations are more predictable.
-
+Finally, we computed and analysed eight statistics to find out if floating point operations or fixed point operations are more predictable, by comparing them through histograms and statistics tests.
+\clearpage
 \end{abstract}
 
 \section{Introduction}
@@ -173,22 +173,23 @@ In this section we describe the devices used for the benchmarks and all the comm
 
 To have a better view of the problem, we decided to get samples from devices with different architecture.
 In this project, we considered 3 architectures and 6 devices.\newline 
-armv7l devices:
+\textbf{armv7l devices}:
 \begin{itemize}
-	\item Device name: Freescale i.MX 6 Quad. Processor configuration: 4x Cortex-A9 @ 1.2 GHz
-	\item Device name: ODROID-XU3. Processor name: Exynos 5422. Processor configuration: big.LITTLE 8 cores, 4x Cortex-A15 @ 2.0 GHz, 4x Cortex-A7 @ 1.4 GHz 
+	\item Device name: Freescale i.MX 6 Quad\newline Processor configuration: 4x Cortex-A9 @ 1.2 GHz
+	\item Device name: ODROID-XU3 \newline Processor name: Exynos 5422\newline Processor configuration: big.LITTLE 8 cores, 4x Cortex-A15 @ 2.0 GHz, 4x Cortex-A7 @ 1.4 GHz 
 \end{itemize}
-armv8a devices:
+\textbf{armv8a devices}:
 \begin{itemize}
-	\item Device name: Xiaomi Mi 5s. Processor name: Snapdragon 821 (MSM8996). Processor configuration: big.LITTLE 4 cores: 2x Kryo @ 2.15 GHz, 2x Kryo @ 1.6 GHz
-	\item Device name: Xiaomi Mi Mix 2. Processor name: Snapdragon 835 (MSM8998). Processor configuration: big.LITTLE 8 cores: 4x Kryo @ 2.45 GHz, 4x Kryo @ 1.9 GHz
+	\item Device name: Xiaomi Mi 5s\newline Processor name: Snapdragon 821 (MSM8996) \newline Processor configuration: big.LITTLE 4 cores: 2x Kryo @ 2.15 GHz, 2x Kryo @ 1.6 GHz
+	\item Device name: Xiaomi Mi Mix 2\newline Processor name: Snapdragon 835 (MSM8998)\newline Processor configuration: big.LITTLE 8 cores: 4x Kryo @ 2.45 GHz, 4x Kryo @ 1.9 GHz
 \end{itemize}
-x86\_64 devices:
+\textbf{x86\_64 devices}:
 \begin{itemize}
-	\item Device name: Dell XPS 13 9360. Processor name: Intel i5 8250U. Processor configuration: 4 cores (8 threads) @ 3.40 GHz
-	\item Device name: Dell Vostro 15 3568. Processor name: Intel i5 7200U.
-	Processor configuration: 2 cores (4 threads) @ 3.10 GHz
+	\item Device name: Dell XPS 13 9360\newline Processor name: Intel i5 8250U \newline Processor configuration: 4 cores (8 threads) @ 3.40 GHz
+	\item Device name: Dell Vostro 15 3568 \newline Processor name: Intel i5 7200U
+	\newline Processor configuration: 2 cores (4 threads) @ 3.10 GHz
 \end{itemize}
+\clearpage
 \subsection{Compiling commands}
 
 \begin{itemize}
@@ -217,10 +218,10 @@ Note: the makefile supports gcc compilation as is, but it needs to be modified f
 These commands are used to run benchmarks with a stress test running on the CPU cache
 
 \begin{itemize}
-	\item Stress the CPU cache on a specific set of CPUs:\begin{verbatim}taskset -c cpu_list stress-ng --cache N \end{verbatim} where cpu\_list is the select cluster (start\_CPU - end\_CPU) and N is the number of worker threads (1 thread for each CPU core)
-	\item Execute the benchmarks on a specific set of CPUs: \begin{verbatim}taskset -c cpu_list\end{verbatim}
+	\item Stress the CPU cache on a specific set of CPUs:\begin{verbatim}taskset -c cpu_list stress-ng --cache N \end{verbatim} where cpu\_list is the selected cluster (start\_CPU - end\_CPU) and N is the number of worker threads (1 thread for each CPU core)
+	\item Execute the benchmarks on a specific set of CPUs: \begin{verbatim}taskset -c cpu_list "benchmark_to_execute"\end{verbatim}
 \end{itemize}
-
+\clearpage
 \section{Design and Implementation}
 
 \subsection{Benchmarks}
@@ -229,7 +230,7 @@ To investigate this issue, we selected 6 floating point benchmarks from \href{ht
 These are the selected benchmarks:
 \begin{enumerate}
 	\item \textbf{ludcmp}: implementation of the \href{https://en.wikipedia.org/wiki/LU_decomposition}{LU decomposition} algorithm
-	\item \textbf{minve}r: inversion of a floating point matrix
+	\item \textbf{minver}: inversion of a floating point matrix
 	\item \textbf{qsort\_exam}: non-recursive implementation of quick sort algorithm
 	\item \textbf{qurt}: root computation of quadratic equations
 	\item \textbf{select}: function to select the ${N}^{th}$ largest number in a floating point array
@@ -238,12 +239,13 @@ These are the selected benchmarks:
 
 Since there is no automatic way in C to convert floating point operations into fixed point, we have defined rules to convert floating point benchmarks into fixed points.
 \begin{enumerate}
-	\item Convert all the floating values into fixed point values in a fair way, keeping the same variable dimension:
+	\item Convert all the floating point values into fixed point values in a fair way, keeping the same variable dimension:
 	\begin{itemize}
 		\item float $\rightarrow$ int32\_t	
 		\item double $\rightarrow$ int64\_t
 	\end{itemize}
 	\item Multiply every floating point value by ${2}^{SHIFT\_AMOUNT}$, where SHIFT\_AMOUNT defines the precision of the fixed point values.
+	\item Convert all the hard-coded constants to their corresponding fixed point value maintaining the same SHIFT\_AMOUNT as before.
 	\item Convert every multiplication and division into the corresponding fixed point function:
 	\begin{itemize}
 		\item multiplication $\rightarrow$ fixed\_mul\_64bit	
@@ -252,20 +254,25 @@ Since there is no automatic way in C to convert floating point operations into f
 \end{enumerate}
 
 Moreover, all benchmarks are executed on random generated numbers, except qurt which computes multiple times the inversion of a matrix.\newline
-Note: random numbers are generated setting a common seed using the \textit{srand()} function, so that every benchmark in its floating and fixed version works on the same values.
+Note: random numbers are generated setting a common seed using the \textit{srand()} function, so that every benchmark in its floating and fixed version works on the same input values.
 \subsection{Sampling of the benchmarks}
 
+Time samples from the benchmarks are generated by executing the previous benchmarks on the devices indicated in section \textit{Devices used} (1.1) with different configurations:
+\begin{itemize}
+	\item For big.LITTLE architectures, samples have been generated considering the big cluster and the LITTLE cluster.
+	\item For armv7l and x86\_64, samples have been generated also by applying a perturbation on the CPU (more on the that in section 2.4 \textit{Benchmarks perturbation})
+\end{itemize}
 Original benchmarks have no built-in method to obtain the elapsed execution time. We have implemented and integrated in C a function which randomly generates arguments for the benchmark and measures the elapsed time.
 Measurements are stored in text files for future analysis.
 
 This is an example of the main function:
 \begin{itemize}
-	\item srand() is used to generate random numbers, using a seed to keep track of generated numbers.
-	\item EXEC\_NUM is a constant which regulates the number of samples generated. In our case, we generate 100.000 samples.
-	\item function\_to\_call(val) is the benchmark function with the argument.
-	\item diff(timespec,timespec) is a support function which makes the difference between two time instants.
-	\item CLOCK\_MONOTONIC\_RAW is used to get the time instant from the system without alterations (even from ntp)
-	\item SHIFT\_AMOUNT is used to convert floating point values into fixed points, an higher SHIFT\_AMOUNT means an higher decimal precision.
+	\item \textit{srand()} is used to generate random numbers, using a seed to generate a predictable series of numbers.
+	\item EXEC\_NUM is a constant which regulates the number of samples generated. In our case, we generate 100.000 samples by executing 100.000 times the benchmark.
+	\item \textit{function\_to\_call(val)} is the benchmark function with the argument, val is the random generated input.
+	\item \textit{diff(timespec,timespec)} is a support function which makes the difference between two time instants.
+	\item CLOCK\_MONOTONIC\_RAW is used to get the time instant from the system without alterations (even from ntp).
+	\item SHIFT\_AMOUNT is used to convert floating point values into fixed point, an higher SHIFT\_AMOUNT means an higher decimal precision.
 \end{itemize}
 \begin{lstlisting}
 int main()
@@ -293,12 +300,13 @@ int main()
 
 \subsection{Fixed point operations}
 
-To support fixed point operations we had to introduce a shift amount, so that floating point numbers can be represented as integers with a fixed precision, given by the shift amount.\newline
-Since we have analysed different architectures we had to take into account the limitations of the selected architectures.
-x86\_64 have the support for 128-bit variables, which are necessary to compute multiplications and divisions. Instead, ARM architectures have no support for 128-bit variables, so we implemented a support library to handle this discrepancy.
-The library automatically select the operations by checking if the architecture support 128-bit integers, if there is no support, the benchmark will use a portable implementation of multiplication and division which are based on 64-bit integers.\newline
-Our implementation of fixed division and multiplication works with a variable shift amount, in our benchmarks we have always used a shift amount of 30 because in our scenario it allows to have the necessary precision.\newline
-Note: to guarantee fairness we use hard-coded values for constants in benchmarks that are shifted by 30-bits, even though operations supports dynamical shift amounts these values have to be modified to comply with the new selected shift amount.\newline
+To support fixed point operations we had to introduce a shift amount, so that floating point numbers can be represented as integers with a fixed precision given by the shift amount.\newline
+In the analysed benchmarks all the divisions and multiplications were done between double precision variables, which correspond to \textit{int64\_t} fixed point variables. As a consequence, we built a library \textit{fixed\_op\_64bit.c} which supports only multiplications and divisions between \textit{int64\_t} variables. \newline
+Since we have analysed different architectures we had to take into account the limitations of the selected architectures.\newline
+x86\_64 has the support for 128-bit variables, which are necessary to compute multiplications and divisions maintaining the required precision. Instead, ARM architectures have no support for 128-bit variables, so the library is able to handle this discrepancy by using only 64-bit variables.
+The library automatically selects the operations by checking if the architecture supports 128-bit integers, if there is no support, the benchmark will use a portable implementation of multiplication and division which are based on 64-bit integers.\newline
+Our implementation of fixed division and multiplication is able to operate with a variable shift amount, but in our benchmarks we have always used a shift amount of 30 because in our scenario it allows to have the necessary precision.\newline
+Note: to guarantee fairness we used hard-coded values for constants in benchmarks that are shifted by 30-bits, even though operations supports dynamical shift amounts these values have to be modified to comply with the new selected shift amount.\newline
 
 \textbf{fixed\_div for 128-bit support}
 
@@ -319,20 +327,20 @@ int64_t fixed_mul_64(int64_t x, int64_t y, int shift_amount)
 \end{lstlisting}
 
 \textbf{fixed\_div without 128-bit support}\newline
-To implement the division mantaining the 128 bit precision needed during the division operation,  the dividend is split into two 64 bit integers. Then the division is perfomed using the technique that can be found at this \href{https://codereview.stackexchange.com/questions/67962/mostly-portable-128-by-64-bit-division}{link}.\newline
-
+To implement the division mantaining the 128 bit precision needed during the division operation,  the dividend is split into two 64 bit integers. Then the division is perfomed using the technique that can be found at this \href{https://codereview.stackexchange.com/questions/67962/mostly-portable-128-by-64-bit-division}{link}.
+\clearpage
 \textbf{fixed\_mul without 128-bit support}\newline
 To implement the multiplication mantaining the 128 bit precision needed during the multiplication operation,  the two factors are split into two 64 bit integers each. Then the multiplication is perfomed using the technique that can be found at this \href{https://stackoverflow.com/questions/31652875/fastest-way-to-multiply-two-64-bit-ints-to-128-bit-then-to-64-bit}{link}.
 
 \subsection{Benchmarks perturbation}
-To explore another scenario, benchmarks have been sampled with a perturbation on the CPU cache. It was done through the command \textit{stress-ng} as described in the section 1.4 \textit{Additional commands}.
+To explore another scenario, benchmarks have been sampled with a perturbation on the CPU cache. It was done through the command \textit{stress-ng} as described in the section 1.4 \textit{Additional commands}.\newline
 This perturbation is relevant for our inspection because it adds a source of unpredictability which is the cache miss.\newline
 On all architectures except for big.LITTLE architecture \textit{stress-ng} was running with a number of working threads equal to the processor number of cores minus one. Instead, on big.LITTLE architectures there are 2 cases:
 \begin{itemize}
-	\item \textit{stress-ng} running on the same cluster in which the benchmark is running. Number of working threads is the number of cores in the cluster minus one.
-	\item  \textit{stress-ng} running on the other cluster in which the benchmark is running. Number of working threads is the number of cores in the cluster.
+	\item \textit{stress-ng} running on the same cluster in which the benchmark is running. The number of working threads is the same of the cores in the cluster minus one.
+	\item  \textit{stress-ng} running on the other cluster in which the benchmark is running. The number of working threads is the same of the cores in the cluster.
 \end{itemize}
-Note: \textit{stress-ng} was not run on armv8a processor since it was not available for Android.
+Note: \textit{stress-ng} was not run on armv8a processors since it was not available for Android.
 \subsection{Statistics used}
 To compare floating point results to fixed point results we computed through a Python script 8 metrics useful to analyse the predictability of a benchmark.
 
@@ -341,9 +349,9 @@ To compare floating point results to fixed point results we computed through a P
 	\item Maximum execution time, computed through the Python built-in function \textit{max()}
 	\item Sample mean, computed through the Python module numpy as \textit{numpy.mean()}, the formula is: $$\xoverline[0.8]{x} = \frac{X_1 + X_2 + \cdots + X_n}{n}
 	= \frac{1}{n}\sum_{i}^{n} X_i$$
-	\item Sample variance, computed through the Python module numpy as \textit{numpy.var()}, the formula is:$${s}^{2} = \frac{\sqrt{\sum_{i}^{n} {(x_i - \xoverline[0.8]{x})}^{2}}}{n-1}$$
+	\item Sample variance, computed through the Python module numpy as \textit{numpy.var()}, the formula is:$${s}^{2} = \frac{\sum_{i}^{n} {(x_i - \xoverline[0.8]{x})}^{2}}{n-1}$$
 	\item Sample standard deviation, computed through the Python module statistics as \textit{statistics.stdev()}, the formula is:
-	$$s = \frac{\sqrt{\sum_{i}^{n} (x_i - \xoverline[0.8]{x})}}{n-1}$$
+	$$s = \frac{\sqrt{\sum_{i}^{n} {(x_i - \xoverline[0.8]{x})}^{2}}}{n-1}$$
 	\item KPSS test statistic, computed through the Python module statsmodels as \textit{statsmodels.tsa.stattools.kpss()}, the formula is:$$S = \frac{{T}^{-2}\sum_{t=1}^{T} {\hat{S}_t}^{2}}{\sigma_\epsilon}$$
 	Where:
 	\begin{itemize}
@@ -369,9 +377,9 @@ To compare floating point results to fixed point results we computed through a P
 		\end{itemize}
 	\end{itemize}
 	We know under some hypothesis, that the quantity $[C_{\epsilon,m}-{(C_{\epsilon,1})}^{m}]$ can be considered as an asymptotic normal distribution with zero mean and variance $V_{\epsilon,m}$
-	\item Hurst exponent, computed through the Python module hurst as \textit{compute\_Hc(array, kind='change', simplified=True)}, the formula is:\newline
+	\item Hurst exponent, computed through the Python module hurst as \textit{compute\_Hc(array, kind='change', simplified=True)}, the formula is:\newline\newline
 	$\operatorname{E} \left [ \frac{R(n)}{S(n)} \right ]=C n^H  \text{  as } n \to \infty  \, $
-	\newline Where:
+	\newline\newline Where:
 	\begin{itemize}
 		\item $R(n)$ is the range of the first n cumulative deviations from the mean, and $s(n)$ is their standard deviation
 		\item $\operatorname{E} \left [x \right ] \,$ is the expected value
@@ -380,7 +388,7 @@ To compare floating point results to fixed point results we computed through a P
 	\end{itemize}
 \end{enumerate}
 
-We are interested in execution time predictability, so we need to compare how much the measurements are spread through sample standard deviation and sample variance.
+We are interested in execution time predictability, so we need to compare how much the measurements are spread through sample standard deviation and sample variance, moreover, through minimum and maximum we can inspect the range of the samples.
 \href{http://debis.deu.edu.tr/userweb//onder.hanedar/dosyalar/kpss.pdf}{KPSS} test statistic is a one tailed test, which indicates if the time series is stationary around a mean or a linear trend. A stationary time series have constant statistical properties (like mean and variance) over time.
 \begin{itemize}
 	\item Null hypothesis: the data is stationary
@@ -404,20 +412,22 @@ Hurst Exponent is used to measure the long-term memory of a time series:
 	\end{itemize}
 \end{enumerate}
 
-
+\clearpage
 
 \section{Experimental Results}
 
 Out of the eight metrics, we choose to analyse six of them, which gives us a complete point of view of the problem.
 To measure performances we included three histograms of the mean, this is not strictly related to our goal, but it gives us a more complete view over the scenario.
-To analyse how much the measurements are spread we have done three histograms of the standard deviation of the benchmarks.
-Instead, for BDS and KPSS test, we run a Python script \textit{statistics\_test.py}, which gives us a complete report on these statistics test. Moreover, it analyse the Hurst Exponent; these three statistics are useful to determine if the time series is predictable.
+To analyse how much the measurements are spread we have produced three histograms of the standard deviation of the benchmarks.
+Instead, for BDS and KPSS test, we run a Python script, \textit{statistics\_test.py}, which gives us a complete report on these statistics test. Moreover, the script analyses the Hurst Exponent; these three statistics are useful to determine some properties of the time series.
+\clearpage
 \subsection{Mean}
 
-As shown in these histograms, two benchmarks \textit{select} and \textit{qsort-exam} have higher performance in fixed-point since they do not use multiplications and divisions. In fact, both benchmarks order an array and \textit{select} also find a element inside the array.\newline
+As shown in these histograms, two benchmarks, \textit{select} and \textit{qsort-exam}, have higher performances in fixed-point, in all the other cases floating point benchmarks have higher performances. This is probably caused by the fact that they do not use multiplications and divisions. In fact, both benchmarks order an array and \textit{select} benchmark also finds an element inside the array.\newline
+Note: that the x scale is logarithmic. \newline
 \textbf{Intel x86\_64 mean histogram}\newline
 \hspace*{-3.2cm}
-\includegraphics[width=570pt]{intel_mean_histogram.pdf}
+\includegraphics[width=565pt]{intel_mean_histogram.pdf}
 \clearpage
 
 \textbf{Smartphones armv8a mean histogram}\newline
@@ -434,9 +444,9 @@ As shown in these histograms, two benchmarks \textit{select} and \textit{qsort-e
 
 
 \subsection{Standard Deviation}
-Now a series of histrograms are displayed to better comprehend the behaviour of the different architectures.
-These histrograms show the standard deviation expressed in microseconds for each benchmark and each processor.
-Note: that the x scale is logaritmic.\newline
+Now a series of histograms are displayed to better comprehend the behaviour of the different architectures.
+These histograms show the standard deviation expressed in microseconds for each benchmark and each processor.\newline
+Note: that the x scale is logarithmic.\newline
 
 \textbf{Intel x86\_64 standard deviation histogram}\newline
 \hspace*{-3.2cm}
@@ -496,27 +506,27 @@ In the provided \href{../statistics/tests\_results.txt}{report} we can see that:
 	\item Out of 96 floating point benchmarks, 76 have passed the KPSS test with a 5\% significance level, so we cannot reject the null hypothesis H0.
 	\item Out of 96 fixed point benchmarks, 68 have passed the KPSS test with a 5\% significance level, so we cannot reject the null hypothesis H0.
 \end{itemize}
-As we can see, we have an higher percentage of floating point benchmarks which have passed the KPSS test, so we can say that the time series generated by floating point benchmarks have an higher probability of being stationary.\newline
-Note: in the report we have also the results for 2.5\% and 1\% significance levels.
+As we can see, an higher percentage of floating point benchmarks have passed the KPSS test, so the time series generated by floating point benchmarks have an higher probability of being stationary.\newline
+Note: in the report there are also the results for 2.5\% and 1\% significance levels.
 
 \subsection{BDS}
-From the generated report, we can see that no benchmark has passed the BDS test. This was predictable, since we expected that the benchmarks results are not I.I.D..
+From the generated report, no benchmark has passed the BDS test. This was predictable, since we expected that the benchmarks results are not I.I.D..
 
 \subsection{Hurst Exponent}
-The Hurst Exponent is not a statistic test, but depending on the value we have a different behaviour of the time series.\newline
+The Hurst Exponent is not a statistic test, but depending on the value a different behaviour can be identified on the time series.\newline
 Range 0.5-1, positive autocorrelation:
 \begin{itemize}
 	\item Out of 96 floating point benchmarks, 86 have an Hurst Exponent in this range.
 	\item Out of 96 fixed point benchmarks, 93 have an Hurst Exponent in this range.
 \end{itemize}
-There is no benchmark which have exactly 0.5 as Hurst Exponent, so in the range 0-0.5, in which we have a long-term switching behaviour we have:
+There is no benchmark which have exactly 0.5 as Hurst Exponent, so in the range 0-0.5, in which the time-series have a long-term switching behaviour, the results are:
 \begin{itemize}
 	\item Out of 96 floating point benchmarks, 10 have an Hurst Exponent in this range.
 	\item Out of 96 fixed point benchmarks, 3 have an Hurst Exponent in this range.
 \end{itemize}
 
 We can conclude that fixed point benchmarks measurements have an higher probability to compose a time series with a long-term positive autocorrelation.
-
+\clearpage
 \section{Conclusions}
 It is needed to differentiate the set of benchmarks, because depending on the complexity of the benchmark floating point operations are more predictable with respect to fixed point operations.\newline
 We have to take into account that our implementations of multiplication and division, in both 128-bit supported and not supported version, guarantee a quite high level of precision.
@@ -528,11 +538,11 @@ Instead, \textit{sqrt} and \textit{minver} benchmarks are also computing intensi
 
 \subsection{Light computing benchmarks}
 We identified two benchmarks, \textit{qsort\_exam} and \textit{select}, that do not execute any divisions or multiplications between fixed or floating point values; in these benchmarks the fixed point versions have often a lower standard deviation and always higher performances with respect to their floating point versions.\newline
-We assume that addition and subtraction between integers is less demanding and then more predictable than the corresponding operations between floats.
+We assume that addition and subtraction is less demanding and then more predictable between integers.
 
 \subsection{Statistics tests \& Hurst Exponent}
-Different considerations hold for statistics test, as said before, no benchmark accepted the null hypothesis of the BDS test, so there is no time series in which the data are I.I.D., as expected.
-Moreover, the Hurst Exponent have highlighted that fixed point benchmarks have an higher probability of generating a time-series in which the consecutives values are similar between them. This implies that given a sample of the time-series we have an higher probability to predict the next sample in fixed point benchmarks.\newline
-Finally, KPSS test null hypothesis was rejected by more fixed-point benchmarks than floating-point benchmarks, so we can assume that we have an higher probability of generating a stationary time-series when using a floating-point benchmark.
+Different considerations hold for statistics tests, as said before, no benchmark accepted the null hypothesis of the BDS test, so there is no time series in which the data are I.I.D., as expected.
+Moreover, the Hurst Exponent have highlighted that fixed point benchmarks have an higher probability of generating a time-series in which the consecutive values are similar between them. This implies that given a sample of the time-series we have an higher probability to predict the next sample in fixed point benchmarks.\newline
+Finally, KPSS test null hypothesis was rejected by more fixed point benchmarks than floating point benchmarks, so we can assume that there is an higher probability of generating a stationary time-series when using a floating-point benchmark.
 
 \end{document}
